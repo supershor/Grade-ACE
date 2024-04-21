@@ -33,16 +33,22 @@ android {
 }
 
 dependencies {
+    //noinspection UseTomlInstead
     implementation ("com.airbnb.android:lottie:6.2.0")
+    //noinspection UseTomlInstead
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    //noinspection UseTomlInstead
     implementation ("com.intuit.ssp:ssp-android:1.1.0")
+    //noinspection UseTomlInstead
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-analytics")
 
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
