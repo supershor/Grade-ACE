@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "685729801545",
+    "project_id": "grade-ace",
+    "storage_bucket": "grade-ace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685729801545:android:bf74cfab02c1d26ad6a698",
+        "android_client_info": {
+          "package_name": "com.om_tat_sat.grade_ace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy8W2Ot6Q_7DHSwLoJgzVdQmpxSXrmQmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
