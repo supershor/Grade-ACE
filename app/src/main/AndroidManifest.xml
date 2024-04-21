@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
+            android:name=".OGPA_calculator"
+            android:exported="false" />
+        <activity
             android:name=".Sign_Up"
             android:exported="false" />
         <activity

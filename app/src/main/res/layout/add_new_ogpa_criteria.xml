@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_name"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/_18sdp"
+        android:id="@+id/name_at_add_new_ogpa"
+        android:background="@drawable/less_border_blue"
+        android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:inputType="textPersonName"
+        android:autofillHints="name"
+        android:textAlignment="viewStart"
+        />
+    <Spinner
+        android:dropDownSelector="@color/black"
+        android:background="@drawable/less_border_blue"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/spinner_at_add_new_ogpa"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"/>
+</LinearLayout>

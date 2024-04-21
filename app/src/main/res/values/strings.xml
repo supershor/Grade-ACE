@@ -16,5 +16,7 @@
     <string name="welcome_back">WELCOME BACK</string>
     <string name="login_in_your_account">Login in your account</string>
     <string name="forgot_password"><u>Forgot password?</u></string>
+    <string name="add_opga">ADD OPGA</string>
+    <string name="for_someone_else">For Someone Else</string>
 
 </resources>
