@@ -13,22 +13,31 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
+import com.om_tat_sat.grade_ace.Recycler.Item;
+import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_OGPA_SHOWING;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerInterface{
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -36,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
     EditText name;
     Spinner spinner;
     ArrayList<Integer>arrayList;
+    Toolbar toolbar;
     String issue="";
+    ArrayList<Item>arrayList_ogpa;
     RecyclerView recyclerView;
     SharedPreferences sharedPreferences;
     @SuppressLint("MissingInflatedId")
@@ -62,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         //initializing
         arrayList=new ArrayList<>();
+        arrayList_ogpa=new ArrayList<>();
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
@@ -73,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
         recyclerView=findViewById(R.id.recycler_main_page);
         add_opga=findViewById(R.id.add_opga);
+
+        //tool bar setup
+        toolbar=findViewById(R.id.toolbar);
+        toolbar.setTitle("Grade ACE");
+
+        refresh();
 
         //onclick
         add_opga.setOnClickListener(v -> {
@@ -101,11 +119,48 @@ public class MainActivity extends AppCompatActivity {
             alert.show();
         });
     }
+
+    @Override
+    protected void onResume() {
+        refresh();
+        super.onResume();
+    }
+
+    private void refresh() {
+        arrayList_ogpa.clear();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.e("main onDataChange: ",snapshot.toString());
+                if (snapshot.getValue()!=null){
+                    for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                        Log.e("main onDataChange: ",dataSnapshot.toString());
+                        arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
+                    }
+                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa,MainActivity.this, MainActivity.this);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    recyclerView.setAdapter(recyclerview);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e( "main onCancelled: ", error.toString());
+                Toast.makeText(MainActivity.this,error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private boolean check() {
         if (name.getText()!=null && name.getText().toString().isEmpty()){
             issue="Enter Name";
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onClick(int i) {
+
     }
 }
