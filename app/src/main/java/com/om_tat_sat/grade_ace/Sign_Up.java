@@ -68,7 +68,7 @@ public class Sign_Up extends AppCompatActivity {
 
         //FireBase initializing
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        databaseReference=firebaseDatabase.getReference("USER DATA");
+        databaseReference=firebaseDatabase.getReference();
 
         //setting on click listener
         save=findViewById(R.id.save_account_creation_information);

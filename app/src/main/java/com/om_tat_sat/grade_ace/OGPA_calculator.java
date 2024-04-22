@@ -8,19 +8,26 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.om_tat_sat.grade_ace.data_holders.input_fields;
 import com.om_tat_sat.grade_ace.data_holders.marking;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class OGPA_calculator extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -32,6 +39,8 @@ public class OGPA_calculator extends AppCompatActivity {
     ArrayList<marking>sub_arr5;
     ArrayList<marking>sub_arr6;
     ArrayList<input_fields>fields;
+    AppCompatButton calculate;
+    String name;
     LinearLayout linear1;
     LinearLayout linear2;
     LinearLayout linear3;
@@ -80,8 +89,14 @@ public class OGPA_calculator extends AppCompatActivity {
     TextView subject_name_10;
     TextView subject_name_11;
     TextView subject_name_12;
+    Toolbar toolbar;
+    Double theory;
+    Double practical;
+    Double total;
     Intent intent;
     int sem;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -101,7 +116,11 @@ public class OGPA_calculator extends AppCompatActivity {
         //intents
         intent=getIntent();
         sem=intent.getIntExtra("SEM",1);
+        name=intent.getStringExtra("NAME");
         Log.e( "main sem onCreate:0000000000000000",sem+"");
+        //tool bar setup
+        toolbar=findViewById(R.id.toolbar_calculator);
+        toolbar.setTitle("SEM "+sem);
 
         //checking if user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();
@@ -121,9 +140,71 @@ public class OGPA_calculator extends AppCompatActivity {
         fields=new ArrayList<>();
         initialize_arrays();
         initialize_fields();
+        firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
 
         refresh();
 
+        calculate.setOnClickListener(v -> calculate());
+    }
+    public void calculate(){
+        theory=0D;
+        practical=0D;
+        total=0D;
+        for (int i=0;i<array.get(sem-1).size();i++){
+            Log.e( "main calculate: 1", i+"theory"+"="+theory);
+            Log.e( "main calculate: 1", i+"practical"+"="+practical);
+            Log.e( "main calculate: 1", i+"total"+"="+total);
+            marking marking=array.get(sem-1).get(i);
+            input_fields input_fields=fields.get(i);
+            if(input_fields.getTheory_marks().getVisibility()==View.VISIBLE){
+                if (check(input_fields.getTheory_marks())){
+                    Log.e( "main return calculate: ", i+"");
+                    return;
+                } else if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>70) {
+                    Toast.makeText(this, "Theory marks more than 70 detected.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else{
+                    theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
+                    total+=(70*marking.getTheory_marks());
+                }
+            }
+            if(input_fields.getPractical_marks().getVisibility()==View.VISIBLE){
+                if (check(input_fields.getPractical_marks())){
+                    Log.e( "main return calculate: ", i+"");
+                    return;
+                } else if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>30) {
+                    Toast.makeText(this, "Practical marks more than 30 detected.", Toast.LENGTH_SHORT).show();
+                    return;
+                } else{
+                    practical+=(Double.parseDouble(input_fields.getPractical_marks().getText().toString())* marking.getPractical_marks());
+                    total+=(30*marking.getPractical_marks());
+                }
+            }
+            Log.e( "main calculate: ", i+"theory"+"="+theory);
+            Log.e( "main calculate: ", i+"practical"+"="+practical);
+            Log.e( "main calculate: ", i+"total"+"="+total);
+        }
+        HashMap<String,String>hashMap=new HashMap<>();
+        hashMap.put("NAME",name);
+        hashMap.put("OGPA",(theory+practical)/total*10+"");
+        hashMap.put("SEM",sem+"");
+        databaseReference.child(name+sem).setValue(hashMap).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                Toast.makeText(OGPA_calculator.this, "New OGPA added successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OGPA_calculator.this,"OGPA : "+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(OGPA_calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e( "Main error found onComplete:---------",task.getException()+"");
+            }
+        });
+    }
+    public boolean check(EditText editText){
+        if (editText.getText()==null||editText.getText().toString().isEmpty()){
+            Toast.makeText(this,"Enter all available fields.", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
     }
     public void refresh(){
         Log.e( "main onCreate:++++++++++",array.get(sem-1).size()+"");
@@ -131,6 +212,7 @@ public class OGPA_calculator extends AppCompatActivity {
             Log.e( "main onCreate: -----------------",i+"");
             marking marking=array.get(sem-1).get(i);
             input_fields input_fields=fields.get(i);
+            Log.e("refresh: ", String.valueOf(Boolean.valueOf(View.VISIBLE==input_fields.getPractical_marks().getVisibility())));
             input_fields.getLayout().setVisibility(View.VISIBLE);
             input_fields.getName().setText(marking.getName());
             if (marking.getTheory_marks()<=0){
@@ -241,6 +323,7 @@ public class OGPA_calculator extends AppCompatActivity {
         
     }
     public void initialize_fields(){
+        calculate=findViewById(R.id.calculate);
         linear1=findViewById(R.id.linear1);
         theory_marks_1=findViewById(R.id.subject_theory_marks_name_1);
         practical_marks_1=findViewById(R.id.subject_practical_marks_name_1);

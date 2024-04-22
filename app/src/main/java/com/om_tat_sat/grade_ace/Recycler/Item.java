@@ -3,7 +3,7 @@ package com.om_tat_sat.grade_ace.Recycler;
 public class Item {
     String name;
     String ogpa;
-
+    String sem;
     public String getName() {
         return name;
     }
@@ -27,5 +27,5 @@ public class Item {
         this.sem = sem;
     }
 
-    String sem;
+
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:orientation="vertical"
     android:background="@color/white"
@@ -12,12 +13,19 @@
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
         <LinearLayout
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                app:title="--"
+                android:background="@color/white"
+                app:titleTextColor="@color/black"
+                app:subtitleTextColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar_calculator"/>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear1"
@@ -80,7 +88,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear2"
@@ -140,7 +148,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear3"
@@ -200,7 +208,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear4"
@@ -260,7 +268,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear5"
@@ -320,7 +328,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear6"
@@ -380,7 +388,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear7"
@@ -440,7 +448,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear8"
@@ -500,7 +508,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear9"
@@ -560,7 +568,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear10"
@@ -620,7 +628,7 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear11"
@@ -680,14 +688,14 @@
                     android:importantForAutofill="no" />
             </LinearLayout>
             <LinearLayout
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/linear12"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:background="@drawable/less_border_blue"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
@@ -742,6 +750,19 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:importantForAutofill="no" />
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/less_border_purple"
+                android:text="@string/calculate"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:id="@+id/calculate"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_25sdp"
+                android:textStyle="bold"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

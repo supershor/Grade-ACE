@@ -36,6 +36,8 @@ import com.om_tat_sat.grade_ace.Recycler.Item;
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_OGPA_SHOWING;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements RecyclerInterface{
     FirebaseAuth firebaseAuth;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
     Toolbar toolbar;
     String issue="";
     ArrayList<Item>arrayList_ogpa;
+    HashMap<String,String>name_sem_arr;
     RecyclerView recyclerView;
     SharedPreferences sharedPreferences;
     @SuppressLint("MissingInflatedId")
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
 
         //initializing
         arrayList=new ArrayList<>();
+        name_sem_arr=new HashMap<>();
         arrayList_ogpa=new ArrayList<>();
         arrayList.add(1);
         arrayList.add(2);
@@ -108,7 +112,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
             alert.setPositiveButton("CONTINUE", (dialog, which) -> {
                 if (check()){
                     Toast.makeText(MainActivity.this,issue, Toast.LENGTH_SHORT).show();
-                }else{
+                }else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.equals(name_sem_arr.get(name.getText().toString()), spinner.getSelectedItem().toString())){
+                    Toast.makeText(this, "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Intent intent=new Intent(MainActivity.this,OGPA_calculator.class);
                     intent.putExtra("NAME",name.getText().toString());
                     Log.e( "main onClick:-------------", spinner.getSelectedItem().toString());
@@ -127,14 +134,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
     }
 
     private void refresh() {
-        arrayList_ogpa.clear();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.e("main onDataChange: ",snapshot.toString());
                 if (snapshot.getValue()!=null){
+                    arrayList_ogpa.clear();
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                         Log.e("main onDataChange: ",dataSnapshot.toString());
+                        name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("SEM").getValue()+"");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
                     Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa,MainActivity.this, MainActivity.this);
