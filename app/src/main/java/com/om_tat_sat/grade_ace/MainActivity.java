@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                     Toast.makeText(MainActivity.this,issue, Toast.LENGTH_SHORT).show();
                 } else if (spinner.getSelectedItemPosition()==0){
                     Toast.makeText(this, "Select Semester", Toast.LENGTH_SHORT).show();
-                } else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.equals(name_sem_arr.get(name.getText().toString()), spinner.getSelectedItem().toString())){
+                } else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.requireNonNull(name_sem_arr.get(name.getText().toString())).contains(spinner.getSelectedItem().toString())){
                     Toast.makeText(this, "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                     arrayList_ogpa.clear();
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                         Log.e("main onDataChange: ",dataSnapshot.toString());
-                        name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("SEM").getValue()+"");
+                        name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"", name_sem_arr.getOrDefault(dataSnapshot.child("NAME").getValue()+"","")+"_"+dataSnapshot.child("SEM").getValue()+"_");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
                     Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa,MainActivity.this, MainActivity.this);
