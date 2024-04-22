@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         //tool bar setup
         toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("Grade ACE");
+        setSupportActionBar(toolbar);
 
         refresh();
 
@@ -131,6 +134,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
     protected void onResume() {
         refresh();
         super.onResume();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void refresh() {
