@@ -18,5 +18,7 @@
     <string name="forgot_password"><u>Forgot password?</u></string>
     <string name="add_opga">ADD OPGA</string>
     <string name="for_someone_else">For Someone Else</string>
+    <string name="enter_theory_marks">Enter Theory Marks</string>
+    <string name="enter_practical_marks">Enter Practical Marks</string>
 
 </resources>
