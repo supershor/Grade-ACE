@@ -3,11 +3,14 @@ package com.om_tat_sat.grade_ace;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.MailTo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -141,6 +144,45 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         new MenuInflater(this).inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+            if (item.getItemId()==R.id.logout){
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(false);
+                builder.setTitle("Logout")
+                        .setMessage("Are you sure you want to Logout ?\nWe recommend uploading data before Logout.")
+                        .setPositiveButton("Logout", (dialog, which) -> {
+                            firebaseAuth.signOut();
+                            startActivity(new Intent(MainActivity.this,Loading_Page.class));
+                            finishAffinity();
+                        })
+                        .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+                builder.show();
+            }
+            else if (item.getItemId()==R.id.report_error){
+                Intent intent=new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Report error on Goods Guardian.");
+                startActivity(intent);
+            }else if (item.getItemId()==R.id.contact_owner){
+                Intent intent=new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Goods Guardian.");
+                startActivity(intent);
+            }else if(item.getItemId()==R.id.delete_account){
+                Intent intent=new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Delete account of Goods Guardian.");
+                startActivity(intent);
+            }else if(item.getItemId()==R.id.refresh) {
+                refresh();
+            }
+            return super.onOptionsItemSelected(item);
+        }
 
     private void refresh() {
 
