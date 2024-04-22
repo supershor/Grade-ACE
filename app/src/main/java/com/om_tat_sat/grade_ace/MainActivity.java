@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
     AppCompatButton add_opga;
     EditText name;
     Spinner spinner;
-    ArrayList<Integer>arrayList;
+    ArrayList<String>arrayList;
     Toolbar toolbar;
     String issue="";
     ArrayList<Item>arrayList_ogpa;
@@ -83,12 +83,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         arrayList=new ArrayList<>();
         name_sem_arr=new HashMap<>();
         arrayList_ogpa=new ArrayList<>();
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(3);
-        arrayList.add(4);
-        arrayList.add(5);
-        arrayList.add(6);
+        arrayList.add("Select Semester");
+        arrayList.add("1");
+        arrayList.add("2");
+        arrayList.add("3");
+        arrayList.add("4");
+        arrayList.add("5");
+        arrayList.add("6");
         sharedPreferences=getSharedPreferences("NAME",MODE_PRIVATE);
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
             spinner=view.findViewById(R.id.spinner_at_add_new_ogpa);
             AlertDialog.Builder alert=new AlertDialog.Builder(MainActivity.this);
             alert.setView(view);
-            ArrayAdapter<Integer>arrayAdapter=new ArrayAdapter<>(MainActivity.this,R.layout.text_spinner,arrayList);
+            ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(MainActivity.this,R.layout.text_spinner,arrayList);
             arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             spinner.setAdapter(arrayAdapter);
             alert.setTitle("Enter details for OGPA");
@@ -118,7 +119,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
             alert.setPositiveButton("CONTINUE", (dialog, which) -> {
                 if (check()){
                     Toast.makeText(MainActivity.this,issue, Toast.LENGTH_SHORT).show();
-                }else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.equals(name_sem_arr.get(name.getText().toString()), spinner.getSelectedItem().toString())){
+                } else if (spinner.getSelectedItemPosition()==0){
+                    Toast.makeText(this, "Select Semester", Toast.LENGTH_SHORT).show();
+                } else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.equals(name_sem_arr.get(name.getText().toString()), spinner.getSelectedItem().toString())){
                     Toast.makeText(this, "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else{
