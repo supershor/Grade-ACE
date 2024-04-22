@@ -112,7 +112,6 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                     new DataPoint(2,arrayList.get(1).getY())
             });
             series.setColor(R.color.black);
-            graph.setTitleColor(R.color.black);
             graph.addSeries(series);
         }else if (size==3) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
@@ -120,6 +119,7 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                     new DataPoint(2,arrayList.get(1).getY()),
                     new DataPoint(3,arrayList.get(2).getY())
             });
+            series.setColor(R.color.black);
             graph.addSeries(series);
         }else if (size==4) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
@@ -128,6 +128,7 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                     new DataPoint(3,arrayList.get(2).getY()),
                     new DataPoint(4,arrayList.get(3).getY())
             });
+            series.setColor(R.color.black);
             graph.addSeries(series);
         }else if (size==5) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
@@ -137,6 +138,7 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                     new DataPoint(4,arrayList.get(3).getY()),
                     new DataPoint(5,arrayList.get(4).getY())
             });
+            series.setColor(R.color.black);
             graph.addSeries(series);
         }else if (size==6) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
@@ -147,6 +149,7 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                     new DataPoint(5,arrayList.get(4).getY()),
                     new DataPoint(6,arrayList.get(5).getY())
             });
+            series.setColor(R.color.black);
             graph.addSeries(series);
         }
     }
