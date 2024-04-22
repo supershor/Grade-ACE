@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+
+    //noinspection UseTomlInstead
+    implementation ("com.jjoe64:graphview:4.2.2")
     //noinspection UseTomlInstead
     implementation ("com.airbnb.android:lottie:6.2.0")
     //noinspection UseTomlInstead

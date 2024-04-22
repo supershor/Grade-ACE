@@ -39,6 +39,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.Recycler.Item;
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_OGPA_SHOWING;
+import com.om_tat_sat.grade_ace.data_holders.Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -167,22 +168,24 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                 Intent intent=new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
                 intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Report error on Goods Guardian.");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Report error on Grade ACE.");
                 startActivity(intent);
             }else if (item.getItemId()==R.id.contact_owner){
                 Intent intent=new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
                 intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Goods Guardian.");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
                 startActivity(intent);
             }else if(item.getItemId()==R.id.delete_account){
                 Intent intent=new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
                 intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Delete account of Goods Guardian.");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Delete account of Grade ACE.");
                 startActivity(intent);
             }else if(item.getItemId()==R.id.refresh) {
                 refresh();
+            }else if(item.getItemId()==R.id.graph_at_menu){
+                startActivity(new Intent(MainActivity.this, Graph.class));
             }
             return super.onOptionsItemSelected(item);
         }
