@@ -21,6 +21,7 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Sign_Up"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".Login"

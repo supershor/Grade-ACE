@@ -1,12 +1,15 @@
 package com.om_tat_sat.grade_ace;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
@@ -31,6 +34,7 @@ public class Sign_Up extends AppCompatActivity {
     Intent main_page;
     Intent login;
     FirebaseAuth firebaseAuth;
+    boolean comply=false;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     String issue;
@@ -73,31 +77,52 @@ public class Sign_Up extends AppCompatActivity {
         //setting on click listener
         save=findViewById(R.id.save_account_creation_information);
         have_an_account=findViewById(R.id.already_have_an_account_sign_up_page);
-
         save.setOnClickListener(v -> {
-            if (check_fields()){
-                Toast.makeText(Sign_Up.this,issue, Toast.LENGTH_SHORT).show();
-            }else{
-                firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
-                        databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("Personal information").child("NAME").setValue(name.getText().toString()).addOnCompleteListener(task1 -> {
-                            if (task1.isSuccessful()){
-                                startActivity(main_page);
-                                finishAffinity();
-                            }else{
-                                Toast.makeText(Sign_Up.this, Objects.requireNonNull(task1.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }else{
-                        Toast.makeText(Sign_Up.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e( "onCreate: >>>>>>>>>>>>>>>>>>>>>", comply+"");
+            if (comply){
+                save();
+            }else {
+                AlertDialog.Builder alert=new AlertDialog.Builder(Sign_Up.this);
+                alert.setTitle("I comply")
+                        .setMessage("I Comply that the app can some time show minor error while calculating OGPA(±0.10)");
+                alert.setPositiveButton("I Agree", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        comply=true;
+                    }
+                }).setNegativeButton("I Dont Agree", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
+                alert.show();
             }
         });
         have_an_account.setOnClickListener(v -> {
             startActivity(login);
             finish();
         });
+    }
+    public void save(){
+        if (check_fields()){
+            Toast.makeText(Sign_Up.this,issue, Toast.LENGTH_SHORT).show();
+        }else{
+            firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("Personal information").child("NAME").setValue(name.getText().toString()).addOnCompleteListener(task1 -> {
+                        if (task1.isSuccessful()){
+                            startActivity(main_page);
+                            finishAffinity();
+                        }else{
+                            Toast.makeText(Sign_Up.this, Objects.requireNonNull(task1.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    Toast.makeText(Sign_Up.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
     public boolean check_fields(){
         //checking all input fields for valid input

@@ -230,7 +230,7 @@ public class OGPA_calculator extends AppCompatActivity {
         sub_arr1.add(new marking("Fundamentals of Agronomy",3,1));
         sub_arr1.add(new marking("Fundamentals of Agriculture Economics",2,0));
         sub_arr1.add(new marking("Rural Sociology and Educational Psychology",2,0));
-        sub_arr1.add(new marking("Fundamentals of Entomology",3,1));
+        sub_arr1.add(new marking("Fundamentals of Entomology",1,1));
         sub_arr1.add(new marking("Human Values and Ethics",0,1));
         sub_arr1.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
 
@@ -261,7 +261,7 @@ public class OGPA_calculator extends AppCompatActivity {
         sub_arr3.add(new marking("Agri-Informatics",1,1));
         sub_arr3.add(new marking("Farm Machinery and Power",1,1));
         sub_arr3.add(new marking("Production Technology for Vegetable and Spices",1,1));
-        sub_arr3.add(new marking("Environmental Studies and Disaster Management",2,1));
+        sub_arr3.add(new marking("Weed Management",2,1));
         sub_arr3.add(new marking("Livestock and Poultry Management",3,1));
         sub_arr3.add(new marking("Comprehension  and Communication Skills in English",1,1));
         sub_arr3.add(new marking("Food safety and standards",2,1));
@@ -280,7 +280,7 @@ public class OGPA_calculator extends AppCompatActivity {
         sub_arr4.add(new marking("Farming System and Sustainable Agriculture",1,0));
         sub_arr4.add(new marking("Agriculture Marketing Trade and Prices",2,1));
         sub_arr4.add(new marking("Elementary Statistics and Computer Application",1,1));
-        sub_arr4.add(new marking("Weed Management",2,1));
+        sub_arr4.add(new marking("Environmental Studies and Disaster Management",2,1));
         sub_arr4.add(new marking("Agri Business Management",2,1));
 
         
