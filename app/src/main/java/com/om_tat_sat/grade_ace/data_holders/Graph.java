@@ -190,6 +190,5 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
     @Override
     public void onClick(int i) {
         setdata(i);
-        Toast.makeText(this, i+"", Toast.LENGTH_SHORT).show();
     }
 }
