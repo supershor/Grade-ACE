@@ -32,7 +32,7 @@ Found a bug? Want to enhance the app? Contributions are welcome! Fork the reposi
 
 ## Let's Cultivate Success Together!
 
-![Grade ACE]![grade_ace_icon](https://github.com/supershor/Grade-ACE/assets/113038485/2c3e01dd-5954-4d93-96ba-92be9c2e221b)
+[Grade ACE]![grade_ace_icon](https://github.com/supershor/Grade-ACE/assets/113038485/2c3e01dd-5954-4d93-96ba-92be9c2e221b)
 
 
 ## Results 
