@@ -25,5 +25,6 @@
     <string name="delete_account">Delete Account</string>
     <string name="logout">Logout</string>
     <string name="report_error">Report Error</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item app:showAsAction="withText" android:title="@string/contact_owner" android:id="@+id/contact_owner" android:icon="@drawable/connection"/>
-    <item app:showAsAction="withText" android:title="@string/delete_account" android:id="@+id/delete_account" android:icon="@drawable/reload"/>
+    <item app:showAsAction="withText" android:title="@string/delete_account" android:id="@+id/delete_account" android:icon="@drawable/delete_account"/>
     <item app:showAsAction="withText" android:title="@string/logout" android:id="@+id/logout" android:icon="@drawable/logout"/>
+    <item app:showAsAction="withText" android:title="@string/refresh" android:id="@+id/refresh" android:icon="@drawable/reload"/>
     <item app:showAsAction="withText" android:title="@string/report_error" android:id="@+id/report_error" android:icon="@drawable/problem"/>
 </menu>
