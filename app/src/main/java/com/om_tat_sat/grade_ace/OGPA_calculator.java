@@ -173,8 +173,15 @@ public class OGPA_calculator extends AppCompatActivity {
                         theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
                         total+=(100*marking.getTheory_marks());
                     }
-                }else if (check_change(input_fields.getTheory_marks(),1)) {
-
+                }else if (marking.getTheory_marks()!=0 && marking.getPractical_marks()==0){
+                    Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
+                    if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
+                        Toast.makeText(this, "Theory marks more than 100 detected.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else{
+                        theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
+                        total+=(100*marking.getTheory_marks());
+                    }
                 } else if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>70) {
                     Toast.makeText(this, "Theory marks more than 70 detected.", Toast.LENGTH_SHORT).show();
                     return;
@@ -187,8 +194,15 @@ public class OGPA_calculator extends AppCompatActivity {
                 if (check(input_fields.getPractical_marks())){
                     Log.e( "main return calculate: ", i+"");
                     return;
-                }else if (check_change(input_fields.getPractical_marks(),2)) {
-
+                }else if (marking.getTheory_marks()==0 && marking.getPractical_marks()!=0) {
+                    Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
+                    if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>50){
+                        Toast.makeText(this, "Practical marks more than 50 detected.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else{
+                        practical+=(Double.parseDouble(input_fields.getPractical_marks().getText().toString())* marking.getPractical_marks());
+                        total+=(50*marking.getPractical_marks());
+                    }
                 }
                 else if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>30) {
                     Toast.makeText(this, "Practical marks more than 30 detected.", Toast.LENGTH_SHORT).show();
@@ -215,10 +229,6 @@ public class OGPA_calculator extends AppCompatActivity {
                 Log.e( "Main error found onComplete:---------",task.getException()+"");
             }
         });
-    }
-    public boolean check_change(EditText editText,int code){
-
-        return false;
     }
     public boolean check(EditText editText){
         if (editText.getText()==null||editText.getText().toString().isEmpty()){
@@ -336,7 +346,6 @@ public class OGPA_calculator extends AppCompatActivity {
         sub_arr6.add(new marking("Principles of Organic Farming",1,1));
         sub_arr6.add(new marking("Communication Skills add Personality Development",1,1));
         sub_arr6.add(new marking("Principles of Food Science and Nutrition",2,0));
-        sub_arr6.add(new marking("Educational Tours",0,2));
 
         
 
