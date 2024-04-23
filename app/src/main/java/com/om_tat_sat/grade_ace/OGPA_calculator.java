@@ -38,6 +38,8 @@ public class OGPA_calculator extends AppCompatActivity {
     ArrayList<marking>sub_arr4;
     ArrayList<marking>sub_arr5;
     ArrayList<marking>sub_arr6;
+    ArrayList<marking>sub_arr7;
+    ArrayList<marking>sub_arr8;
     ArrayList<input_fields>fields;
     AppCompatButton calculate;
     String name;
@@ -137,6 +139,8 @@ public class OGPA_calculator extends AppCompatActivity {
         sub_arr4=new ArrayList<>();
         sub_arr5=new ArrayList<>();
         sub_arr6=new ArrayList<>();
+        sub_arr7=new ArrayList<>();
+        sub_arr8=new ArrayList<>();
         fields=new ArrayList<>();
         initialize_arrays();
         initialize_fields();
@@ -161,6 +165,16 @@ public class OGPA_calculator extends AppCompatActivity {
                 if (check(input_fields.getTheory_marks())){
                     Log.e( "main return calculate: ", i+"");
                     return;
+                }else if (sem==7||sem==8) {
+                    if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
+                        Toast.makeText(this, "Marks more than 100 detected.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else{
+                        theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
+                        total+=(100*marking.getTheory_marks());
+                    }
+                }else if (check_change(input_fields.getTheory_marks(),1)) {
+
                 } else if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>70) {
                     Toast.makeText(this, "Theory marks more than 70 detected.", Toast.LENGTH_SHORT).show();
                     return;
@@ -173,7 +187,10 @@ public class OGPA_calculator extends AppCompatActivity {
                 if (check(input_fields.getPractical_marks())){
                     Log.e( "main return calculate: ", i+"");
                     return;
-                } else if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>30) {
+                }else if (check_change(input_fields.getPractical_marks(),2)) {
+
+                }
+                else if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>30) {
                     Toast.makeText(this, "Practical marks more than 30 detected.", Toast.LENGTH_SHORT).show();
                     return;
                 } else{
@@ -198,6 +215,10 @@ public class OGPA_calculator extends AppCompatActivity {
                 Log.e( "Main error found onComplete:---------",task.getException()+"");
             }
         });
+    }
+    public boolean check_change(EditText editText,int code){
+
+        return false;
     }
     public boolean check(EditText editText){
         if (editText.getText()==null||editText.getText().toString().isEmpty()){
@@ -320,7 +341,21 @@ public class OGPA_calculator extends AppCompatActivity {
         
 
         array.add(sub_arr6);
-        
+
+        sub_arr7.add(new marking("General Orientation & On Campus Training by Different Faculties",2,0));
+        sub_arr7.add(new marking("Village Attachment",7,0));
+        sub_arr7.add(new marking("Unit Attachment in Univ./College. KVK/Research Station Attachment",4,0));
+        sub_arr7.add(new marking("Plant Clinic",1,0));
+        sub_arr7.add(new marking("Agro Industrial/Agri Business Attachment",4,0));
+        sub_arr7.add(new marking("Project Report Preparation, Presentation and Evaluation",2,0));
+
+
+        array.add(sub_arr7);
+
+        sub_arr8.add(new marking("Subject 1",10,0));
+        sub_arr8.add(new marking("Subject 2",10,0));
+
+        array.add(sub_arr8);
     }
     public void initialize_fields(){
         calculate=findViewById(R.id.calculate);

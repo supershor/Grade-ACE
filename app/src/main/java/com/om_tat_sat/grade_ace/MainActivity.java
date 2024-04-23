@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         arrayList.add("4");
         arrayList.add("5");
         arrayList.add("6");
+        arrayList.add("7");
+        arrayList.add("8");
         sharedPreferences=getSharedPreferences("NAME",MODE_PRIVATE);
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
