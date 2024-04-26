@@ -96,7 +96,7 @@
                         android:layout_marginRight="@dimen/_25sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_25sdp"
-                        android:hint="@string/enter_email"
+                        android:hint="@string/enter_password"
                         android:textAlignment="viewStart"
                         android:padding="@dimen/_7sdp"
                         android:textColor="@color/black"
