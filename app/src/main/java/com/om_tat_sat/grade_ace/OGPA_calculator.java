@@ -255,6 +255,7 @@ public class OGPA_calculator extends AppCompatActivity {
         }
     }
     public void initialize_arrays(){
+        sub_arr1.add(new marking("Agriculture Heritage",1,0));
         sub_arr1.add(new marking("Fundamentals of Horticulture",1,1));
         sub_arr1.add(new marking("Fundamentals of Soil Science",2,1));
         sub_arr1.add(new marking("Introduction to Forestry",1,1));
