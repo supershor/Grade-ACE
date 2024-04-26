@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                 AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
                 builder.setCancelable(false);
                 builder.setTitle("Logout")
-                        .setMessage("Are you sure you want to Logout ?\nWe recommend uploading data before Logout.")
+                        .setMessage("Are you sure you want to Logout ?")
                         .setPositiveButton("Logout", (dialog, which) -> {
                             firebaseAuth.signOut();
                             startActivity(new Intent(MainActivity.this,Loading_Page.class));
