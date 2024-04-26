@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
         recyclerView=findViewById(R.id.recycler_main_page);
-        add_opga=findViewById(R.id.add_opga);
+        add_opga=findViewById(R.id.add_OGPA);
 
         //tool bar setup
         toolbar=findViewById(R.id.toolbar);
