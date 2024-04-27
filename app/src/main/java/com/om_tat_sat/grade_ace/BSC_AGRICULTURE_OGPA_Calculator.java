@@ -269,20 +269,20 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
 
         array.add(sub_arr1);
-        
 
-        sub_arr2.add(new marking("Agriculture Water Management",1,1));
-        sub_arr2.add(new marking("Fundamentals of Genetics",2,1));
-        sub_arr2.add(new marking("Agricultural Microbiology",1,1));
-        sub_arr2.add(new marking("Soil and Water Conservation Engineering",1,1));
-        sub_arr2.add(new marking("Fundamentals of Crop Physiology",1,1));
-        sub_arr2.add(new marking("Fundamentals of Plant Pathology",3,1));
         sub_arr2.add(new marking("Fundamentals of Plant Biochemistry and Biotechnology",2,1));
-        sub_arr2.add(new marking("Fundamentals of Agricultural Extension Education",2,1));
+        sub_arr2.add(new marking("Fundamentals of Crop Physiology",1,1));
         sub_arr2.add(new marking("Farm Management, Production and Resource Economics",1,1));
+        sub_arr2.add(new marking("Soil and Water Conservation Engineering",1,1));
         sub_arr2.add(new marking("Fundamentals of Entomology-2",1,1));
+        sub_arr2.add(new marking("Fundamentals of Agricultural Extension Education",2,1));
+        sub_arr2.add(new marking("Agriculture Water Management",1,1));
+        sub_arr2.add(new marking("Agricultural Microbiology",1,1));
+        sub_arr2.add(new marking("Fundamentals of Genetics",2,1));
+        sub_arr2.add(new marking("Fundamentals of Plant Pathology",3,1));
 
-        
+
+
 
         array.add(sub_arr2);
         
