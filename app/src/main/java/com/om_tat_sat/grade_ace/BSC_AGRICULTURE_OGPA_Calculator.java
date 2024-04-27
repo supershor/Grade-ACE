@@ -260,9 +260,9 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         sub_arr1.add(new marking("Fundamentals of Soil Science",2,1));
         sub_arr1.add(new marking("Introduction to Forestry",1,1));
         sub_arr1.add(new marking("Fundamentals of Agronomy",3,1));
-        sub_arr1.add(new marking("Fundamentals of Agriculture Economics",2,0));
+        sub_arr1.add(new marking("Fundamentals of Agricultural Economics",2,0));
         sub_arr1.add(new marking("Rural Sociology and Educational Psychology",2,0));
-        sub_arr1.add(new marking("Fundamentals of Entomology",1,1));
+        sub_arr1.add(new marking("Fundamentals of Entomology-1",1,1));
         sub_arr1.add(new marking("Human Values and Ethics",0,1));
         sub_arr1.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
 
@@ -273,12 +273,12 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
         sub_arr2.add(new marking("Agriculture Water Management",1,1));
         sub_arr2.add(new marking("Fundamentals of Genetics",2,1));
-        sub_arr2.add(new marking("Agriculture Microbiology",1,1));
+        sub_arr2.add(new marking("Agricultural Microbiology",1,1));
         sub_arr2.add(new marking("Soil and Water Conservation Engineering",1,1));
         sub_arr2.add(new marking("Fundamentals of Crop Physiology",1,1));
         sub_arr2.add(new marking("Fundamentals of Plant Pathology",3,1));
         sub_arr2.add(new marking("Fundamentals of Plant Biochemistry and Biotechnology",2,1));
-        sub_arr2.add(new marking("Fundamentals of Extension Education",2,1));
+        sub_arr2.add(new marking("Fundamentals of Agricultural Extension Education",2,1));
         sub_arr2.add(new marking("Farm Management, Production and Resource Economics",1,1));
         sub_arr2.add(new marking("Fundamentals of Entomology-2",1,1));
 
@@ -289,10 +289,10 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
         sub_arr3.add(new marking("Crop Production Technology-1 (kharif crops)",1,1));
         sub_arr3.add(new marking("Fundamentals of Plant Breeding",2,1));
-        sub_arr3.add(new marking("Agriculture Finance and Cooperation",2,1));
-        sub_arr3.add(new marking("Agri-Informatics",1,1));
+        sub_arr3.add(new marking("Agricultural Finance and Cooperation",2,1));
+        sub_arr3.add(new marking("Agri-Informatics and Computer Applications",1,1));
         sub_arr3.add(new marking("Farm Machinery and Power",1,1));
-        sub_arr3.add(new marking("Production Technology for Vegetable and Spices",1,1));
+        sub_arr3.add(new marking("Production Technology for Vegetables and Spices",1,1));
         sub_arr3.add(new marking("Weed Management",2,1));
         sub_arr3.add(new marking("Livestock and Poultry Management",3,1));
         sub_arr3.add(new marking("Comprehension  and Communication Skills in English",1,1));
@@ -310,7 +310,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         sub_arr4.add(new marking("Production Technology for Fruits and Planting Crops",1,1));
         sub_arr4.add(new marking("Principles of Seed Technology",1,2));
         sub_arr4.add(new marking("Farming System and Sustainable Agriculture",1,0));
-        sub_arr4.add(new marking("Agriculture Marketing Trade and Prices",2,1));
+        sub_arr4.add(new marking("Agricultural Marketing Trade and Prices",2,1));
         sub_arr4.add(new marking("Elementary Statistics and Computer Application",1,1));
         sub_arr4.add(new marking("Environmental Studies and Disaster Management",2,1));
         sub_arr4.add(new marking("Agri Business Management",2,1));
@@ -337,7 +337,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         array.add(sub_arr5);
         
 
-        sub_arr6.add(new marking("Rainfed Agriculture add Watershed Management",1,1));
+        sub_arr6.add(new marking("Rainfed Agriculture and Watershed Management",1,1));
         sub_arr6.add(new marking("Protected Cultivation and Post Harvest Technology",1,1));
         sub_arr6.add(new marking("Disease of Fields and Horticulture Crops and their Management-2",2,1));
         sub_arr6.add(new marking("Post Harvest Management and Value Addition of Fruits and Vegetable",1,1));
@@ -354,7 +354,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
         sub_arr7.add(new marking("General Orientation & On Campus Training by Different Faculties",2,0));
         sub_arr7.add(new marking("Village Attachment",7,0));
-        sub_arr7.add(new marking("Unit Attachment in Univ./College. KVK/Research Station Attachment",4,0));
+        sub_arr7.add(new marking("Unit Attachment in Univ./College/ KVK/Research Station Attachment",4,0));
         sub_arr7.add(new marking("Plant Clinic",1,0));
         sub_arr7.add(new marking("Agro Industrial/Agri Business Attachment",4,0));
         sub_arr7.add(new marking("Project Report Preparation, Presentation and Evaluation",2,0));
