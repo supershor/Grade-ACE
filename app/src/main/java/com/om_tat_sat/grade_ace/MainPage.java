@@ -55,7 +55,7 @@ public class MainPage extends AppCompatActivity {
 
         //initializing
         bsc_agriculture=findViewById(R.id.bsc_agriculture);
-        bsc_agriculture.setOnClickListener(v -> startActivity(new Intent(MainPage.this,BSC_AGRICULTURE.class)));
+        bsc_agriculture.setOnClickListener(v -> startActivity(new Intent(MainPage.this,Bsc_Agriculture_tab.class)));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
