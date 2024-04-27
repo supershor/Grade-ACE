@@ -317,19 +317,18 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         
 
         array.add(sub_arr4);
-        
 
-        sub_arr5.add(new marking("Principles of Integrated Pest and Disease Management",2,1));
-        sub_arr5.add(new marking("Manures, Fertilizers and Soil Fertility Management",2,1));
-        sub_arr5.add(new marking("Pest of Crops and Stored Grain and their Management",2,1));
-        sub_arr5.add(new marking("Disease of Fields and Horticulture Crops and their Management-1",2,1));
-        sub_arr5.add(new marking("Crop Improvement-1",1,1));
-        sub_arr5.add(new marking("Entrepreneurship Development and Business Management",1,1));
         sub_arr5.add(new marking("Geo-informatics and Nano-technology and Precision Farming",1,1));
+        sub_arr5.add(new marking("Pest of Crops and Stored Grain and their Management",2,1));
+        sub_arr5.add(new marking("Principles of Integrated Pest and Disease Management",2,1));
+        sub_arr5.add(new marking("Entrepreneurship Development and Business Management",1,1));
         sub_arr5.add(new marking("Practical Crop Production-1 (kharif crops)",0,2));
-        sub_arr5.add(new marking("Intellectual Property Rights",1,0));
         sub_arr5.add(new marking("Landscaping",2,1));
         sub_arr5.add(new marking("Introductory Agro-Meteorology add Climate Change",1,1));
+        sub_arr5.add(new marking("Crop Improvement-1",1,1));
+        sub_arr5.add(new marking("Intellectual Property Rights",1,0));
+        sub_arr5.add(new marking("Disease of Fields and Horticulture Crops and their Management-1",2,1));
+        sub_arr5.add(new marking("Manures, Fertilizers and Soil Fertility Management",2,1));
 
         
 
