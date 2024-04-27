@@ -1,21 +1,19 @@
-package com.om_tat_sat.grade_ace.data_holders;
+package com.om_tat_sat.grade_ace.frags;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,55 +28,56 @@ import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.Loading_Page;
 import com.om_tat_sat.grade_ace.R;
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview;
+import com.om_tat_sat.grade_ace.data_holders.ogpa_holder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Graph extends AppCompatActivity implements RecyclerInterface {
-    Toolbar toolbar;
+public class Graph_OGPA extends Fragment implements RecyclerInterface {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    HashMap<String,ArrayList<ogpa_holder>> hashmap_ogpa;
+    HashMap<String, ArrayList<ogpa_holder>> hashmap_ogpa;
     ArrayList<String>name_arr;
     RecyclerView recyclerView;
     GraphView graph;
-    @SuppressLint("MissingInflatedId")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_graph);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.fragment_graph_ogpa, container, false);
+        RecyclerView recyclerView1=view.findViewById(R.id.recycler_graph_frag_bsc_agriculture);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return view;
+    }
 
-        //setting status bar color
-        getWindow().setStatusBarColor(ContextCompat.getColor(Graph.this,R.color.black));
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
 
         firebaseAuth= FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
-            startActivity(new Intent(Graph.this, Loading_Page.class));
-            finishAffinity();
+            startActivity(new Intent(getContext(), Loading_Page.class));
         }
-
-        //tool bar setup
-        toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("OGPA GRAPH");
 
         //initializing
         name_arr=new ArrayList<>();
         hashmap_ogpa=new HashMap<>();
         firebaseDatabase= FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA");
-        recyclerView=findViewById(R.id.recycler_graph);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView=view.findViewById(R.id.recycler_graph_frag_bsc_agriculture);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         refresh();
 
-        graph = findViewById(R.id.graph);
+        graph = view.findViewById(R.id.graph_frag_bsc_agriculture);
     }
+
+    @Override
+    public void onResume() {
+        refresh();
+        super.onResume();
+    }
+
     public void setdata(int index){
         HashMap<Integer,Double>hashMap=new HashMap<>();
         for (ogpa_holder ogpa_holder:hashmap_ogpa.get(name_arr.get(index))){
@@ -98,6 +97,10 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
             arrayList.add(new DataPoint(5,hashMap.get(5)));
         }if(hashMap.containsKey(6)){
             arrayList.add(new DataPoint(6,hashMap.get(6)));
+        }if(hashMap.containsKey(7)){
+            arrayList.add(new DataPoint(7,hashMap.get(7)));
+        }if(hashMap.containsKey(8)){
+            arrayList.add(new DataPoint(8,hashMap.get(8)));
         }
         set_sub_details(arrayList);
     }
@@ -105,7 +108,7 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
         int size=arrayList.size();
         if (size==1){
             graph.removeAllSeries();
-            Toast.makeText(this, "Cant set graph for single sem", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Cant set graph for single sem", Toast.LENGTH_SHORT).show();
         } else if (size==2) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                     new DataPoint(1,arrayList.get(0).getY()),
@@ -151,6 +154,31 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
             });
             series.setColor(R.color.black);
             graph.addSeries(series);
+        }else if (size==7) {
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                    new DataPoint(1,arrayList.get(0).getY()),
+                    new DataPoint(2,arrayList.get(1).getY()),
+                    new DataPoint(3,arrayList.get(2).getY()),
+                    new DataPoint(4,arrayList.get(3).getY()),
+                    new DataPoint(5,arrayList.get(4).getY()),
+                    new DataPoint(6,arrayList.get(5).getY()),
+                    new DataPoint(7,arrayList.get(6).getY())
+            });
+            series.setColor(R.color.black);
+            graph.addSeries(series);
+        }else if (size==6) {
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                    new DataPoint(1,arrayList.get(0).getY()),
+                    new DataPoint(2,arrayList.get(1).getY()),
+                    new DataPoint(3,arrayList.get(2).getY()),
+                    new DataPoint(4,arrayList.get(3).getY()),
+                    new DataPoint(5,arrayList.get(4).getY()),
+                    new DataPoint(6,arrayList.get(5).getY()),
+                    new DataPoint(7,arrayList.get(6).getY()),
+                    new DataPoint(8,arrayList.get(7).getY())
+            });
+            series.setColor(R.color.black);
+            graph.addSeries(series);
         }
     }
     private void refresh() {
@@ -175,14 +203,14 @@ public class Graph extends AppCompatActivity implements RecyclerInterface {
                         }
                     }
                     Log.e( "graph onDataChange+++++++++++++++",name_arr.toString());
-                    recycler_graphview recycler_graphview=new recycler_graphview(Graph.this,name_arr,Graph.this::onClick);
+                    recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr,Graph_OGPA.this::onClick);
                     recyclerView.setAdapter(recycler_graphview);
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e( "main onCancelled: ", error.toString());
-                Toast.makeText(Graph.this,error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
