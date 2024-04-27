@@ -300,19 +300,19 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
 
         array.add(sub_arr3);
-        
 
-        sub_arr4.add(new marking("Crop Production Technology-2 (Rabi crops)",1,1));
-        sub_arr4.add(new marking("Production Technology for Ornamental Crops, MAP and Landscaping",1,1));
-        sub_arr4.add(new marking("Renewable Energy and Green Technology",1,1));
-        sub_arr4.add(new marking("Problematic Soils and their Management",2,0));
-        sub_arr4.add(new marking("Production Technology for Fruits and Planting Crops",1,1));
-        sub_arr4.add(new marking("Principles of Seed Technology",1,2));
-        sub_arr4.add(new marking("Farming System and Sustainable Agriculture",1,0));
-        sub_arr4.add(new marking("Agricultural Marketing Trade and Prices",2,1));
-        sub_arr4.add(new marking("Elementary Statistics and Computer Application",1,1));
-        sub_arr4.add(new marking("Environmental Studies and Disaster Management",2,1));
         sub_arr4.add(new marking("Agri Business Management",2,1));
+        sub_arr4.add(new marking("Agricultural Marketing Trade and Prices",2,1));
+        sub_arr4.add(new marking("Principles of Seed Technology",1,2));
+        sub_arr4.add(new marking("Environmental Studies and Disaster Management",2,1));
+        sub_arr4.add(new marking("Crop Production Technology-2 (Rabi crops)",1,1));
+        sub_arr4.add(new marking("Farming System and Sustainable Agriculture",1,0));
+        sub_arr4.add(new marking("Production Technology for Ornamental Crops, MAP and Landscaping",1,1));
+        sub_arr4.add(new marking("Production Technology for Fruits and Planting Crops",1,1));
+        sub_arr4.add(new marking("Renewable Energy and Green Technology",1,1));
+        sub_arr4.add(new marking("Elementary Statistics and Computer Application",1,1));
+        sub_arr4.add(new marking("Problematic Soils and their Management",2,0));
+
 
         
 
