@@ -333,18 +333,19 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         
 
         array.add(sub_arr5);
-        
 
-        sub_arr6.add(new marking("Rainfed Agriculture and Watershed Management",1,1));
-        sub_arr6.add(new marking("Protected Cultivation and Post Harvest Technology",1,1));
-        sub_arr6.add(new marking("Disease of Fields and Horticulture Crops and their Management-2",2,1));
-        sub_arr6.add(new marking("Post Harvest Management and Value Addition of Fruits and Vegetable",1,1));
-        sub_arr6.add(new marking("Management of Beneficial Insects",1,1));
-        sub_arr6.add(new marking("Crop Improvement-2 (Rabi crops)",1,1));
-        sub_arr6.add(new marking("Practical Crop Production-2 (Rabi crops)",0,2));
-        sub_arr6.add(new marking("Principles of Organic Farming",1,1));
-        sub_arr6.add(new marking("Communication Skills add Personality Development",1,1));
+
+
         sub_arr6.add(new marking("Principles of Food Science and Nutrition",2,0));
+        sub_arr6.add(new marking("Protected Cultivation and Post Harvest Technology",1,1));
+        sub_arr6.add(new marking("Management of Beneficial Insects",1,1));
+        sub_arr6.add(new marking("Communication Skills add Personality Development",1,1));
+        sub_arr6.add(new marking("Rainfed Agriculture and Watershed Management",1,1));
+        sub_arr6.add(new marking("Practical Crop Production-2 (Rabi crops)",0,2));
+        sub_arr6.add(new marking("Post Harvest Management and Value Addition of Fruits and Vegetable",1,1));
+        sub_arr6.add(new marking("Crop Improvement-2 (Rabi crops)",1,1));
+        sub_arr6.add(new marking("Disease of Fields and Horticulture Crops and their Management-2",2,1));
+        sub_arr6.add(new marking("Principles of Organic Farming",1,1));
 
         
 
