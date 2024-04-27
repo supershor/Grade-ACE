@@ -285,20 +285,19 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
 
         array.add(sub_arr2);
-        
 
-        sub_arr3.add(new marking("Crop Production Technology-1 (kharif crops)",1,1));
-        sub_arr3.add(new marking("Fundamentals of Plant Breeding",2,1));
-        sub_arr3.add(new marking("Agricultural Finance and Cooperation",2,1));
-        sub_arr3.add(new marking("Agri-Informatics and Computer Applications",1,1));
-        sub_arr3.add(new marking("Farm Machinery and Power",1,1));
-        sub_arr3.add(new marking("Production Technology for Vegetables and Spices",1,1));
-        sub_arr3.add(new marking("Weed Management",2,1));
-        sub_arr3.add(new marking("Livestock and Poultry Management",3,1));
-        sub_arr3.add(new marking("Comprehension  and Communication Skills in English",1,1));
         sub_arr3.add(new marking("Food safety and standards",2,1));
+        sub_arr3.add(new marking("Agricultural Finance and Cooperation",2,1));
+        sub_arr3.add(new marking("Comprehension  and Communication Skills in English",1,1));
+        sub_arr3.add(new marking("Farm Machinery and Power",1,1));
+        sub_arr3.add(new marking("Crop Production Technology-1 (kharif crops)",1,1));
+        sub_arr3.add(new marking("Weed Management",2,1));
+        sub_arr3.add(new marking("Production Technology for Vegetables and Spices",1,1));
+        sub_arr3.add(new marking("Fundamentals of Plant Breeding",2,1));
+        sub_arr3.add(new marking("Agri-Informatics and Computer Applications",1,1));
+        sub_arr3.add(new marking("Livestock and Poultry Management",3,1));
 
-        
+
 
         array.add(sub_arr3);
         
