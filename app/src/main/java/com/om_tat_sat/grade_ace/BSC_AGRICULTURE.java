@@ -39,13 +39,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.Recycler.Item;
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_OGPA_SHOWING;
-import com.om_tat_sat.grade_ace.data_holders.Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements RecyclerInterface{
+public class BSC_AGRICULTURE extends AppCompatActivity implements RecyclerInterface{
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bsc_agriculture);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -72,11 +71,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
         });
 
         //setting status bar color
-        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.black));
+        getWindow().setStatusBarColor(ContextCompat.getColor(BSC_AGRICULTURE.this,R.color.black));
 
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
-            startActivity(new Intent(MainActivity.this, Loading_Page.class));
+            startActivity(new Intent(BSC_AGRICULTURE.this, Loading_Page.class));
             finishAffinity();
         }
 
@@ -101,19 +100,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
 
         //tool bar setup
         toolbar=findViewById(R.id.toolbar);
-        toolbar.setTitle("Grade ACE");
+        toolbar.setTitle("BSC AGRICULTURE");
         setSupportActionBar(toolbar);
 
         refresh();
 
         //onclick
         add_opga.setOnClickListener(v -> {
-            View view=LayoutInflater.from(MainActivity.this).inflate(R.layout.add_new_ogpa_criteria,null);
+            View view=LayoutInflater.from(BSC_AGRICULTURE.this).inflate(R.layout.add_new_ogpa_criteria,null);
             name=view.findViewById(R.id.name_at_add_new_ogpa);
             spinner=view.findViewById(R.id.spinner_at_add_new_ogpa);
-            AlertDialog.Builder alert=new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder alert=new AlertDialog.Builder(BSC_AGRICULTURE.this);
             alert.setView(view);
-            ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(MainActivity.this,R.layout.text_spinner,arrayList);
+            ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(BSC_AGRICULTURE.this,R.layout.text_spinner,arrayList);
             arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             spinner.setAdapter(arrayAdapter);
             alert.setTitle("Enter details for OGPA");
@@ -121,14 +120,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
             alert.setCancelable(false);
             alert.setPositiveButton("CONTINUE", (dialog, which) -> {
                 if (check()){
-                    Toast.makeText(MainActivity.this,issue, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BSC_AGRICULTURE.this,issue, Toast.LENGTH_SHORT).show();
                 } else if (spinner.getSelectedItemPosition()==0){
                     Toast.makeText(this, "Select Semester", Toast.LENGTH_SHORT).show();
                 } else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.requireNonNull(name_sem_arr.get(name.getText().toString())).contains(spinner.getSelectedItem().toString())){
                     Toast.makeText(this, "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent intent=new Intent(MainActivity.this,OGPA_calculator.class);
+                    Intent intent=new Intent(BSC_AGRICULTURE.this, BSC_AGRICULTURE_OGPA_Calculator.class);
                     intent.putExtra("NAME",name.getText().toString());
                     Log.e( "main onClick:-------------", spinner.getSelectedItem().toString());
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
@@ -147,20 +146,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.main_menu, menu);
+        new MenuInflater(this).inflate(R.menu.agriculture_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             if (item.getItemId()==R.id.logout){
-                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder=new AlertDialog.Builder(BSC_AGRICULTURE.this);
                 builder.setCancelable(false);
                 builder.setTitle("Logout")
                         .setMessage("Are you sure you want to Logout ?")
                         .setPositiveButton("Logout", (dialog, which) -> {
                             firebaseAuth.signOut();
-                            startActivity(new Intent(MainActivity.this,Loading_Page.class));
+                            startActivity(new Intent(BSC_AGRICULTURE.this,Loading_Page.class));
                             finishAffinity();
                         })
                         .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
@@ -178,20 +176,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                 intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
                 intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
                 startActivity(intent);
-            }else if(item.getItemId()==R.id.delete_account){
-                Intent intent=new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
-                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Delete account of Grade ACE.");
-                startActivity(intent);
             }else if(item.getItemId()==R.id.refresh) {
                 refresh();
-            }else if(item.getItemId()==R.id.graph_at_menu){
-                startActivity(new Intent(MainActivity.this, Graph.class));
             }
             return super.onOptionsItemSelected(item);
         }
-
     private void refresh() {
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -205,8 +194,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
                         name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"", name_sem_arr.getOrDefault(dataSnapshot.child("NAME").getValue()+"","")+"_"+dataSnapshot.child("SEM").getValue()+"_");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
-                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa,MainActivity.this, MainActivity.this);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa, BSC_AGRICULTURE.this, BSC_AGRICULTURE.this);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(BSC_AGRICULTURE.this));
                     recyclerView.setAdapter(recyclerview);
                 }
             }
@@ -214,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerInterface
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e( "main onCancelled: ", error.toString());
-                Toast.makeText(MainActivity.this,error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE.this,error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

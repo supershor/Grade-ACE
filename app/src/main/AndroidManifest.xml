@@ -13,16 +13,19 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
-            android:name=".data_holders.Graph"
-            android:exported="false"/>
+            android:name=".MainPage"
+            android:exported="false" />
         <activity
-            android:name=".OGPA_calculator"
+            android:name=".data_holders.Graph"
+            android:exported="false" />
+        <activity
+            android:name=".BSC_AGRICULTURE_OGPA_Calculator"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Sign_Up"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -36,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".BSC_AGRICULTURE"
             android:exported="true" />
     </application>
 

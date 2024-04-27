@@ -36,7 +36,7 @@ public class Loading_Page extends AppCompatActivity {
         //setting up intents
         sign_up_page=new Intent(Loading_Page.this, Sign_Up.class);
         login_page=new Intent(Loading_Page.this, Login.class);
-        main_page=new Intent(Loading_Page.this,MainActivity.class);
+        main_page=new Intent(Loading_Page.this, MainPage.class);
 
         //checking is the user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();

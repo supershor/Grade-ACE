@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(Login.this,R.color.black));
 
         //setting intents
-        main_page=new Intent(Login.this,MainActivity.class);
+        main_page=new Intent(Login.this, MainPage.class);
         signup_page=new Intent(Login.this, Sign_Up.class);
 
         //checking is the user is signed in or not

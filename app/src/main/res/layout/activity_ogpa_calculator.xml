@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OGPA_calculator">
+    tools:context=".BSC_AGRICULTURE_OGPA_Calculator">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

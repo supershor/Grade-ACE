@@ -1,6 +1,5 @@
 package com.om_tat_sat.grade_ace;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +52,7 @@ public class Sign_Up extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(Sign_Up.this,R.color.black));
 
         //setting intents
-        main_page=new Intent(Sign_Up.this,MainActivity.class);
+        main_page=new Intent(Sign_Up.this, MainPage.class);
         login=new Intent(Sign_Up.this, Login.class);
 
         //checking is the user is signed in or not
@@ -85,17 +84,7 @@ public class Sign_Up extends AppCompatActivity {
                 AlertDialog.Builder alert=new AlertDialog.Builder(Sign_Up.this);
                 alert.setTitle("I comply")
                         .setMessage("I Comply that the app can some time show minor error while calculating OGPA(±0.10)");
-                alert.setPositiveButton("I Agree", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        comply=true;
-                    }
-                }).setNegativeButton("I Dont Agree", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                alert.setPositiveButton("I Agree", (dialog, which) -> comply=true).setNegativeButton("I Don't Agree", (dialog, which) -> dialog.dismiss());
                 alert.show();
             }
         });
@@ -110,7 +99,7 @@ public class Sign_Up extends AppCompatActivity {
         }else{
             firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
-                    databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("Personal information").child("NAME").setValue(name.getText().toString()).addOnCompleteListener(task1 -> {
+                    databaseReference.child(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid()).child("Personal information").child("NAME").setValue(name.getText().toString()).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()){
                             startActivity(main_page);
                             finishAffinity();

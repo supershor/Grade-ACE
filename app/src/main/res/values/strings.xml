@@ -27,5 +27,8 @@
     <string name="report_error">Report Error</string>
     <string name="refresh">Refresh</string>
     <string name="ogpa_graph">OGPA Graph</string>
+    <string name="bsc_agriculture">BSC AGRICULTURE</string>
+    <string name="bsc_horticulture">BSC HORTICULTURE</string>
+    <string name="btech_agriculture">BTech Agriculture</string>
 
 </resources>

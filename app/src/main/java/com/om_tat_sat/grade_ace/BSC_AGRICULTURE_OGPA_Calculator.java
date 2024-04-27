@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class OGPA_calculator extends AppCompatActivity {
+public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     ArrayList<ArrayList<marking>> array;
     ArrayList<marking>sub_arr1;
@@ -113,7 +113,7 @@ public class OGPA_calculator extends AppCompatActivity {
         });
 
         //status bar color
-        getWindow().setStatusBarColor(ContextCompat.getColor(OGPA_calculator.this,R.color.black));
+        getWindow().setStatusBarColor(ContextCompat.getColor(BSC_AGRICULTURE_OGPA_Calculator.this,R.color.black));
 
         //intents
         intent=getIntent();
@@ -127,7 +127,7 @@ public class OGPA_calculator extends AppCompatActivity {
         //checking if user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
-            startActivity(new Intent(OGPA_calculator.this, Loading_Page.class));
+            startActivity(new Intent(BSC_AGRICULTURE_OGPA_Calculator.this, Loading_Page.class));
             finishAffinity();
         }
 
@@ -222,10 +222,10 @@ public class OGPA_calculator extends AppCompatActivity {
         hashMap.put("SEM",sem+"");
         databaseReference.child(name+sem).setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                Toast.makeText(OGPA_calculator.this, "New OGPA added successfully.", Toast.LENGTH_SHORT).show();
-                Toast.makeText(OGPA_calculator.this,"OGPA : "+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, "New OGPA added successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this,"OGPA : "+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(OGPA_calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e( "Main error found onComplete:---------",task.getException()+"");
             }
         });
