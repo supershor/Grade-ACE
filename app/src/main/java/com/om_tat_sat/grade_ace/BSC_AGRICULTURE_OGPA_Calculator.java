@@ -351,10 +351,10 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
 
         array.add(sub_arr6);
 
+        sub_arr7.add(new marking("Plant Clinic",1,0));
         sub_arr7.add(new marking("General Orientation & On Campus Training by Different Faculties",2,0));
         sub_arr7.add(new marking("Village Attachment",7,0));
         sub_arr7.add(new marking("Unit Attachment in Univ./College/ KVK/Research Station Attachment",4,0));
-        sub_arr7.add(new marking("Plant Clinic",1,0));
         sub_arr7.add(new marking("Agro Industrial/Agri Business Attachment",4,0));
         sub_arr7.add(new marking("Project Report Preparation, Presentation and Evaluation",2,0));
 
