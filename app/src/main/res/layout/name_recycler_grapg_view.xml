@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textStyle="bold"
+                android:theme="@style/font_bold"
+                style="@style/font_bold"
                 android:id="@+id/name_info_graphview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
