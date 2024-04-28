@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.om_tat_sat.grade_ace.BSC_AGRICULTURE_OGPA_Calculator;
+import com.om_tat_sat.grade_ace.Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator;
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.R;
 import com.om_tat_sat.grade_ace.Recycler.Item;
@@ -153,7 +154,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
                     Toast.makeText(getContext(), "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent intent=new Intent(getContext(), BSC_AGRICULTURE_OGPA_Calculator.class);
+                    Intent intent=new Intent(getContext(), Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.class);
                     intent.putExtra("NAME",name.getText().toString());
                     Log.e( "main onClick:-------------", spinner.getSelectedItem().toString());
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
