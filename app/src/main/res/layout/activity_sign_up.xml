@@ -18,6 +18,8 @@
             tools:ignore="ScrollViewSize">
             <LinearLayout
                 android:layout_width="match_parent"
+                android:theme="@style/font_bold"
+                style="@style/font_bold"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
                 <TextView
@@ -26,7 +28,6 @@
                     android:text="@string/sign_up"
                     android:textAlignment="center"
                     android:textSize="@dimen/_28sdp"
-                    android:textStyle="bold"
                     android:layout_marginTop="@dimen/_40sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:textColor="@color/black"/>
@@ -36,7 +37,6 @@
                     android:text="@string/create_new_account"
                     android:textAlignment="center"
                     android:textSize="@dimen/_28sdp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="@dimen/_25sdp"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -50,6 +50,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
+                        android:theme="@style/font_semi_bold"
+                        style="@style/font_semi_bold"
                         android:autofillHints="name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -63,6 +65,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:inputType="text"
                         android:autofillHints="name"
                         android:id="@+id/name_information_sign_up_page"
@@ -79,6 +84,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <TextView
+
+                        android:theme="@style/font_semi_bold"
+                        style="@style/font_semi_bold"
                         android:autofillHints="name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -92,6 +100,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:inputType="textEmailAddress"
                         android:autofillHints="emailAddress"
                         android:id="@+id/email_information_sign_up_page"
@@ -108,6 +119,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <TextView
+
+                        android:theme="@style/font_semi_bold"
+                        style="@style/font_semi_bold"
                         android:autofillHints="name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -121,6 +135,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:inputType="textPassword"
                         android:autofillHints="password"
                         android:id="@+id/password_information_sign_up_page"
@@ -137,6 +154,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <TextView
+
+                        android:theme="@style/font_semi_bold"
+                        style="@style/font_semi_bold"
                         android:autofillHints="name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -150,6 +170,9 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:inputType="textPassword"
                         android:autofillHints="password"
                         android:id="@+id/confirm_password_information_sign_up_page"
@@ -172,6 +195,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <CheckBox
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:id="@+id/checkbox_agree_for_terms_and_condition_at_sign_up_page"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,6 +209,8 @@
                         android:textColor="@color/black"
                         />
                     <androidx.appcompat.widget.AppCompatButton
+                        android:theme="@style/font_bold"
+                        style="@style/font_bold"
                         android:id="@+id/save_account_creation_information"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -191,9 +219,11 @@
                         android:background="@drawable/less_border_purple"
                         android:text="@string/save"
                         android:textSize="@dimen/_18sdp"
-                        android:textStyle="bold"
                         android:textColor="@color/white" />
                     <androidx.appcompat.widget.AppCompatButton
+
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
                         android:id="@+id/already_have_an_account_sign_up_page"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
