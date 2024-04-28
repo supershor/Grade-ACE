@@ -1,13 +1,16 @@
 package com.om_tat_sat.grade_ace;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -27,6 +30,7 @@ public class MainPage extends AppCompatActivity {
     AppCompatButton bsc_agriculture;
     AppCompatButton bsc_horticulture;
     AppCompatButton b_tech_agriculture_engineering;
+    MediaPlayer mediaPlayer;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,12 +60,31 @@ public class MainPage extends AppCompatActivity {
         }
 
         //initializing
+        mediaPlayer=MediaPlayer.create(MainPage.this,R.raw.button_tap);
         bsc_agriculture=findViewById(R.id.bsc_agriculture);
         bsc_horticulture=findViewById(R.id.bsc_horticulture);
         b_tech_agriculture_engineering=findViewById(R.id.btech_agriculture);
-        bsc_agriculture.setOnClickListener(v -> startActivity(new Intent(MainPage.this,Bsc_Agriculture_tab.class)));
-        bsc_horticulture.setOnClickListener(v -> startActivity(new Intent(MainPage.this,Bsc_Horticulture_tab.class)));
-        b_tech_agriculture_engineering.setOnClickListener(v -> startActivity(new Intent(MainPage.this,Btech_Agriculture_Engineering_tab.class)));
+        bsc_agriculture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                startActivity(new Intent(MainPage.this,Bsc_Agriculture_tab.class));
+            }
+        });
+        bsc_horticulture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                startActivity(new Intent(MainPage.this,Bsc_Horticulture_tab.class));
+            }
+        });
+        b_tech_agriculture_engineering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                startActivity(new Intent(MainPage.this,Btech_Agriculture_Engineering_tab.class));
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,17 +94,25 @@ public class MainPage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        mediaPlayer.start();
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(MainPage.this);
             builder.setCancelable(false);
             builder.setTitle("Logout")
                     .setMessage("Are you sure you want to Logout ?")
                     .setPositiveButton("Logout", (dialog, which) -> {
+                        mediaPlayer.start();
                         firebaseAuth.signOut();
                         startActivity(new Intent(MainPage.this,Loading_Page.class));
                         finishAffinity();
                     })
-                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mediaPlayer.start();
+                            dialog.dismiss();
+                        }
+                    });
             builder.show();
         }
         else if (item.getItemId()==R.id.report_error){
