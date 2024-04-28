@@ -1,6 +1,7 @@
 package com.om_tat_sat.grade_ace.frags;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ import java.util.Objects;
 
 public class OGPA extends Fragment implements RecyclerInterface {
     FirebaseAuth firebaseAuth;
+    MediaPlayer mediaPlayer;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     AppCompatButton add_opga;
@@ -55,6 +57,7 @@ public class OGPA extends Fragment implements RecyclerInterface {
         firebaseAuth=FirebaseAuth.getInstance();
 
         //initializing
+        mediaPlayer=MediaPlayer.create(getContext(),R.raw.button_tap);
         arrayList=new ArrayList<>();
         name_sem_arr=new HashMap<>();
         arrayList_ogpa=new ArrayList<>();
@@ -74,6 +77,7 @@ public class OGPA extends Fragment implements RecyclerInterface {
         refresh();
         //onclick
         add_opga.setOnClickListener(v -> {
+            mediaPlayer.start();
             View view2=LayoutInflater.from(getContext()).inflate(R.layout.add_new_ogpa_criteria,null);
             name=view2.findViewById(R.id.name_at_add_new_ogpa);
             spinner=view2.findViewById(R.id.spinner_at_add_new_ogpa);
@@ -86,6 +90,7 @@ public class OGPA extends Fragment implements RecyclerInterface {
             alert.setMessage("You can not change this later.");
             alert.setCancelable(false);
             alert.setPositiveButton("CONTINUE", (dialog, which) -> {
+                mediaPlayer.start();
                 if (check()){
                     Toast.makeText(getContext(),issue, Toast.LENGTH_SHORT).show();
                 } else if (spinner.getSelectedItemPosition()==0){
@@ -100,7 +105,10 @@ public class OGPA extends Fragment implements RecyclerInterface {
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
                     startActivity(intent);
                 }
-            }).setNegativeButton("CANCEL", (dialog, which) -> dialog.dismiss());
+            }).setNegativeButton("CANCEL", (dialog, which) -> {
+                mediaPlayer.start();
+                dialog.dismiss();
+            });
             alert.show();
         });
     }
