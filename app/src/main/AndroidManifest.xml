@@ -13,13 +13,16 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
+            android:name=".Btech_Agriculture_Engineering_tab"
+            android:exported="false" />
+        <activity
+            android:name=".Bsc_Horticulture_tab"
+            android:exported="false" />
+        <activity
             android:name=".Bsc_Agriculture_tab"
             android:exported="false" />
         <activity
             android:name=".MainPage"
-            android:exported="false" />
-        <activity
-            android:name=".data_holders.Graph"
             android:exported="false" />
         <activity
             android:name=".BSC_AGRICULTURE_OGPA_Calculator"
@@ -41,9 +44,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BSC_AGRICULTURE"
-            android:exported="true" />
     </application>
 
 </manifest>
