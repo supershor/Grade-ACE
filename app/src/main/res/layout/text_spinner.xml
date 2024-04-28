@@ -5,6 +5,9 @@
 android:ellipsize="end"
 android:maxLines="1"
 android:textSize="@dimen/_16sdp"
+
+    android:theme="@style/font_regular"
+    style="@style/font_regular"
 android:textColor="@color/black"
 android:textAppearance="?attr/textAppearanceSubtitle1"
 android:layout_height="wrap_content">
