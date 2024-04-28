@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
     TabLayout tabLayout;
     Toolbar toolbar;
     FirebaseAuth firebaseAuth;
+    MediaPlayer mediaPlayer;
     ViewPagerAdapter viewPagerAdapter;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,6 +60,7 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
         }
 
         //Tab layout setup
+        mediaPlayer=MediaPlayer.create(Bsc_Agriculture_tab.this,R.raw.button_tap);
         tabLayout=findViewById(R.id.tablayout_bsc_agriculture);
         viewPager2=findViewById(R.id.viewpager);
         viewPagerAdapter=new ViewPagerAdapter(Bsc_Agriculture_tab.this);
@@ -93,6 +96,7 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        mediaPlayer.start();
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(Bsc_Agriculture_tab.this);
             builder.setCancelable(false);

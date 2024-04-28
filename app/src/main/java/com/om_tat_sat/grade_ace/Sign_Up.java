@@ -1,6 +1,7 @@
 package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
@@ -36,6 +37,7 @@ public class Sign_Up extends AppCompatActivity {
     boolean comply=false;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    MediaPlayer mediaPlayer;
     String issue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class Sign_Up extends AppCompatActivity {
         }
 
         //initializing elements
+        mediaPlayer=MediaPlayer.create(Sign_Up.this,R.raw.button_tap);
         name=findViewById(R.id.name_information_sign_up_page);
         email=findViewById(R.id.email_information_sign_up_page);
         password=findViewById(R.id.password_information_sign_up_page);
@@ -77,6 +80,7 @@ public class Sign_Up extends AppCompatActivity {
         save=findViewById(R.id.save_account_creation_information);
         have_an_account=findViewById(R.id.already_have_an_account_sign_up_page);
         save.setOnClickListener(v -> {
+            mediaPlayer.start();
             Log.e( "onCreate: >>>>>>>>>>>>>>>>>>>>>", comply+"");
             if (comply){
                 save();
@@ -89,6 +93,7 @@ public class Sign_Up extends AppCompatActivity {
             }
         });
         have_an_account.setOnClickListener(v -> {
+            mediaPlayer.start();
             startActivity(login);
             finish();
         });

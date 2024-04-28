@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ import java.util.Objects;
 public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     ArrayList<ArrayList<marking>> array;
+    MediaPlayer mediaPlayer;
     ArrayList<marking>sub_arr1;
     ArrayList<marking>sub_arr2;
     ArrayList<marking>sub_arr3;
@@ -130,6 +132,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         }
 
         //initializing
+        mediaPlayer=MediaPlayer.create(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this,R.raw.button_tap);
         array=new ArrayList<>();
         sub_arr1=new ArrayList<>();
         sub_arr2=new ArrayList<>();
@@ -156,6 +159,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         calculate.setOnClickListener(v -> calculate());
     }
     public void calculate(){
+        mediaPlayer.start();
         theory=0D;
         practical=0D;
         total=0D;

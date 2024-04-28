@@ -1,6 +1,7 @@
 package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -15,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -27,6 +27,7 @@ public class Loading_Page extends AppCompatActivity {
     Intent main_page;
     Intent login_page;
     FirebaseUser firebaseUser;
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,19 +47,17 @@ public class Loading_Page extends AppCompatActivity {
         main_page=new Intent(Loading_Page.this, MainPage.class);
 
         //checking is the user is signed in or not
+        mediaPlayer=MediaPlayer.create(Loading_Page.this,R.raw.button_tap);
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()!=null){
             firebaseUser=firebaseAuth.getCurrentUser();
-            firebaseUser.reload().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()){
-                        startActivity(main_page);
-                        Toast.makeText(Loading_Page.this,"refresh", Toast.LENGTH_SHORT).show();
-                        finishAffinity();
-                    }else {
-                        Toast.makeText(Loading_Page.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+            firebaseUser.reload().addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    startActivity(main_page);
+                    Toast.makeText(Loading_Page.this,"refresh", Toast.LENGTH_SHORT).show();
+                    finishAffinity();
+                }else {
+                    Toast.makeText(Loading_Page.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -66,7 +65,13 @@ public class Loading_Page extends AppCompatActivity {
         //setting up buttons and click listener on them to jump to required layout
         sign_up=findViewById(R.id.loading_page_sign_up);
         login=findViewById(R.id.loading_page_login);
-        sign_up.setOnClickListener(v -> startActivity(sign_up_page));
-        login.setOnClickListener(v -> startActivity(login_page));
+        sign_up.setOnClickListener(v -> {
+            mediaPlayer.start();
+            startActivity(sign_up_page);
+        });
+        login.setOnClickListener(v -> {
+            mediaPlayer.start();
+            startActivity(login_page);
+        });
     }
 }

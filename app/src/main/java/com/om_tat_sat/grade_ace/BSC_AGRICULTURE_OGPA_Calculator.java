@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -98,6 +99,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
     Intent intent;
     int sem;
     FirebaseDatabase firebaseDatabase;
+    MediaPlayer mediaPlayer;
     DatabaseReference databaseReference;
 
     @SuppressLint("MissingInflatedId")
@@ -116,6 +118,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(BSC_AGRICULTURE_OGPA_Calculator.this,R.color.black));
 
         //intents
+        mediaPlayer=MediaPlayer.create(BSC_AGRICULTURE_OGPA_Calculator.this,R.raw.button_tap);
         intent=getIntent();
         sem=intent.getIntExtra("SEM",1);
         name=intent.getStringExtra("NAME");
@@ -152,6 +155,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         calculate.setOnClickListener(v -> calculate());
     }
     public void calculate(){
+        mediaPlayer.start();
         theory=0D;
         practical=0D;
         total=0D;

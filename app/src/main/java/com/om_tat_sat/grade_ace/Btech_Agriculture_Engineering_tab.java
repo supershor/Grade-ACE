@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.om_tat_sat.grade_ace.Recycler.ViewPagerAdapter_horticulture_btech_agr
 import java.util.Objects;
 
 public class Btech_Agriculture_Engineering_tab extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
     ViewPager2 viewPager2;
     TabLayout tabLayout;
     Toolbar toolbar;
@@ -65,6 +67,7 @@ public class Btech_Agriculture_Engineering_tab extends AppCompatActivity {
 
 
         //Tab layout setup
+        mediaPlayer=MediaPlayer.create(Btech_Agriculture_Engineering_tab.this,R.raw.button_tap);
         tabLayout=findViewById(R.id.tablayout_bsc_agriculture);
         viewPager2=findViewById(R.id.viewpager);
         viewPagerAdapter=new ViewPagerAdapter_horticulture_btech_agriculture(Btech_Agriculture_Engineering_tab.this);
@@ -100,6 +103,7 @@ public class Btech_Agriculture_Engineering_tab extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        mediaPlayer.start();
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(Btech_Agriculture_Engineering_tab.this);
             builder.setCancelable(false);

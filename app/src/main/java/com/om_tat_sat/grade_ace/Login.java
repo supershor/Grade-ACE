@@ -1,6 +1,7 @@
 package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class Login extends AppCompatActivity {
     AppCompatButton sign_up;
     FirebaseAuth firebaseAuth;
     String issue;
+    MediaPlayer mediaPlayer;
     Intent main_page;
     Intent signup_page;
     @Override
@@ -55,6 +57,7 @@ public class Login extends AppCompatActivity {
         }
 
         //initializing elements
+        mediaPlayer=MediaPlayer.create(Login.this,R.raw.button_tap);
         email=findViewById(R.id.email_information_login_page);
         password=findViewById(R.id.password_information_login_page);
         forgot_password=findViewById(R.id.forgot_password_login_page);
@@ -62,6 +65,7 @@ public class Login extends AppCompatActivity {
         sign_up=findViewById(R.id.sign_up_at_login_page);
 
         login.setOnClickListener(v -> {
+            mediaPlayer.start();
             if (check_fields()){
                 Toast.makeText(Login.this,issue, Toast.LENGTH_SHORT).show();
             }else {
@@ -76,10 +80,12 @@ public class Login extends AppCompatActivity {
             }
         });
         sign_up.setOnClickListener(v -> {
+            mediaPlayer.start();
             startActivity(signup_page);
             finish();
         });
         forgot_password.setOnClickListener(v -> {
+            mediaPlayer.start();
             EditText editText=new EditText(Login.this);
             final AlertDialog.Builder alertDialog=new AlertDialog.Builder(Login.this);
             alertDialog.setView(editText);

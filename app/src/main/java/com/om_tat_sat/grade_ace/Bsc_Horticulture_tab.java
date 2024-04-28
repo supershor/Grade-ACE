@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
     TabLayout tabLayout;
     Toolbar toolbar;
     FirebaseAuth firebaseAuth;
+    MediaPlayer mediaPlayer;
     ViewPagerAdapter_horticulture_btech_agriculture viewPagerAdapter;
     SharedPreferences sharedPreferences;
     @Override
@@ -64,6 +66,7 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
         editor.commit();
 
         //Tab layout setup
+        mediaPlayer=MediaPlayer.create(Bsc_Horticulture_tab.this,R.raw.button_tap);
         tabLayout=findViewById(R.id.tablayout_bsc_agriculture);
         viewPager2=findViewById(R.id.viewpager);
         viewPagerAdapter=new ViewPagerAdapter_horticulture_btech_agriculture(Bsc_Horticulture_tab.this);
@@ -99,6 +102,7 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        mediaPlayer.start();
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(Bsc_Horticulture_tab.this);
             builder.setCancelable(false);
