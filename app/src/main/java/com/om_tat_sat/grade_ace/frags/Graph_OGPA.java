@@ -1,6 +1,7 @@
 package com.om_tat_sat.grade_ace.frags;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.Loading_Page;
+import com.om_tat_sat.grade_ace.MainPage;
 import com.om_tat_sat.grade_ace.R;
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview;
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder;
@@ -40,6 +42,7 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
     HashMap<String, ArrayList<ogpa_holder>> hashmap_ogpa;
     ArrayList<String>name_arr;
     RecyclerView recyclerView;
+    MediaPlayer mediaPlayer;
     GraphView graph;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -61,6 +64,7 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
         }
 
         //initializing
+        mediaPlayer=MediaPlayer.create(getContext(),R.raw.button_tap);
         name_arr=new ArrayList<>();
         hashmap_ogpa=new HashMap<>();
         firebaseDatabase= FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
@@ -217,6 +221,7 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
 
     @Override
     public void onClick(int i) {
+        mediaPlayer.start();
         setdata(i);
     }
 }

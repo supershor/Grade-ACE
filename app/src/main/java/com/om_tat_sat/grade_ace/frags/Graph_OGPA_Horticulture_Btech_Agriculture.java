@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace.frags;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
     RecyclerView recyclerView;
     GraphView graph;
     SharedPreferences sharedPreferences;
+    MediaPlayer mediaPlayer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
         }
 
         //initializing
+        mediaPlayer=MediaPlayer.create(getContext(),R.raw.button_tap);
         name_arr=new ArrayList<>();
         hashmap_ogpa=new HashMap<>();//sharedoreferences
         sharedPreferences=this.getActivity().getSharedPreferences("Degree_type",0);
@@ -222,6 +225,7 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
     }
     @Override
     public void onClick(int i) {
+        mediaPlayer.start();
         setdata(i);
     }
 }
