@@ -36,6 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:theme="@style/font_regular"
+                    style="@style/font_regular"
                     android:textSize="@dimen/_16sdp"
                     android:layout_marginLeft="@dimen/_30sdp"
                     android:layout_marginRight="@dimen/_30sdp"
@@ -45,6 +47,9 @@
                     android:textColor="@color/black"
                     />
                 <androidx.appcompat.widget.AppCompatButton
+
+                    android:theme="@style/font_bold"
+                    style="@style/font_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/sign_up"
@@ -58,6 +63,9 @@
                     android:background="@drawable/less_border_purple"
                     />
                 <androidx.appcompat.widget.AppCompatButton
+
+                    android:theme="@style/font_bold"
+                    style="@style/font_bold"
                     android:layout_width="match_parent"
                     android:id="@+id/loading_page_login"
                     android:layout_height="wrap_content"
