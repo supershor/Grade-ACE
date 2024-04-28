@@ -22,7 +22,10 @@
         android:id="@+id/add_ogpa"
         android:textColor="@color/white"
         android:textSize="@dimen/_25sdp"
-        android:textStyle="bold"/>
+        android:theme="@style/font_bold"
+        style="@style/font_bold"
+        android:padding="@dimen/_5sdp"
+        android:textAlignment="center"/>
 
 
     <TextView
