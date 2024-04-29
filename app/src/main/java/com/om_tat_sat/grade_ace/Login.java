@@ -3,6 +3,7 @@ package com.om_tat_sat.grade_ace;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -74,7 +75,14 @@ public class Login extends AppCompatActivity {
                         startActivity(main_page);
                         finishAffinity();
                     }else {
-                        Toast.makeText(Login.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                        if (task.getException().getMessage().contains("The user account has been disabled by an administrator.")){
+                            Toast.makeText(Login.this,"This email has been banned by administration.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this,"Please login/signup with another email.", Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(Login.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        Log.e( "onComplete: >>>>>>>>>>>>>", task.getException().toString());
+
                     }
                 });
             }

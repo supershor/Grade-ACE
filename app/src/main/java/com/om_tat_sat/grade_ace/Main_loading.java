@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
+
+import javax.security.auth.login.LoginException;
 
 public class Main_loading extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -56,8 +61,15 @@ public class Main_loading extends AppCompatActivity {
                     if (task.isSuccessful()){
                         intent=new Intent(Main_loading.this, MainPage.class);
                     }else {
-                        Toast.makeText(Main_loading.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        intent=new Intent(Main_loading.this, Loading_Page.class);
+                        if (task.getException().getMessage().contains("The user account has been disabled by an administrator.")){
+                            Toast.makeText(Main_loading.this,"This email has been banned by administration.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Main_loading.this,"Please login/signup with another email.", Toast.LENGTH_LONG).show();
+                            intent=new Intent(Main_loading.this, Loading_Page.class);
+                        }else {
+                            Toast.makeText(Main_loading.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            intent=new Intent(Main_loading.this, Loading_Page.class);
+                        }
+                        Log.e( "onComplete: >>>>>>>>>>>>>", task.getException().toString());
                     }
                 }
             });
