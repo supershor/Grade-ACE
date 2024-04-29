@@ -13,8 +13,11 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
+            android:name=".TopperTips"
+            android:exported="false" />
+        <activity
             android:name=".Main_loading"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,9 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".Loading_Page"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
