@@ -131,6 +131,8 @@ public class Btech_Agriculture_Engineering_tab extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
             intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPhone Number:-\nReason:-");
             startActivity(intent);
+        }else if (item.getItemId()==R.id.refresh){
+            startActivity(new Intent(Btech_Agriculture_Engineering_tab.this,TopperTips.class));
         }
         return super.onOptionsItemSelected(item);
     }
