@@ -121,12 +121,14 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
             intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
             intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
             intent.putExtra(Intent.EXTRA_SUBJECT,"Report error on Grade ACE.");
+            intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPhone Number:-\nError:-");
             startActivity(intent);
         }else if (item.getItemId()==R.id.contact_owner){
             Intent intent=new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
             intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
             intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
+            intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPhone Number:-\nReason:-");
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
