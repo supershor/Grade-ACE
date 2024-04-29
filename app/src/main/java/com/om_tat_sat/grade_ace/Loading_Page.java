@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
@@ -14,8 +13,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -68,10 +65,12 @@ public class Loading_Page extends AppCompatActivity {
         sign_up.setOnClickListener(v -> {
             mediaPlayer.start();
             startActivity(sign_up_page);
+            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
         });
         login.setOnClickListener(v -> {
             mediaPlayer.start();
             startActivity(login_page);
+            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
         });
     }
 }
