@@ -1,8 +1,11 @@
 package com.om_tat_sat.grade_ace;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.net.MailTo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
@@ -232,6 +236,27 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
             if (task.isSuccessful()){
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, "New OGPA added successfully.", Toast.LENGTH_SHORT).show();
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this,"OGPA : "+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
+                if(Double.compare((theory+practical)/total*10,8.5)>=0){
+                    AlertDialog.Builder builder=new AlertDialog.Builder(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this);
+                    builder.setTitle("Share Topper Tips ?");
+                    builder.setMessage("Since you have scored more than 8 OGPA would you like to share some tips with other agriculture students ?\nIf yes then please don't delete pre written text.");
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent=new Intent(Intent.ACTION_SENDTO);
+                            intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
+                            intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
+                            intent.putExtra(Intent.EXTRA_SUBJECT,"Sharing tips for Grade ACE");
+                            intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPassing Year:-\nCollege Name:-\nPhone Number:-\nTips:-");
+                            startActivity(intent);
+                        }
+                    });
+                }
             }else{
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e( "Main error found onComplete:---------",task.getException()+"");
