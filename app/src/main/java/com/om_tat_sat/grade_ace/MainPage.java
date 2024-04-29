@@ -88,7 +88,7 @@ public class MainPage extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.main_menu, menu);
+        new MenuInflater(this).inflate(R.menu.agriculture_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -130,6 +130,8 @@ public class MainPage extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
             intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPhone Number:-\nReason:-");
             startActivity(intent);
+        }else if (item.getItemId()==R.id.refresh){
+            startActivity(new Intent(MainPage.this,TopperTips.class));
         }
         return super.onOptionsItemSelected(item);
     }
