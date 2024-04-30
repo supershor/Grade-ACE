@@ -36,6 +36,8 @@ import java.util.Objects;
 
 public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
+    SharedPreferences app_language;
+    int language;
     ArrayList<ArrayList<marking>> array;
     MediaPlayer mediaPlayer;
     ArrayList<marking>sub_arr1;
@@ -136,6 +138,8 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         }
 
         //initializing
+        app_language=getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
         mediaPlayer=MediaPlayer.create(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this,R.raw.button_tap);
         array=new ArrayList<>();
         sub_arr1=new ArrayList<>();
@@ -288,215 +292,445 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         }
     }
     public void initialize_arrays1(){
-        sub_arr1.add(new marking("Introductory Crop Physiology",1,1));
-        sub_arr1.add(new marking("Economics and Marketing",2,1));
-        sub_arr1.add(new marking("Principle of Landscape Architecture",1,1));
-        sub_arr1.add(new marking("Human Value and Ethics",0,1));
-        sub_arr1.add(new marking("Introductory Microbiology",1,1));
-        sub_arr1.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
-        sub_arr1.add(new marking("Fundamentals of Soil Science",1,1));
-        sub_arr1.add(new marking("Elementary Plant Biochemistry",1,1));
-        sub_arr1.add(new marking("Fundamentals of Horticulture",1,1));
 
-        array.add(sub_arr1);
+        if (language==0){
+            sub_arr1.add(new marking("Introductory Crop Physiology",1,1));
+            sub_arr1.add(new marking("Economics and Marketing",2,1));
+            sub_arr1.add(new marking("Principle of Landscape Architecture",1,1));
+            sub_arr1.add(new marking("Human Value and Ethics",0,1));
+            sub_arr1.add(new marking("Introductory Microbiology",1,1));
+            sub_arr1.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
+            sub_arr1.add(new marking("Fundamentals of Soil Science",1,1));
+            sub_arr1.add(new marking("Elementary Plant Biochemistry",1,1));
+            sub_arr1.add(new marking("Fundamentals of Horticulture",1,1));
 
-
-        sub_arr2.add(new marking("Growth and Development of Horticultural Crop",1,1));
-        sub_arr2.add(new marking("Comprehension and Communication Skills in English",1,1));
-        sub_arr2.add(new marking("Water Management in Horticulture Crops",1,1));
-        sub_arr2.add(new marking("Fundamentals of Extension Education",1,1));
-        sub_arr2.add(new marking("Environmental Studies and Disaster Management",2,1));
-        sub_arr2.add(new marking("Tropical and Subtropical Fruits",2,1));
-        sub_arr2.add(new marking("Principles of Plant Breeding",2,1));
-        sub_arr2.add(new marking("Fundamentals of Plant Pathology",2,1));
-        sub_arr2.add(new marking("Soil Fertility and Nutritrient Management",1,1));
-        sub_arr2.add(new marking("Tropical and Subtropical Vegetables",2,1));
+            array.add(sub_arr1);
 
 
-
-        array.add(sub_arr2);
-
-
-        sub_arr3.add(new marking("Weed Management in Horticultural Crops",1,1));
-        sub_arr3.add(new marking("Elementary Plant Biotechnology",1,1));
-        sub_arr3.add(new marking("Fundamentals of Food Technology",1,1));
-        sub_arr3.add(new marking("Fundamentals of Entomology",2,1));
-        sub_arr3.add(new marking("Commercial Floriculture",2,1));
-        sub_arr3.add(new marking("Introductory Agro-Forestry",1,1));
-        sub_arr3.add(new marking("Plant Propogation and Nursery Management",1,1));
-        sub_arr3.add(new marking("Temprate Fruit Crops",1,1));
-        sub_arr3.add(new marking("Diseases of Fruit Plantation, Medicinal and Aromatic Crops",2,1));
-        sub_arr3.add(new marking("Agri Informatics and Computer Application",1,1));
-        sub_arr3.add(new marking("Temprate Vegetable Crops",1,1));
+            sub_arr2.add(new marking("Growth and Development of Horticultural Crop",1,1));
+            sub_arr2.add(new marking("Comprehension and Communication Skills in English",1,1));
+            sub_arr2.add(new marking("Water Management in Horticulture Crops",1,1));
+            sub_arr2.add(new marking("Fundamentals of Extension Education",1,1));
+            sub_arr2.add(new marking("Environmental Studies and Disaster Management",2,1));
+            sub_arr2.add(new marking("Tropical and Subtropical Fruits",2,1));
+            sub_arr2.add(new marking("Principles of Plant Breeding",2,1));
+            sub_arr2.add(new marking("Fundamentals of Plant Pathology",2,1));
+            sub_arr2.add(new marking("Soil Fertility and Nutritrient Management",1,1));
+            sub_arr2.add(new marking("Tropical and Subtropical Vegetables",2,1));
 
 
 
-        array.add(sub_arr3);
+            array.add(sub_arr2);
 
 
-        sub_arr4.add(new marking("Farm Power and Machinery",1,1));
-        sub_arr4.add(new marking("Insect Pest of Fruit, Plantation, Medicinals and Aromatic Crops",2,1));
-        sub_arr4.add(new marking("Ornamental Horticulture",2,1));
-        sub_arr4.add(new marking("Plantation Crops",2,1));
-        sub_arr4.add(new marking("Breeding of Fruits and Plantation Crops",2,1));
-        sub_arr4.add(new marking("Nematode Pests of Horticultural Crops and their Management",1,1));
-        sub_arr4.add(new marking("Soil, Water and Plant Analysis",1,1));
-        sub_arr4.add(new marking("Elementary Statistics",2,1));
-        sub_arr4.add(new marking("Spices and Condiments",2,1));
-
-
-
-        array.add(sub_arr4);
-
-
-        sub_arr5.add(new marking("Organic Farming",2,1));
-        sub_arr5.add(new marking("Introduction to Major Field Crops",1,1));
-        sub_arr5.add(new marking("Medicinal and Aromatic Crops",2,1));
-        sub_arr5.add(new marking("Entrepreneurship Development and Business Management",1,1));
-        sub_arr5.add(new marking("Orchard and Estate Management",1,1));
-        sub_arr5.add(new marking("Agro-Meteorology and Climate Change",1,1));
-        sub_arr5.add(new marking("Breeding of Vegetable, Tuber and Spice Crops",2,1));
-        sub_arr5.add(new marking("Diseases of Vegetable, Ornamentals and Spice Crops",2,1));
-        sub_arr5.add(new marking("Potato and Tuber Crops",1,1));
-        sub_arr5.add(new marking("Precision Farming and Protected Cultivation",2,1));
+            sub_arr3.add(new marking("Weed Management in Horticultural Crops",1,1));
+            sub_arr3.add(new marking("Elementary Plant Biotechnology",1,1));
+            sub_arr3.add(new marking("Fundamentals of Food Technology",1,1));
+            sub_arr3.add(new marking("Fundamentals of Entomology",2,1));
+            sub_arr3.add(new marking("Commercial Floriculture",2,1));
+            sub_arr3.add(new marking("Introductory Agro-Forestry",1,1));
+            sub_arr3.add(new marking("Plant Propogation and Nursery Management",1,1));
+            sub_arr3.add(new marking("Temprate Fruit Crops",1,1));
+            sub_arr3.add(new marking("Diseases of Fruit Plantation, Medicinal and Aromatic Crops",2,1));
+            sub_arr3.add(new marking("Agri Informatics and Computer Application",1,1));
+            sub_arr3.add(new marking("Temprate Vegetable Crops",1,1));
 
 
 
-        array.add(sub_arr5);
+            array.add(sub_arr3);
 
 
-        sub_arr6.add(new marking("HortiBuisness Management",1,1));
-        sub_arr6.add(new marking("Post Harvest Management of Horticultural Crops",2,1));
-        sub_arr6.add(new marking("Insect Pests of vegetable, Ornamental and Spice Crops",2,1));
-        sub_arr6.add(new marking("Apiculture, Sericulture and LAC Culture",1,1));
-        sub_arr6.add(new marking("Communication Skills and Personality Development",1,1));
-        sub_arr6.add(new marking("Processing of Horticultural Crops",1,2));
-        sub_arr6.add(new marking("Dryland Horticulture",1,1));
-        sub_arr6.add(new marking("Seed Production of Vegetable, Tuber and Spice Crops",2,1));
-        sub_arr6.add(new marking("Breeding and Seed Production of Flower and Ornamental Plants",2,1));
-
-
-
-        array.add(sub_arr6);
-
-        sub_arr7.add(new marking("Subject 1",10,0));
-        sub_arr7.add(new marking("Subject 2",10,0));
+            sub_arr4.add(new marking("Farm Power and Machinery",1,1));
+            sub_arr4.add(new marking("Insect Pest of Fruit, Plantation, Medicinals and Aromatic Crops",2,1));
+            sub_arr4.add(new marking("Ornamental Horticulture",2,1));
+            sub_arr4.add(new marking("Plantation Crops",2,1));
+            sub_arr4.add(new marking("Breeding of Fruits and Plantation Crops",2,1));
+            sub_arr4.add(new marking("Nematode Pests of Horticultural Crops and their Management",1,1));
+            sub_arr4.add(new marking("Soil, Water and Plant Analysis",1,1));
+            sub_arr4.add(new marking("Elementary Statistics",2,1));
+            sub_arr4.add(new marking("Spices and Condiments",2,1));
 
 
 
-
-        array.add(sub_arr7);
-
+            array.add(sub_arr4);
 
 
-        sub_arr8.add(new marking("Plant Clinic",1,0));
-        sub_arr8.add(new marking("General Orientation & On Campus Training by Different Faculties",2,0));
-        sub_arr8.add(new marking("Village Attachment",7,0));
-        sub_arr8.add(new marking("Unit Attachment in Univ./College/ KVK/Research Station Attachment",4,0));
-        sub_arr8.add(new marking("Agro Industrial/Agri Business Attachment",4,0));
-        sub_arr8.add(new marking("Project Report Preparation, Presentation and Evaluation",2,0));
+            sub_arr5.add(new marking("Organic Farming",2,1));
+            sub_arr5.add(new marking("Introduction to Major Field Crops",1,1));
+            sub_arr5.add(new marking("Medicinal and Aromatic Crops",2,1));
+            sub_arr5.add(new marking("Entrepreneurship Development and Business Management",1,1));
+            sub_arr5.add(new marking("Orchard and Estate Management",1,1));
+            sub_arr5.add(new marking("Agro-Meteorology and Climate Change",1,1));
+            sub_arr5.add(new marking("Breeding of Vegetable, Tuber and Spice Crops",2,1));
+            sub_arr5.add(new marking("Diseases of Vegetable, Ornamentals and Spice Crops",2,1));
+            sub_arr5.add(new marking("Potato and Tuber Crops",1,1));
+            sub_arr5.add(new marking("Precision Farming and Protected Cultivation",2,1));
 
-        array.add(sub_arr8);
+
+
+            array.add(sub_arr5);
+
+
+            sub_arr6.add(new marking("HortiBuisness Management",1,1));
+            sub_arr6.add(new marking("Post Harvest Management of Horticultural Crops",2,1));
+            sub_arr6.add(new marking("Insect Pests of vegetable, Ornamental and Spice Crops",2,1));
+            sub_arr6.add(new marking("Apiculture, Sericulture and LAC Culture",1,1));
+            sub_arr6.add(new marking("Communication Skills and Personality Development",1,1));
+            sub_arr6.add(new marking("Processing of Horticultural Crops",1,2));
+            sub_arr6.add(new marking("Dryland Horticulture",1,1));
+            sub_arr6.add(new marking("Seed Production of Vegetable, Tuber and Spice Crops",2,1));
+            sub_arr6.add(new marking("Breeding and Seed Production of Flower and Ornamental Plants",2,1));
+
+
+
+            array.add(sub_arr6);
+
+            sub_arr7.add(new marking("Subject 1",10,0));
+            sub_arr7.add(new marking("Subject 2",10,0));
+
+
+
+
+            array.add(sub_arr7);
+
+
+
+            sub_arr8.add(new marking("Plant Clinic",1,0));
+            sub_arr8.add(new marking("General Orientation & On Campus Training by Different Faculties",2,0));
+            sub_arr8.add(new marking("Village Attachment",7,0));
+            sub_arr8.add(new marking("Unit Attachment in Univ./College/ KVK/Research Station Attachment",4,0));
+            sub_arr8.add(new marking("Agro Industrial/Agri Business Attachment",4,0));
+            sub_arr8.add(new marking("Project Report Preparation, Presentation and Evaluation",2,0));
+
+            array.add(sub_arr8);
+        } else if (language==1) {
+            sub_arr1.add(new marking("इंट्रोडक्टरी क्रॉप फिजियोलॉजी ",1,1));
+            sub_arr1.add(new marking("इकोनॉमिक्स एंड मार्केटिंग ",2,1));
+            sub_arr1.add(new marking("प्रिंसिपल ऑफ़ लैंडस्केप आर्किटेक्चर ",1,1));
+            sub_arr1.add(new marking("ह्यूमन वैल्यूज़ एंड एथिक्स ",0,1));
+            sub_arr1.add(new marking("इंट्रोडक्टरी माइक्रोबायोलॉजी ",1,1));
+            sub_arr1.add(new marking("एनएसएस /एनसीसी /फ़िज़िशियल एजुकेशन एंड योगा प्रैक्टिस ",0,2));
+            sub_arr1.add(new marking("फंडामेंटल्स ऑफ़ सॉइल साइंस",1,1));
+            sub_arr1.add(new marking("एलिमेंटरी प्लांट बायोचमिस्ट्री ",1,1));
+            sub_arr1.add(new marking("फंडामेंटल्स ऑफ़ हार्टिकल्चर ",1,1));
+
+            array.add(sub_arr1);
+
+
+            sub_arr2.add(new marking("ग्रोथ एंड डेवलपमेंट ऑफ़ हार्टिकल्चरल क्रैप्स ",1,1));
+            sub_arr2.add(new marking("कॉम्प्रिहेंशन एंड कम्युनिकेशन स्किल्स इन इंगलिश ",1,1));
+            sub_arr2.add(new marking("वाटर मैनेजमेंट इन हार्टिकल्चरल क्रैप्स",1,1));
+            sub_arr2.add(new marking("फंडामेंटल्स ऑफ़ एक्सटेंशन एजुकेशन  ",1,1));
+            sub_arr2.add(new marking("एनवायर्नमेंटल स्टडीज़ एंड डिजास्टर मैनेजमेंट ",2,1));
+            sub_arr2.add(new marking("ट्रॉपिकल एंड सबट्रोपिकल फ्रूट्स ",2,1));
+            sub_arr2.add(new marking("प्रिंसिपल्स ऑफ़ प्लांट ब्रीडिंग ",2,1));
+            sub_arr2.add(new marking("फंडामेंटल्स ऑफ़ प्लांट पैथोलॉजी",2,1));
+                    sub_arr2.add(new marking("सॉइल फर्टिलिटी एंड न्यूट्रीएंट मैनेजमेंट ",1,1));
+            sub_arr2.add(new marking("ट्रॉपिकल एंड सबट्रोपिकल वेजेटेबल्स ",2,1));
+
+
+
+            array.add(sub_arr2);
+
+
+            sub_arr3.add(new marking("वीड मैनेजमेंट इन हार्टिकल्चरल क्रैप्स ",1,1));
+            sub_arr3.add(new marking("एलिमेंटरी प्लांट बायोटेक्नोलॉजी ",1,1));
+            sub_arr3.add(new marking("फंडामेंटल्स ऑफ़ फ़ूड टेक्नोलॉजी ",1,1));
+            sub_arr3.add(new marking("फंडामेंटल्स ऑफ़ एंटोमोलॉजी ",2,1));
+            sub_arr3.add(new marking("कमर्शियल फ्लोरिकल्चर ",2,1));
+            sub_arr3.add(new marking("इंट्रोडक्टरी एग्रो-फॉरेस्ट्री ",1,1));
+            sub_arr3.add(new marking("प्लांट प्रॉपगेशन एंड नर्सरी मैनेजमेंट ",1,1));
+            sub_arr3.add(new marking("टेम्प्रेट फ्रूट क्रैप्स ",1,1));
+            sub_arr3.add(new marking("डाइसीज़ ऑफ़ फ़्रूट, प्लांटेशन, मेडिसिनल एंड आरोमैटिक क्रैप्स ",2,1));
+            sub_arr3.add(new marking("आगरी-इंफ़ॉरमैटिक्स एंड कंप्यूटर एप्लिकेशंस  ",1,1));
+            sub_arr3.add(new marking("टेम्प्रेट वेजिटेबल क्रैप्स ",1,1));
+
+
+
+            array.add(sub_arr3);
+
+
+            sub_arr4.add(new marking("फ़ार्म पॉवर एंड मशीनरी ",1,1));
+            sub_arr4.add(new marking("इन्सेक्ट पेस्ट ऑफ़  फ़्रूट, प्लांटेशन, मेडिसिनल एंड आरोमैटिक क्रैप्स, ",2,1));
+            sub_arr4.add(new marking("ऑर्नामेंटल हार्टिकल्चर ",2,1));
+            sub_arr4.add(new marking("प्लांटेशन क्रैप्स ",2,1));
+            sub_arr4.add(new marking("ब्रीडिंफ ऑफ़ फ्रूट्स एंड प्लांटेशन क्रैप्स ",2,1));
+            sub_arr4.add(new marking("नेमेटोड पेस्ट ऑफ़ हार्टिकल्चरल क्रैप्स एंड देअर मैनेजमेंट",1,1));
+            sub_arr4.add(new marking("सॉइल वाटर एंड प्लांट एनालिसिस ",1,1));
+            sub_arr4.add(new marking("एलिमेंटरी स्टेटिस्टिक्स ",2,1));
+            sub_arr4.add(new marking("स्पाइसेस एंड कंडीमेंट्स ",2,1));
+
+
+
+            array.add(sub_arr4);
+
+
+            sub_arr5.add(new marking("आर्गेनिक फार्मिंग ",2,1));
+            sub_arr5.add(new marking("इंट्रोडक्शन तो मेजर फील्ड क्रैप्स ",1,1));
+            sub_arr5.add(new marking("मेडिसिनल एंड आरोमैटिक क्रॉस ",2,1));
+            sub_arr5.add(new marking("एंट्रीप्रेन्शियों डेवलपमेंट एंड बिज़नेस मैनेजमेंट",1,1));
+            sub_arr5.add(new marking("ऑर्चर्ड एनडी एस्टेट मैनेजमेंट ",1,1));
+            sub_arr5.add(new marking("एग्रो-मेट्रोलॉजी एंड क्लाइमेट चेंज ",1,1));
+            sub_arr5.add(new marking("ब्रीडिंग ऑफ़ वेजिटेबल, ट्यूबर एंड स्पाइस क्रैप्स ",2,1));
+            sub_arr5.add(new marking("डाइसीज़ ऑफ़ वेजिटेबल, ऑर्नामेंटल्स्व एंड स्पाइस क्रैप्स",2,1));
+            sub_arr5.add(new marking("पोटैटो एंड ट्यूबर क्रैप्स ",1,1));
+            sub_arr5.add(new marking("प्रिसिशन फार्मिंग एंड प्रोटेक्टेड कल्टीवेशन ",2,1));
+
+
+
+            array.add(sub_arr5);
+
+
+            sub_arr6.add(new marking("होर्टीबसिंस मैनेजमेंट ",1,1));
+            sub_arr6.add(new marking("पोस्ट हार्वेस्ट मैनेजमेंट ऑफ़ हार्टिकल्चरल क्रैप्स ",2,1));
+            sub_arr6.add(new marking("इन्सेक्ट पेस्ट्स ऑफ़ वेजिटेबल, ऑर्नामेंटल्स्व एंड स्पाइस क्रैप्स",2,1));
+            sub_arr6.add(new marking("एपिकल्चर, सरिकल्चर एंड लैक कल्चर",1,1));
+            sub_arr6.add(new marking("कम्युनिकेशन स्किल्स एंड पर्सनालिटी डेवलपमेंट ",1,1));
+            sub_arr6.add(new marking("प्रोसेसिंग ऑफ़ हार्टिकल्यूटरल क्रैप्स ",1,2));
+            sub_arr6.add(new marking("ड्रायलेंड हार्टिकल्यूचर ",1,1));
+            sub_arr6.add(new marking("सीड प्रोडक्शन ऑफ़ वेजिटेबल, ट्यूबर एंड स्पाइस क्रैप्स ",2,1));
+            sub_arr6.add(new marking("ब्रीडिंग एंड सीड प्रोडक्शन ऑफ़ फ्लावर एंड ऑर्नामेंटल प्लांट्स ",2,1));
+
+
+
+            array.add(sub_arr6);
+
+            sub_arr7.add(new marking("सब्जेक्ट  1",10,0));
+            sub_arr7.add(new marking("सब्जेक्ट  2",10,0));
+
+
+
+
+            array.add(sub_arr7);
+
+
+
+            sub_arr8.add(new marking("प्लांट क्लिनिक",1,0));
+            sub_arr8.add(new marking("जनरल ओरिएंटेशन एंड ऑन कैंपस ट्रेनिंग बाय डिफ़रेंट फैकल्टीज़ ",2,0));
+            sub_arr8.add(new marking("विलेज अटैचमेंट",7,0));
+            sub_arr8.add(new marking("यूनिट अटैचमेंट इन यूनिवर्सिटी /कॉलेज / केवीके /रिसर्च स्टेशन अटैचमेंट ",4,0));
+            sub_arr8.add(new marking("एग्रो इंडस्ट्रियल /आगरी बिज़नेस अटैचमेंट",4,0));
+            sub_arr8.add(new marking("प्रोजेक्ट रिपोर्ट प्रिपरेशन , प्रेजेंटेशन एंड एवलेशन ",2,0));
+
+            array.add(sub_arr8);
+
+        }
     }
     public void initialize_arrays2(){
-        sub_arr1.add(new marking("Principles of Argonomy",2,1));
-        sub_arr1.add(new marking("Principles of Soil Science",2,1));
-        sub_arr1.add(new marking("Engineering Physics",2,1));
-        sub_arr1.add(new marking("Engineering Chemistry",2,1));
-        sub_arr1.add(new marking("Engineering Mathematics-1",2,1));
-        sub_arr1.add(new marking("Communication Skills and Personality Development",1,1));
-        sub_arr1.add(new marking("Surveying and Levelling",1,2));
-        sub_arr1.add(new marking("Engineering Drawing",0,2));
+
+        if (language==0){
+            sub_arr1.add(new marking("Principles of Argonomy",2,1));
+            sub_arr1.add(new marking("Principles of Soil Science",2,1));
+            sub_arr1.add(new marking("Engineering Physics",2,1));
+            sub_arr1.add(new marking("Engineering Chemistry",2,1));
+            sub_arr1.add(new marking("Engineering Mathematics-1",2,1));
+            sub_arr1.add(new marking("Communication Skills and Personality Development",1,1));
+            sub_arr1.add(new marking("Surveying and Levelling",1,2));
+            sub_arr1.add(new marking("Engineering Drawing",0,2));
 
 
 
-        array.add(sub_arr1);
+            array.add(sub_arr1);
 
 
-        sub_arr2.add(new marking("Engineering Mathematics-2",2,1));
-        sub_arr2.add(new marking("Environmental Science and Disaster Management",2,1));
-        sub_arr2.add(new marking("Principles of Horticulture Crops and Plant Protection",1,1));
-        sub_arr2.add(new marking("Strength of Material",1,1));
-        sub_arr2.add(new marking("Engineering Mechanics",2,1));
-        sub_arr2.add(new marking("Soil Mechanics",1,1));
-        sub_arr2.add(new marking("Theory of Machines",2,0));
-        sub_arr2.add(new marking("Theory of Structures",1,1));
-        sub_arr2.add(new marking("Human Value and Ethics",0,1));
-        sub_arr2.add(new marking("Fundamentals of Renewable Energy Resources",2,1));
-
-
-
-        array.add(sub_arr2);
-
-
-        sub_arr3.add(new marking("Machine Design",2,0));
-        sub_arr3.add(new marking("Fluid Mechanics and Open Channel Hydraulics",2,1));
-        sub_arr3.add(new marking("Thermodynamics, Refrigeration and Air Conditioning",2,1));
-        sub_arr3.add(new marking("Heat and Mass Transfer",2,0));
-        sub_arr3.add(new marking("Farm Machinery and Eqipments-1",2,1));
-        sub_arr3.add(new marking("Irrigation Engineering",2,1));
-        sub_arr3.add(new marking("Engineering Properties of Agricultural Produce",1,1));
-        sub_arr3.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
-        sub_arr3.add(new marking("Watershed Hydrology",1,1));
+            sub_arr2.add(new marking("Engineering Mathematics-2",2,1));
+            sub_arr2.add(new marking("Environmental Science and Disaster Management",2,1));
+            sub_arr2.add(new marking("Principles of Horticulture Crops and Plant Protection",1,1));
+            sub_arr2.add(new marking("Strength of Material",1,1));
+            sub_arr2.add(new marking("Engineering Mechanics",2,1));
+            sub_arr2.add(new marking("Soil Mechanics",1,1));
+            sub_arr2.add(new marking("Theory of Machines",2,0));
+            sub_arr2.add(new marking("Theory of Structures",1,1));
+            sub_arr2.add(new marking("Human Value and Ethics",0,1));
+            sub_arr2.add(new marking("Fundamentals of Renewable Energy Resources",2,1));
 
 
 
-        array.add(sub_arr3);
+            array.add(sub_arr2);
 
 
-        sub_arr4.add(new marking("Engineering Mathematics-3",2,1));
-        sub_arr4.add(new marking("Workshop Technology and Practices",1,2));
-        sub_arr4.add(new marking("Electrical Machines and Power Utilization",2,1));
-        sub_arr4.add(new marking("Tractor and Automotive Engines",2,1));
-        sub_arr4.add(new marking("GroundWater Wells and Pumps",2,1));
-        sub_arr4.add(new marking("Sprinkler and Micro Irrigation Systems",1,1));
-        sub_arr4.add(new marking("Dairy and Food Engineering",2,1));
-        sub_arr4.add(new marking("Renewable Power Sources",2,1));
-
-
-
-        array.add(sub_arr4);
-
-
-        sub_arr5.add(new marking("Auto Cad Application",0,2));
-        sub_arr5.add(new marking("Building Construction and Cost Estimation",2,0));
-        sub_arr5.add(new marking("Computer Programming and Data Structures",1,2));
-        sub_arr5.add(new marking("Applied Electronics and Instrumentations",2,1));
-        sub_arr5.add(new marking("Tractor System and Controls",2,1));
-        sub_arr5.add(new marking("Drainage Engineering",1,1));
-        sub_arr5.add(new marking("Post Harvest Engineering of Horticultural Crops",1,1));
-        sub_arr5.add(new marking("Post Harvest Engineering of Cereals, Pulses and Oil Seeds",2,1));
-        sub_arr5.add(new marking("Soil and Water Conservation Engineering",2,1));
+            sub_arr3.add(new marking("Machine Design",2,0));
+            sub_arr3.add(new marking("Fluid Mechanics and Open Channel Hydraulics",2,1));
+            sub_arr3.add(new marking("Thermodynamics, Refrigeration and Air Conditioning",2,1));
+            sub_arr3.add(new marking("Heat and Mass Transfer",2,0));
+            sub_arr3.add(new marking("Farm Machinery and Eqipments-1",2,1));
+            sub_arr3.add(new marking("Irrigation Engineering",2,1));
+            sub_arr3.add(new marking("Engineering Properties of Agricultural Produce",1,1));
+            sub_arr3.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
+            sub_arr3.add(new marking("Watershed Hydrology",1,1));
 
 
 
-        array.add(sub_arr5);
+            array.add(sub_arr3);
 
 
-        sub_arr6.add(new marking("Entrepreneurship Development and Business Management",2,1));
-        sub_arr6.add(new marking("Web Design and Applications",1,1));
-        sub_arr6.add(new marking("Farm Machinery and Eqipments-2",2,1));
-        sub_arr6.add(new marking("Tractor and Farm Machinery Operation and Maintenance",0,2));
-        sub_arr6.add(new marking("Agriculture Structures and Environmental Control",2,1));
-        sub_arr6.add(new marking("Bio-Energy Systems Design and Applications",2,1));
-        sub_arr6.add(new marking("Watershed Planning and Management",1,1));
-        sub_arr6.add(new marking("Water Harvesting and Soil Conservation Structures",2,1));
+            sub_arr4.add(new marking("Engineering Mathematics-3",2,1));
+            sub_arr4.add(new marking("Workshop Technology and Practices",1,2));
+            sub_arr4.add(new marking("Electrical Machines and Power Utilization",2,1));
+            sub_arr4.add(new marking("Tractor and Automotive Engines",2,1));
+            sub_arr4.add(new marking("GroundWater Wells and Pumps",2,1));
+            sub_arr4.add(new marking("Sprinkler and Micro Irrigation Systems",1,1));
+            sub_arr4.add(new marking("Dairy and Food Engineering",2,1));
+            sub_arr4.add(new marking("Renewable Power Sources",2,1));
 
 
 
-        array.add(sub_arr6);
-
-        sub_arr7.add(new marking("10 Weeks Industrial Attachment/Internship(Student Ready)",0,10));
+            array.add(sub_arr4);
 
 
-        array.add(sub_arr7);
+            sub_arr5.add(new marking("Auto Cad Application",0,2));
+            sub_arr5.add(new marking("Building Construction and Cost Estimation",2,0));
+            sub_arr5.add(new marking("Computer Programming and Data Structures",1,2));
+            sub_arr5.add(new marking("Applied Electronics and Instrumentations",2,1));
+            sub_arr5.add(new marking("Tractor System and Controls",2,1));
+            sub_arr5.add(new marking("Drainage Engineering",1,1));
+            sub_arr5.add(new marking("Post Harvest Engineering of Horticultural Crops",1,1));
+            sub_arr5.add(new marking("Post Harvest Engineering of Cereals, Pulses and Oil Seeds",2,1));
+            sub_arr5.add(new marking("Soil and Water Conservation Engineering",2,1));
 
-        sub_arr8.add(new marking("Project Planning and Report Writing(Student Ready)",0,10));
-        sub_arr8.add(new marking("Subject 1",2,1));
-        sub_arr8.add(new marking("Subject 2",2,1));
-        sub_arr8.add(new marking("Subject 3",2,1));
 
-        array.add(sub_arr8);
+
+            array.add(sub_arr5);
+
+
+            sub_arr6.add(new marking("Entrepreneurship Development and Business Management",2,1));
+            sub_arr6.add(new marking("Web Design and Applications",1,1));
+            sub_arr6.add(new marking("Farm Machinery and Eqipments-2",2,1));
+            sub_arr6.add(new marking("Tractor and Farm Machinery Operation and Maintenance",0,2));
+            sub_arr6.add(new marking("Agriculture Structures and Environmental Control",2,1));
+            sub_arr6.add(new marking("Bio-Energy Systems Design and Applications",2,1));
+            sub_arr6.add(new marking("Watershed Planning and Management",1,1));
+            sub_arr6.add(new marking("Water Harvesting and Soil Conservation Structures",2,1));
+
+
+
+            array.add(sub_arr6);
+
+            sub_arr7.add(new marking("10 Weeks Industrial Attachment/Internship(Student Ready)",0,10));
+
+
+            array.add(sub_arr7);
+
+            sub_arr8.add(new marking("Project Planning and Report Writing(Student Ready)",0,10));
+            sub_arr8.add(new marking("Subject 1",2,1));
+            sub_arr8.add(new marking("Subject 2",2,1));
+            sub_arr8.add(new marking("Subject 3",2,1));
+
+            array.add(sub_arr8);
+        } else if (language==1) {
+            sub_arr1.add(new marking("इंट्रोडक्टरी क्रॉप फिजियोलॉजी ",1,1));
+            sub_arr1.add(new marking("इकोनॉमिक्स एंड मार्केटिंग ",2,1));
+            sub_arr1.add(new marking("प्रिंसिपल ऑफ़ लैंडस्केप आर्किटेक्चर ",1,1));
+            sub_arr1.add(new marking("ह्यूमन वैल्यूज़ एंड एथिक्स ",0,1));
+            sub_arr1.add(new marking("इंट्रोडक्टरी माइक्रोबायोलॉजी ",1,1));
+            sub_arr1.add(new marking("एनएसएस /एनसीसी /फ़िज़िशियल एजुकेशन एंड योगा प्रैक्टिस ",0,2));
+            sub_arr1.add(new marking("फंडामेंटल्स ऑफ़ सॉइल साइंस",1,1));
+            sub_arr1.add(new marking("एलिमेंटरी प्लांट बायोचमिस्ट्री ",1,1));
+            sub_arr1.add(new marking("फंडामेंटल्स ऑफ़ हार्टिकल्चर ",1,1));
+
+            array.add(sub_arr1);
+
+
+            sub_arr2.add(new marking("ग्रोथ एंड डेवलपमेंट ऑफ़ हार्टिकल्चरल क्रैप्स ",1,1));
+            sub_arr2.add(new marking("कॉम्प्रिहेंशन एंड कम्युनिकेशन स्किल्स इन इंगलिश ",1,1));
+            sub_arr2.add(new marking("वाटर मैनेजमेंट इन हार्टिकल्चरल क्रैप्स",1,1));
+            sub_arr2.add(new marking("फंडामेंटल्स ऑफ़ एक्सटेंशन एजुकेशन  ",1,1));
+            sub_arr2.add(new marking("एनवायर्नमेंटल स्टडीज़ एंड डिजास्टर मैनेजमेंट ",2,1));
+            sub_arr2.add(new marking("ट्रॉपिकल एंड सबट्रोपिकल फ्रूट्स ",2,1));
+            sub_arr2.add(new marking("प्रिंसिपल्स ऑफ़ प्लांट ब्रीडिंग ",2,1));
+            sub_arr2.add(new marking("फंडामेंटल्स ऑफ़ प्लांट पैथोलॉजी",2,1));
+                    sub_arr2.add(new marking("सॉइल फर्टिलिटी एंड न्यूट्रीएंट मैनेजमेंट ",1,1));
+            sub_arr2.add(new marking("ट्रॉपिकल एंड सबट्रोपिकल वेजेटेबल्स ",2,1));
+
+
+
+            array.add(sub_arr2);
+
+
+            sub_arr3.add(new marking("वीड मैनेजमेंट इन हार्टिकल्चरल क्रैप्स ",1,1));
+            sub_arr3.add(new marking("एलिमेंटरी प्लांट बायोटेक्नोलॉजी ",1,1));
+            sub_arr3.add(new marking("फंडामेंटल्स ऑफ़ फ़ूड टेक्नोलॉजी ",1,1));
+            sub_arr3.add(new marking("फंडामेंटल्स ऑफ़ एंटोमोलॉजी ",2,1));
+            sub_arr3.add(new marking("कमर्शियल फ्लोरिकल्चर ",2,1));
+            sub_arr3.add(new marking("इंट्रोडक्टरी एग्रो-फॉरेस्ट्री ",1,1));
+            sub_arr3.add(new marking("प्लांट प्रॉपगेशन एंड नर्सरी मैनेजमेंट ",1,1));
+            sub_arr3.add(new marking("टेम्प्रेट फ्रूट क्रैप्स ",1,1));
+            sub_arr3.add(new marking("डाइसीज़ ऑफ़ फ़्रूट, प्लांटेशन, मेडिसिनल एंड आरोमैटिक क्रैप्स ",2,1));
+            sub_arr3.add(new marking("आगरी-इंफ़ॉरमैटिक्स एंड कंप्यूटर एप्लिकेशंस  ",1,1));
+            sub_arr3.add(new marking("टेम्प्रेट वेजिटेबल क्रैप्स ",1,1));
+
+
+
+            array.add(sub_arr3);
+
+
+            sub_arr4.add(new marking("फ़ार्म पॉवर एंड मशीनरी ",1,1));
+            sub_arr4.add(new marking("इन्सेक्ट पेस्ट ऑफ़  फ़्रूट, प्लांटेशन, मेडिसिनल एंड आरोमैटिक क्रैप्स, ",2,1));
+            sub_arr4.add(new marking("ऑर्नामेंटल हार्टिकल्चर ",2,1));
+            sub_arr4.add(new marking("प्लांटेशन क्रैप्स ",2,1));
+            sub_arr4.add(new marking("ब्रीडिंफ ऑफ़ फ्रूट्स एंड प्लांटेशन क्रैप्स ",2,1));
+            sub_arr4.add(new marking("नेमेटोड पेस्ट ऑफ़ हार्टिकल्चरल क्रैप्स एंड देअर मैनेजमेंट",1,1));
+            sub_arr4.add(new marking("सॉइल वाटर एंड प्लांट एनालिसिस ",1,1));
+            sub_arr4.add(new marking("एलिमेंटरी स्टेटिस्टिक्स ",2,1));
+            sub_arr4.add(new marking("स्पाइसेस एंड कंडीमेंट्स ",2,1));
+
+
+
+            array.add(sub_arr4);
+
+
+            sub_arr5.add(new marking("आर्गेनिक फार्मिंग ",2,1));
+            sub_arr5.add(new marking("इंट्रोडक्शन तो मेजर फील्ड क्रैप्स ",1,1));
+            sub_arr5.add(new marking("मेडिसिनल एंड आरोमैटिक क्रॉस ",2,1));
+            sub_arr5.add(new marking("एंट्रीप्रेन्शियों डेवलपमेंट एंड बिज़नेस मैनेजमेंट",1,1));
+            sub_arr5.add(new marking("ऑर्चर्ड एनडी एस्टेट मैनेजमेंट ",1,1));
+            sub_arr5.add(new marking("एग्रो-मेट्रोलॉजी एंड क्लाइमेट चेंज ",1,1));
+            sub_arr5.add(new marking("ब्रीडिंग ऑफ़ वेजिटेबल, ट्यूबर एंड स्पाइस क्रैप्स ",2,1));
+            sub_arr5.add(new marking("डाइसीज़ ऑफ़ वेजिटेबल, ऑर्नामेंटल्स्व एंड स्पाइस क्रैप्स",2,1));
+            sub_arr5.add(new marking("पोटैटो एंड ट्यूबर क्रैप्स ",1,1));
+            sub_arr5.add(new marking("प्रिसिशन फार्मिंग एंड प्रोटेक्टेड कल्टीवेशन ",2,1));
+
+
+
+            array.add(sub_arr5);
+
+
+            sub_arr6.add(new marking("होर्टीबसिंस मैनेजमेंट ",1,1));
+            sub_arr6.add(new marking("पोस्ट हार्वेस्ट मैनेजमेंट ऑफ़ हार्टिकल्चरल क्रैप्स ",2,1));
+            sub_arr6.add(new marking("इन्सेक्ट पेस्ट्स ऑफ़ वेजिटेबल, ऑर्नामेंटल्स्व एंड स्पाइस क्रैप्स",2,1));
+            sub_arr6.add(new marking("एपिकल्चर, सरिकल्चर एंड लैक कल्चर",1,1));
+            sub_arr6.add(new marking("कम्युनिकेशन स्किल्स एंड पर्सनालिटी डेवलपमेंट ",1,1));
+            sub_arr6.add(new marking("प्रोसेसिंग ऑफ़ हार्टिकल्यूटरल क्रैप्स ",1,2));
+            sub_arr6.add(new marking("ड्रायलेंड हार्टिकल्यूचर ",1,1));
+            sub_arr6.add(new marking("सीड प्रोडक्शन ऑफ़ वेजिटेबल, ट्यूबर एंड स्पाइस क्रैप्स ",2,1));
+            sub_arr6.add(new marking("ब्रीडिंग एंड सीड प्रोडक्शन ऑफ़ फ्लावर एंड ऑर्नामेंटल प्लांट्स ",2,1));
+
+
+
+            array.add(sub_arr6);
+
+            sub_arr7.add(new marking("सब्जेक्ट  1",10,0));
+            sub_arr7.add(new marking("सब्जेक्ट  2",10,0));
+
+
+
+
+            array.add(sub_arr7);
+
+
+
+            sub_arr8.add(new marking("प्लांट क्लिनिक",1,0));
+            sub_arr8.add(new marking("जनरल ओरिएंटेशन एंड ऑन कैंपस ट्रेनिंग बाय डिफ़रेंट फैकल्टीज़ ",2,0));
+            sub_arr8.add(new marking("विलेज अटैचमेंट",7,0));
+            sub_arr8.add(new marking("यूनिट अटैचमेंट इन यूनिवर्सिटी /कॉलेज / केवीके /रिसर्च स्टेशन अटैचमेंट ",4,0));
+            sub_arr8.add(new marking("एग्रो इंडस्ट्रियल /आगरी बिज़नेस अटैचमेंट",4,0));
+            sub_arr8.add(new marking("प्रोजेक्ट रिपोर्ट प्रिपरेशन , प्रेजेंटेशन एंड एवलेशन ",2,0));
+
+            array.add(sub_arr8);
+
+        }
+
+
     }
     public void initialize_fields(){
         calculate=findViewById(R.id.calculate);
