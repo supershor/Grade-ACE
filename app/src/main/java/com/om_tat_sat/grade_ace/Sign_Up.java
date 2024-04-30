@@ -86,9 +86,9 @@ public class Sign_Up extends AppCompatActivity {
                 save();
             }else {
                 AlertDialog.Builder alert=new AlertDialog.Builder(Sign_Up.this);
-                alert.setTitle("I comply")
-                        .setMessage("I Comply that the app can some time show minor error while calculating OGPA(±0.10)");
-                alert.setPositiveButton("I Agree", (dialog, which) -> comply=true).setNegativeButton("I Don't Agree", (dialog, which) -> dialog.dismiss());
+                alert.setTitle(getString(R.string.I_comply))
+                        .setMessage(getString(R.string.I_agree));
+                alert.setPositiveButton(getString(R.string.I_Agree_sign_up), (dialog, which) -> comply=true).setNegativeButton(getString(R.string.I_not_Agree_sign_up), (dialog, which) -> dialog.dismiss());
                 alert.show();
             }
         });
@@ -121,35 +121,35 @@ public class Sign_Up extends AppCompatActivity {
     public boolean check_fields(){
         //checking all input fields for valid input
         if (name.getText()==null||confirm_password.getText()==null||email.getText()==null||password.getText()==null|| name.getText().toString().isEmpty() ||email.getText().toString().isEmpty()||password.getText().toString().isEmpty()||confirm_password.getText().toString().isEmpty()){
-            issue="Enter all fields";
+            issue=getString(R.string.enter_all_fields);
             return true;
         }else if(password.getText().length()<=8){
-            issue="Password must be greater than 8 characters";
+            issue=getString(R.string.password_greater_then_8);
             return true;
         }else if(email.getText().length()<=0){
-            issue="Enter valid email";
+            issue=getString(R.string.enter_valid_email);
             return true;
         }else if(name.getText().length()<=1){
-            issue="Name must be greater than 1 characters";
+            issue=getString(R.string.name_greater_then_1);
             return true;
         }else if(confirm_password.getText().length()<=8){
-            issue="Password must be greater than 8 characters";
+            issue=getString(R.string.password_greater_then_8);
             return true;
         }else if(!checkBox.isChecked()){
-            issue="Please agree to terms and conditions";
+            issue=getString(R.string.I_agree_terms_and_condition);
             return true;
         } else if (password.getText().toString().contains(" ")) {
-            issue="Password can not contain spaces";
+            issue=getString(R.string.Invalid_password_spaces);
             return true;
         }
         else if (!password.getText().toString().equals(confirm_password.getText().toString())){
-            issue="Both passwords must be same";
+            issue=getString(R.string.both_password_must_be_same);
             return true;
         } else if (!email.getText().toString().contains("@")){
-            issue="Invalid email";
+            issue=getString(R.string.Invalid_email);
             return true;
         }else if (email.getText().toString().contains(" ")){
-            issue="Email cant contains spaces";
+            issue=getString(R.string.Invalid_email_spaces);
             return true;
         }
         return false;
