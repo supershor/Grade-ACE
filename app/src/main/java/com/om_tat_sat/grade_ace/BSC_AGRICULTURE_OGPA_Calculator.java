@@ -129,7 +129,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         Log.e( "main sem onCreate:0000000000000000",sem+"");
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_calculator);
-        toolbar.setTitle(R.string.sem+sem);
+        toolbar.setTitle(getString(R.string.semester)+sem);
 
         //checking if user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();
