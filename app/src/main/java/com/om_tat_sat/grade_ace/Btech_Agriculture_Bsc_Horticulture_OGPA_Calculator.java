@@ -324,10 +324,10 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         sub_arr3.add(new marking("Commercial Floriculture",2,1));
         sub_arr3.add(new marking("Introductory Agro-Forestry",1,1));
         sub_arr3.add(new marking("Plant Propogation and Nursery Management",1,1));
-        sub_arr3.add(new marking("Temperature Fruit Crops",1,1));
+        sub_arr3.add(new marking("Temprate Fruit Crops",1,1));
         sub_arr3.add(new marking("Diseases of Fruit Plantation, Medicinal and Aromatic Crops",2,1));
         sub_arr3.add(new marking("Agri Informatics and Computer Application",1,1));
-        sub_arr3.add(new marking("Temperature Vegetable Crops",1,1));
+        sub_arr3.add(new marking("Temprate Vegetable Crops",1,1));
 
 
 
