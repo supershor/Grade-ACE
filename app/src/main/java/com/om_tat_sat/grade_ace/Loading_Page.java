@@ -51,7 +51,7 @@ public class Loading_Page extends AppCompatActivity {
             firebaseUser.reload().addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
                     startActivity(main_page);
-                    Toast.makeText(Loading_Page.this,"refresh", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Loading_Page.this,getString(R.string.refresh_loading), Toast.LENGTH_SHORT).show();
                     finishAffinity();
                 }else {
                     Toast.makeText(Loading_Page.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -68,4 +68,7 @@
 
     <string name="sure_to_logout">Are you sure you want to Logout ?</string>
     <string name="cancel">Cancel</string>
+
+
+    <string name="refresh_loading">refresh</string>
 </resources>
