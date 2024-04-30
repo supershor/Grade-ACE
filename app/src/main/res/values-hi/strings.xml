@@ -43,4 +43,5 @@
     <string name="message">संदेश :- </string>
     <string name="semester">छमाही :- </string>
     <string name="ogpa_total_ogpa">ओजीपीए :- </string>
+    <string name="graph_ogpa_error_message_1_fragment">एकल सेमेस्टर के लिए ग्राफ़ सेट नहीं किया जा सकता.</string>
 </resources>

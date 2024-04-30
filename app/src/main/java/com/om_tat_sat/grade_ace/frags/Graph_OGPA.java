@@ -112,7 +112,7 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
         int size=arrayList.size();
         if (size==1){
             graph.removeAllSeries();
-            Toast.makeText(getContext(), "Cant set graph for single sem", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.graph_ogpa_error_message_1_fragment, Toast.LENGTH_SHORT).show();
         } else if (size==2) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                     new DataPoint(1,arrayList.get(0).getY()),
