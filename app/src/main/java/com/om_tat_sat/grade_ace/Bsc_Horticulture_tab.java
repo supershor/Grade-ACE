@@ -66,7 +66,7 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
 
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_bsc_agriculture);
-        toolbar.setTitle("BSC HORTICULTURE");
+        toolbar.setTitle(getString(R.string.bsc_horticulture));
         setSupportActionBar(toolbar);
 
         firebaseAuth= FirebaseAuth.getInstance();
@@ -124,14 +124,14 @@ public class Bsc_Horticulture_tab extends AppCompatActivity {
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(Bsc_Horticulture_tab.this);
             builder.setCancelable(false);
-            builder.setTitle("Logout")
-                    .setMessage("Are you sure you want to Logout ?")
-                    .setPositiveButton("Logout", (dialog, which) -> {
+            builder.setTitle(getString(R.string.logout))
+                    .setMessage(getString(R.string.sure_to_logout))
+                    .setPositiveButton(getString(R.string.logout), (dialog, which) -> {
                         firebaseAuth.signOut();
                         startActivity(new Intent(Bsc_Horticulture_tab.this,Loading_Page.class));
                         finishAffinity();
                     })
-                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+                    .setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
             builder.show();
         }
         else if (item.getItemId()==R.id.report_error){
