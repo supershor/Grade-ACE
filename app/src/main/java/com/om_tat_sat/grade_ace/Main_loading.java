@@ -2,6 +2,9 @@ package com.om_tat_sat.grade_ace;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.security.auth.login.LoginException;
@@ -37,6 +41,8 @@ public class Main_loading extends AppCompatActivity {
     Intent intent;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    SharedPreferences app_language;
+    int language;
     int versionCode=4;
     String versionName="4.0";
     boolean update_going_on=false;
@@ -52,6 +58,13 @@ public class Main_loading extends AppCompatActivity {
             return insets;
         });
         getWindow().setStatusBarColor(ContextCompat.getColor(Main_loading.this,R.color.black));
+        app_language=getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
+        if (language==0){
+            change_language("en");
+        } else if (language==1) {
+            change_language("hi");
+        }
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()!=null){
             firebaseUser=firebaseAuth.getCurrentUser();
@@ -151,5 +164,13 @@ public class Main_loading extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         refresh();
+    }
+    public void change_language(String language){
+        Resources resources=this.getResources();
+        Configuration configuration=resources.getConfiguration();
+        Locale locale=new Locale(language);
+        locale.setDefault(locale);
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }
