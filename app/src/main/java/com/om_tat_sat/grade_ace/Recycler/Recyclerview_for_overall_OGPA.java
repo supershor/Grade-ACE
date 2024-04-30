@@ -50,9 +50,9 @@ public class Recyclerview_for_overall_OGPA extends RecyclerView.Adapter<Recycler
                 sem.append(arrayList.get(i).sem);
             }
         }
-        holder.name.setText("NAME :- "+arrayList.get(0).name);
-        holder.ogpa.setText("OGPA :- "+(total_ogpa/total_sem)+"");
-        holder.sem.setText("SEM :- "+sem);
+        holder.name.append(arrayList.get(0).name);
+        holder.ogpa.append((total_ogpa/total_sem)+"");
+        holder.sem.append(sem);
     }
 
     @Override
