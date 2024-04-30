@@ -2,9 +2,7 @@ package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -58,7 +56,7 @@ public class TopperTips extends AppCompatActivity {
         recyclerView=findViewById(R.id.recycler_topper_message);
         recyclerView.setLayoutManager(new LinearLayoutManager(TopperTips.this));
         toolbar=findViewById(R.id.toolbar_topper_message);
-        toolbar.setTitle("Topper Tips");
+        toolbar.setTitle(getString(R.string.Topper_Tips));
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference("Topper_Tips");
         HashMap<String,String>hashMap=new HashMap<>();
