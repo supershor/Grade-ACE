@@ -59,12 +59,6 @@ public class TopperTips extends AppCompatActivity {
         toolbar.setTitle(getString(R.string.Topper_Tips));
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         databaseReference=firebaseDatabase.getReference("Topper_Tips");
-        HashMap<String,String>hashMap=new HashMap<>();
-        hashMap.put("NAME","n1");
-        hashMap.put("PASSING_KEY","p1");
-        hashMap.put("COLLEGE_NAME","c1");
-        hashMap.put("MESSAGE","m1");
-        databaseReference.child("3").setValue(hashMap);
         refresh();
     }
     public void refresh(){

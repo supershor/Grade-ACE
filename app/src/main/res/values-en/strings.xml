@@ -43,15 +43,13 @@
     <string name="message">Message :- </string>
     <string name="semester">Semester :- </string>
     <string name="ogpa_total_ogpa">OGPA :- </string>
-    <string name="graph_ogpa_error_message_1_fragment">Cant set graph for single sem.</string>
+    <string name="graph_ogpa_error_message_1_fragment">Cannot set graph for single sem.</string>
     <string name="ogpa_message_1_fragment">Enter details for OGPA.</string>
     <string name="ogpa_message_2_fragment">You can not change this later.</string>
     <string name="ogpa_message_3_fragment">CONTINUE</string>
     <string name="ogpa_message_4_fragment">Select Semester</string>
     <string name="ogpa_message_5_fragment">User with same name and semester already exists.</string>
-    <string name="ogpa_message_6_fragment">CANCEL</string>
-
-
+    <string name="ogpa_message_6_fragment">Cancel</string>
     <string name="bsc_agriculture_message_1">Share Topper Tips ?</string>
     <string name="bsc_agriculture_message_2">Since you have scored more than 8 OGPA would you like to share some tips with other agriculture students ? If yes then please don\'t delete pre written text.</string>
     <string name="bsc_agriculture_message_3_no">No</string>
@@ -64,9 +62,31 @@
     <string name="bsc_agriculture_message_10">New OGPA added successfully.</string>
     <string name="bsc_agriculture_message_11">OGPA : </string>
     <string name="bsc_agriculture_message_12">Enter all available fields.</string>
-
-
     <string name="sure_to_logout">Are you sure you want to Logout ?</string>
     <string name="cancel">Cancel</string>
     <string name="refresh_loading">refresh</string>
+    <string name="reset_password">Reset Password</string>
+
+    <string name="enter_full_email_login">Enter your email to get reset link.</string>
+    <string name="Send">Send</string>
+    <string name="Invalid_email">Invalid email address.</string>
+    <string name="Invalid_email_spaces">Email can not contain spaces</string>
+    <string name="Invalid_password_spaces">Password can not contain spaces</string>
+    <string name="Reset_link_sent">Reset link sent.</string>
+    <string name="enter_all_fields">Enter all fields</string>
+    <string name="email_contains_spaces">Email can not contains spaces</string>
+    <string name="try_with_another_email">Please login/signup with another email.</string>
+    <string name="Update_Available">Update Available</string>
+    <string name="Update">Update</string>
+    <string name="Topper_Tips">Topper Tips</string>
+    <string name="I_comply">I comply</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="password_greater_then_8">Password must be greater than 8 characters</string>
+    <string name="both_password_must_be_same">Both passwords must be same</string>
+    <string name="name_greater_then_1">Name must be greater than 1 characters</string>
+    <string name="I_Agree_sign_up">I Agree</string>
+    <string name="I_not_Agree_sign_up">I Don\'t Agree</string>
+    <string name="I_agree">I Comply that the app can some time show minor error while calculating OGPA(±0.10)</string>
+    <string name="I_agree_terms_and_condition">Please agree to terms and conditions</string>
+    <string name="Update_version">New version of the app is available we recommend updating the app.</string>
 </resources>

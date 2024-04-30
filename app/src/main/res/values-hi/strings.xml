@@ -65,9 +65,32 @@
     <string name="bsc_agriculture_message_10">नया ओजीपीए सफलतापूर्वक जोड़ा गया।</string>
     <string name="bsc_agriculture_message_11">ओजीपीए : </string>
     <string name="bsc_agriculture_message_12">सभी उपलब्ध फ़ील्ड भरें।</string>
-
-
     <string name="sure_to_logout">क्या आप लॉग आउट करना चाहते हैं ?</string>
     <string name="cancel">रद्द करें</string>
     <string name="refresh_loading">ताज़ा</string>
+    <string name="reset_password">पासवर्ड रीसेट</string>
+
+
+    <string name="enter_full_email_login">रीसेट लिंक पाने के लिए अपना ईमेल दर्ज करें। </string>
+    <string name="Send">भेजें</string>
+    <string name="Invalid_email">अमान्य ईमेल पता।</string>
+    <string name="Invalid_email_spaces">ईमेल में रिक्त स्थान नहीं हो सकते</string>
+    <string name="Invalid_password_spaces">पासवर्ड में स्पेस नहीं हो सकता</string>
+    <string name="Reset_link_sent">रीसेट लिंक भेजा गया.</string>
+    <string name="enter_all_fields">सभी फ़ील्ड दर्ज करें</string>
+    <string name="email_contains_spaces">ईमेल में रिक्त स्थान नहीं हो सकते</string>
+    <string name="try_with_another_email">कृपया किसी अन्य ईमेल से लॉगिन/साइनअप करें।</string>
+    <string name="Update_Available">उपलब्ध अद्यतन</string>
+    <string name="Update">अद्यतन</string>
+    <string name="Topper_Tips">टॉपर टिप्स</string>
+    <string name="I_comply">मैं अनुपालन करता हूं</string>
+    <string name="enter_valid_email">मान्य ईमेल दर्ज करें</string>
+    <string name="password_greater_then_8">Password must be greater than 8 characters</string>
+    <string name="both_password_must_be_same">पासवर्ड 8 अक्षर से अधिक होना चाहिए</string>
+    <string name="name_greater_then_1">नाम 1 अक्षर से बड़ा होना चाहिए</string>
+    <string name="I_Agree_sign_up">मैं सहमत हूं</string>
+    <string name="I_not_Agree_sign_up">मैं सहमत नहीं हूँ</string>
+    <string name="I_agree">मैं मानता हूं कि ओजीपीए (±0.10) की गणना करते समय ऐप कभी-कभी मामूली त्रुटि दिखा सकता है।</string>
+    <string name="I_agree_terms_and_condition">कृपया नियम एवं शर्तों से सहमत हों</string>
+    <string name="Update_version">ऐप का नया संस्करण उपलब्ध है, हम ऐप को अपडेट करने की सलाह देते हैं।</string>
 </resources>
