@@ -63,4 +63,9 @@
     <string name="bsc_agriculture_message_10">New OGPA added successfully.</string>
     <string name="bsc_agriculture_message_11">OGPA : </string>
     <string name="bsc_agriculture_message_12">Enter all available fields.</string>
+
+
+
+    <string name="sure_to_logout">Are you sure you want to Logout ?</string>
+    <string name="cancel">Cancel</string>
 </resources>

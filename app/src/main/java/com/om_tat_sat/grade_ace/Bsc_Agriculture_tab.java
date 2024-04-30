@@ -67,7 +67,7 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
 
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_bsc_agriculture);
-        toolbar.setTitle("BSC AGRICULTURE");
+        toolbar.setTitle(getString(R.string.bsc_agriculture));
         setSupportActionBar(toolbar);
 
         firebaseAuth= FirebaseAuth.getInstance();
@@ -119,14 +119,14 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(Bsc_Agriculture_tab.this);
             builder.setCancelable(false);
-            builder.setTitle("Logout")
-                    .setMessage("Are you sure you want to Logout ?")
-                    .setPositiveButton("Logout", (dialog, which) -> {
+            builder.setTitle(getString(R.string.logout))
+                    .setMessage(getString(R.string.sure_to_logout))
+                    .setPositiveButton(getString(R.string.logout), (dialog, which) -> {
                         firebaseAuth.signOut();
                         startActivity(new Intent(Bsc_Agriculture_tab.this,Loading_Page.class));
                         finishAffinity();
                     })
-                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+                    .setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
             builder.show();
         }
         else if (item.getItemId()==R.id.report_error){
@@ -161,7 +161,7 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
             AlertDialog.Builder alert=new AlertDialog.Builder(Bsc_Agriculture_tab.this);
             alert.setView(view);
             alert.setCancelable(false);
-            alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            alert.setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (english_checkbox.isChecked()){

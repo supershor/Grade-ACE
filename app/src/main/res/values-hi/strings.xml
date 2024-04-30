@@ -66,4 +66,8 @@
     <string name="bsc_agriculture_message_11">ओजीपीए : </string>
     <string name="bsc_agriculture_message_12">सभी उपलब्ध फ़ील्ड भरें।</string>
 
+
+    <string name="sure_to_logout">क्या आप लॉग आउट करना चाहते हैं ?</string>
+    <string name="cancel">रद्द करें</string>
+
 </resources>
