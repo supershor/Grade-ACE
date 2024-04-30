@@ -67,7 +67,7 @@ public class MainPage extends AppCompatActivity {
 
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_main_page);
-        toolbar.setTitle("GRADE ACE");
+        toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
 
         //checking if user is signed in or not
@@ -118,15 +118,15 @@ public class MainPage extends AppCompatActivity {
         if (item.getItemId()==R.id.logout){
             AlertDialog.Builder builder=new AlertDialog.Builder(MainPage.this);
             builder.setCancelable(false);
-            builder.setTitle("Logout")
-                    .setMessage("Are you sure you want to Logout ?")
-                    .setPositiveButton("Logout", (dialog, which) -> {
+            builder.setTitle(getString(R.string.logout))
+                    .setMessage(getString(R.string.sure_to_logout))
+                    .setPositiveButton(getString(R.string.logout), (dialog, which) -> {
                         mediaPlayer.start();
                         firebaseAuth.signOut();
                         startActivity(new Intent(MainPage.this,Loading_Page.class));
                         finishAffinity();
                     })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             mediaPlayer.start();
@@ -168,7 +168,7 @@ public class MainPage extends AppCompatActivity {
             AlertDialog.Builder alert=new AlertDialog.Builder(MainPage.this);
             alert.setView(view);
             alert.setCancelable(false);
-            alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            alert.setPositiveButton(getString(R.string.save), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (english_checkbox.isChecked()){
