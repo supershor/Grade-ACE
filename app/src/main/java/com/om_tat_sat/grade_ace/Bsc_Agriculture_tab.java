@@ -1,14 +1,23 @@
 package com.om_tat_sat.grade_ace;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -25,12 +34,20 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.om_tat_sat.grade_ace.Recycler.ViewPagerAdapter;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Bsc_Agriculture_tab extends AppCompatActivity {
     ViewPager2 viewPager2;
     TabLayout tabLayout;
     Toolbar toolbar;
+    SharedPreferences app_language;
+
+    TextView english;
+    TextView hindi;
+    CheckBox english_checkbox;
+    CheckBox hindi_checkbox;
+    int language=0;
     FirebaseAuth firebaseAuth;
     MediaPlayer mediaPlayer;
     ViewPagerAdapter viewPagerAdapter;
@@ -60,6 +77,8 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
         }
 
         //Tab layout setup
+        app_language=getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
         mediaPlayer=MediaPlayer.create(Bsc_Agriculture_tab.this,R.raw.button_tap);
         tabLayout=findViewById(R.id.tablayout_bsc_agriculture);
         viewPager2=findViewById(R.id.viewpager);
@@ -126,7 +145,81 @@ public class Bsc_Agriculture_tab extends AppCompatActivity {
             startActivity(intent);
         }else if (item.getItemId()==R.id.refresh){
             startActivity(new Intent(Bsc_Agriculture_tab.this,TopperTips.class));
+        }else if (item.getItemId()==R.id.change_language){
+            Log.e("onOptionsItemSelected:-------------------","1");
+            View view= LayoutInflater.from(Bsc_Agriculture_tab.this).inflate(R.layout.change_language,null);
+            english=view.findViewById(R.id.textview_english);
+            hindi=view.findViewById(R.id.textview_hindi);
+            english_checkbox=view.findViewById(R.id.checkbox_english);
+            hindi_checkbox=view.findViewById(R.id.checkbox_hindi);
+            if (language==0){
+                english_checkbox.setChecked(true);
+            } else if (language==1) {
+                hindi_checkbox.setChecked(true);
+            }
+            Log.e("onOptionsItemSelected:-------------------","2");
+            AlertDialog.Builder alert=new AlertDialog.Builder(Bsc_Agriculture_tab.this);
+            alert.setView(view);
+            alert.setCancelable(false);
+            alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (english_checkbox.isChecked()){
+                        SharedPreferences.Editor editor=app_language.edit();
+                        editor.putInt("current_language",0);
+                        editor.apply();
+                        changeLanguage("en");
+                    } else if (hindi_checkbox.isChecked()) {
+                        SharedPreferences.Editor editor=app_language.edit();
+                        editor.putInt("current_language",1);
+                        editor.apply();
+                        changeLanguage("hi");
+                    }
+                    startActivity(new Intent(Bsc_Agriculture_tab.this,MainPage.class));
+                    startActivity(new Intent(Bsc_Agriculture_tab.this,Bsc_Agriculture_tab.class));
+                    finishAffinity();
+                }
+            });
+            Log.e("onOptionsItemSelected:-------------------","3");
+            alert.show();
+            Log.e("onOptionsItemSelected:-------------------","4");
+            english.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    english_checkbox.setChecked(true);
+                    hindi_checkbox.setChecked(false);
+                }
+            });
+            english_checkbox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    english_checkbox.setChecked(true);
+                    hindi_checkbox.setChecked(false);
+                }
+            });
+            hindi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    hindi_checkbox.setChecked(true);
+                    english_checkbox.setChecked(false);
+                }
+            });
+            hindi_checkbox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    hindi_checkbox.setChecked(true);
+                    english_checkbox.setChecked(false);
+                }
+            });
+            Log.e("onOptionsItemSelected:-------------------","5");
         }
         return super.onOptionsItemSelected(item);
+    }public void changeLanguage(String  language){
+        Resources resources=this.getResources();
+        Configuration configuration=resources.getConfiguration();
+        Locale locale=new Locale(language);
+        locale.setDefault(locale);
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }
