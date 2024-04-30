@@ -75,8 +75,7 @@ public class Main_loading extends AppCompatActivity {
                         intent=new Intent(Main_loading.this, MainPage.class);
                     }else {
                         if (task.getException().getMessage().contains("The user account has been disabled by an administrator.")){
-                            Toast.makeText(Main_loading.this,"This email has been banned by administration.", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Main_loading.this,"Please login/signup with another email.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Main_loading.this,getString(R.string.try_with_another_email), Toast.LENGTH_LONG).show();
                             intent=new Intent(Main_loading.this, Loading_Page.class);
                         }else {
                             Toast.makeText(Main_loading.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -132,10 +131,10 @@ public class Main_loading extends AppCompatActivity {
     }
     public void update(){
         AlertDialog.Builder alert=new AlertDialog.Builder(Main_loading.this);
-        alert.setTitle("Update Available")
-                .setMessage("New version of the app is available we recommend updating the app.");
+        alert.setTitle(getString(R.string.Update_Available))
+                .setMessage(getString(R.string.Update_version));
         alert.setCancelable(false);
-        alert.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton(getString(R.string.Update), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
@@ -146,7 +145,7 @@ public class Main_loading extends AppCompatActivity {
                 }
             }
         });
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 update_going_on=false;
