@@ -43,4 +43,9 @@
     <string name="semester">Semester :- </string>
     <string name="ogpa_total_ogpa">OGPA :- </string>
     <string name="graph_ogpa_error_message_1_fragment">Cant set graph for single sem.</string>
+    <string name="ogpa_message_1_fragment">Enter details for OGPA.</string>
+    <string name="ogpa_message_2_fragment">You can not change this later.</string>
+    <string name="ogpa_message_3_fragment">CONTINUE</string>
+    <string name="ogpa_message_4_fragment">Select Semester</string>
+    <string name="ogpa_message_5_fragment">User with same name and semester already exists.</string>
 </resources>

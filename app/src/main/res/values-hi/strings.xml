@@ -44,4 +44,9 @@
     <string name="semester">छमाही :- </string>
     <string name="ogpa_total_ogpa">ओजीपीए :- </string>
     <string name="graph_ogpa_error_message_1_fragment">एकल सेमेस्टर के लिए ग्राफ़ सेट नहीं किया जा सकता.</string>
+    <string name="ogpa_message_1_fragment">ओजीपीए के लिए विवरण दर्ज करें।</string>
+    <string name="ogpa_message_2_fragment">आप इसे बाद में नहीं बदल सकते।</string>
+    <string name="ogpa_message_3_fragment">जारी रखना</string>
+    <string name="ogpa_message_4_fragment">सेमेस्टर का चयन करें</string>
+    <string name="ogpa_message_5_fragment">समान नाम और सेमेस्टर वाला उपयोगकर्ता पहले से मौजूद है।</string>
 </resources>
