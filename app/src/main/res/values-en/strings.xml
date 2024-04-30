@@ -49,4 +49,6 @@
     <string name="ogpa_message_3_fragment">CONTINUE</string>
     <string name="ogpa_message_4_fragment">Select Semester</string>
     <string name="ogpa_message_5_fragment">User with same name and semester already exists.</string>
+    <string name="ogpa_message_6_fragment">CANCEL</string>
+
 </resources>

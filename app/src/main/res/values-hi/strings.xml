@@ -49,4 +49,6 @@
     <string name="ogpa_message_3_fragment">जारी रखना</string>
     <string name="ogpa_message_4_fragment">सेमेस्टर का चयन करें</string>
     <string name="ogpa_message_5_fragment">समान नाम और सेमेस्टर वाला उपयोगकर्ता पहले से मौजूद है।</string>
+    <string name="ogpa_message_6_fragment">रद्द करें</string>
+
 </resources>

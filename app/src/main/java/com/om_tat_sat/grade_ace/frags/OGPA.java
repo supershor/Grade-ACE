@@ -105,7 +105,7 @@ public class OGPA extends Fragment implements RecyclerInterface {
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
                     startActivity(intent);
                 }
-            }).setNegativeButton("CANCEL", (dialog, which) -> {
+            }).setNegativeButton(R.string.ogpa_message_6_fragment, (dialog, which) -> {
                 mediaPlayer.start();
                 dialog.dismiss();
             });

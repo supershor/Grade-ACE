@@ -63,7 +63,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
     }
     private boolean check() {
         if (name.getText()!=null && name.getText().toString().isEmpty()){
-            issue="Enter Name";
+            issue=getString(R.string.enter_name);
             return true;
         }
         return false;
@@ -146,17 +146,17 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
             ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(getContext(),R.layout.text_spinner,arrayList);
             arrayAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
             spinner.setAdapter(arrayAdapter);
-            alert.setTitle("Enter details for OGPA");
-            alert.setMessage("You can not change this later.");
+            alert.setTitle(R.string.ogpa_message_1_fragment);
+            alert.setMessage(R.string.ogpa_message_2_fragment);
             alert.setCancelable(false);
-            alert.setPositiveButton("CONTINUE", (dialog, which) -> {
+            alert.setPositiveButton(R.string.ogpa_message_3_fragment, (dialog, which) -> {
                 mediaPlayer.start();
                 if (check()){
                     Toast.makeText(getContext(),issue, Toast.LENGTH_SHORT).show();
                 } else if (spinner.getSelectedItemPosition()==0){
-                    Toast.makeText(getContext(), "Select Semester", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),R.string.ogpa_message_4_fragment, Toast.LENGTH_SHORT).show();
                 } else if(name_sem_arr.containsKey(name.getText().toString()) && Objects.requireNonNull(name_sem_arr.get(name.getText().toString())).contains(spinner.getSelectedItem().toString())){
-                    Toast.makeText(getContext(), "User with same name and semester already exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),R.string.ogpa_message_5_fragment, Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Intent intent=new Intent(getContext(), Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.class);
@@ -165,7 +165,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
                     startActivity(intent);
                 }
-            }).setNegativeButton("CANCEL", (dialog, which) -> {
+            }).setNegativeButton(R.string.ogpa_message_6_fragment, (dialog, which) -> {
                 mediaPlayer.start();
                 dialog.dismiss();
             });
