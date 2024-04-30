@@ -41,4 +41,6 @@
     <string name="passing_year">Passing Year :- </string>
     <string name="college_name">College Name :- </string>
     <string name="message">Message :- </string>
+    <string name="semester">Semester :- </string>
+    <string name="ogpa_total_ogpa">OGPA :- </string>
 </resources>

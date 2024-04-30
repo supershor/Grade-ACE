@@ -41,4 +41,6 @@
     <string name="passing_year">स्नातक वर्ष :- </string>
     <string name="college_name">कॉलेज का नाम :- </string>
     <string name="message">संदेश :- </string>
+    <string name="semester">छमाही :- </string>
+    <string name="ogpa_total_ogpa">ओजीपीए :- </string>
 </resources>

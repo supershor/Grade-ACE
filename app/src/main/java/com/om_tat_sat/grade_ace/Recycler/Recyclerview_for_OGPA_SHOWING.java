@@ -36,9 +36,9 @@ public class Recyclerview_for_OGPA_SHOWING extends RecyclerView.Adapter<Recycler
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Recyclerview_for_OGPA_SHOWING.ViewHolder holder, int position) {
-        holder.name.setText("NAME :- "+arrayList.get(position).getName());
-        holder.ogpa.setText("OGPA :- "+arrayList.get(position).getOgpa());
-        holder.sem.setText("SEM :- "+arrayList.get(position).getSem());
+        holder.name.append(arrayList.get(position).getName());
+        holder.ogpa.append(arrayList.get(position).getOgpa());
+        holder.sem.append(arrayList.get(position).getSem());
     }
 
     @Override
