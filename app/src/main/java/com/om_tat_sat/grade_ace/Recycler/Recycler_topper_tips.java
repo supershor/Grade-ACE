@@ -34,10 +34,10 @@ public class Recycler_topper_tips extends RecyclerView.Adapter<Recycler_topper_t
 
     @Override
     public void onBindViewHolder(@NonNull Recycler_topper_tips.ViewHolder holder, int position) {
-        holder.name.setText(arr.get(position).name);
-        holder.passing_year.setText(arr.get(position).passing_year);
-        holder.college.setText(arr.get(position).college_name);
-        holder.message.setText(arr.get(position).message);
+        holder.name.append(arr.get(position).name);
+        holder.passing_year.append(arr.get(position).passing_year);
+        holder.college.append(arr.get(position).college_name);
+        holder.message.append(arr.get(position).message);
     }
 
     @Override

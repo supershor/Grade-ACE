@@ -35,5 +35,9 @@
     <string name="graph">Graph</string>
     <string name="overall">Overall</string>
     <string name="topper_tips">Topper Tips</string>
-
+    <string name="change_language">Change Language</string>
+    <string name="name">Name :- </string>
+    <string name="passing_year">Passing Year :- </string>
+    <string name="college_name">College Name :- </string>
+    <string name="message">Message :- </string>
 </resources>
