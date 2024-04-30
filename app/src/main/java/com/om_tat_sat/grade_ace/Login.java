@@ -76,8 +76,7 @@ public class Login extends AppCompatActivity {
                         finishAffinity();
                     }else {
                         if (task.getException().getMessage().contains("The user account has been disabled by an administrator.")){
-                            Toast.makeText(Login.this,"This email has been banned by administration.", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Login.this,"Please login/signup with another email.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this,getString(R.string.try_with_another_email), Toast.LENGTH_LONG).show();
                         }else {
                             Toast.makeText(Login.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -98,33 +97,34 @@ public class Login extends AppCompatActivity {
             final AlertDialog.Builder alertDialog=new AlertDialog.Builder(Login.this);
             alertDialog.setView(editText);
             alertDialog.setCancelable(false);
-            alertDialog.setTitle("Reset Password").setMessage("Enter your email to get reset link");
-            alertDialog.setPositiveButton("Send", (dialog, which) -> {
+            alertDialog.setTitle(getString(R.string.reset_password))
+                    .setMessage(getString(R.string.enter_full_email_login));
+            alertDialog.setPositiveButton(getString(R.string.Send), (dialog, which) -> {
                 if (editText.getText() == null || editText.getText().toString().isEmpty() || !editText.getText().toString().contains("@") || editText.getText().toString().contains(" ")) {
-                    Toast.makeText(Login.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, getString(R.string.Invalid_email), Toast.LENGTH_SHORT).show();
                 } else {
                     firebaseAuth.sendPasswordResetEmail(editText.getText().toString()).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Login.this, "Reset link sent.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, getString(R.string.Reset_link_sent), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(Login.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
             });
-            alertDialog.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+            alertDialog.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
             alertDialog.show();
         });
     }
     public boolean check_fields(){
         if (email.getText()==null||password.getText()==null||email.getText().toString().isEmpty()||password.getText().toString().isEmpty()){
-            issue="Enter all fields";
+            issue=getString(R.string.enter_all_fields);
             return true;
         }else if (!email.getText().toString().contains("@")){
-            issue="Invalid email";
+            issue=getString(R.string.Invalid_email);
             return true;
         }else if (email.getText().toString().contains(" ")){
-            issue="Email cant contains spaces";
+            issue=getString(R.string.email_contains_spaces);
             return true;
         }
         return false;
