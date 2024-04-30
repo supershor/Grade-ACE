@@ -129,7 +129,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         Log.e( "main sem onCreate:0000000000000000",sem+"");
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_calculator);
-        toolbar.setTitle("SEM "+sem);
+        toolbar.setTitle(R.string.sem+sem);
 
         //checking if user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();
@@ -175,7 +175,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                     return;
                 }else if (sem==7||sem==8) {
                     if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
-                        Toast.makeText(this, "Marks more than 100 detected.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this,R.string.bsc_agriculture_message_5, Toast.LENGTH_SHORT).show();
                         return;
                     }else{
                         theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
@@ -184,14 +184,14 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                 }else if (marking.getTheory_marks()!=0 && marking.getPractical_marks()==0){
                     Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
                     if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
-                        Toast.makeText(this, "Theory marks more than 100 detected.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.bsc_agriculture_message_6, Toast.LENGTH_SHORT).show();
                         return;
                     }else{
                         theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
                         total+=(100*marking.getTheory_marks());
                     }
                 } else if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>70) {
-                    Toast.makeText(this, "Theory marks more than 70 detected.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,R.string.bsc_agriculture_message_7, Toast.LENGTH_SHORT).show();
                     return;
                 } else{
                     theory+=(Double.parseDouble(input_fields.getTheory_marks().getText().toString()) * marking.getTheory_marks());
@@ -205,7 +205,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                 }else if (marking.getTheory_marks()==0 && marking.getPractical_marks()!=0) {
                     Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
                     if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>50){
-                        Toast.makeText(this, "Practical marks more than 50 detected.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.bsc_agriculture_message_8, Toast.LENGTH_SHORT).show();
                         return;
                     }else{
                         practical+=(Double.parseDouble(input_fields.getPractical_marks().getText().toString())* marking.getPractical_marks());
@@ -213,7 +213,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                     }
                 }
                 else if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>30) {
-                    Toast.makeText(this, "Practical marks more than 30 detected.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.bsc_agriculture_message_9, Toast.LENGTH_SHORT).show();
                     return;
                 } else{
                     practical+=(Double.parseDouble(input_fields.getPractical_marks().getText().toString())* marking.getPractical_marks());
@@ -230,18 +230,18 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         hashMap.put("SEM",sem+"");
         databaseReference.child(name+sem).setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, "New OGPA added successfully.", Toast.LENGTH_SHORT).show();
-                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this,"OGPA : "+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, R.string.bsc_agriculture_message_10, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this,R.string.bsc_agriculture_message_11+""+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
                 if(Double.compare((theory+practical)/total*10,8.5)>=0){
                     AlertDialog.Builder builder=new AlertDialog.Builder(BSC_AGRICULTURE_OGPA_Calculator.this);
-                    builder.setTitle("Share Topper Tips ?");
-                    builder.setMessage("Since you have scored more than 8 OGPA would you like to share some tips with other agriculture students ?\nIf yes then please don't delete pre written text.");
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setTitle(R.string.bsc_agriculture_message_1);
+                    builder.setMessage(R.string.bsc_agriculture_message_2);
+                    builder.setNegativeButton(R.string.bsc_agriculture_message_3_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
-                    }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    }).setPositiveButton(R.string.bsc_agriculture_message_4_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent=new Intent(Intent.ACTION_SENDTO);
@@ -261,7 +261,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
     }
     public boolean check(EditText editText){
         if (editText.getText()==null||editText.getText().toString().isEmpty()){
-            Toast.makeText(this,"Enter all available fields.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.bsc_agriculture_message_12, Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;

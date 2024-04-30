@@ -41,6 +41,7 @@
     <string name="college_name">College Name :- </string>
     <string name="message">Message :- </string>
     <string name="semester">Semester :- </string>
+    <string name="sem">Semester</string>
     <string name="ogpa_total_ogpa">OGPA :- </string>
     <string name="graph_ogpa_error_message_1_fragment">Cant set graph for single sem.</string>
     <string name="ogpa_message_1_fragment">Enter details for OGPA.</string>
@@ -49,4 +50,18 @@
     <string name="ogpa_message_4_fragment">Select Semester</string>
     <string name="ogpa_message_5_fragment">User with same name and semester already exists.</string>
     <string name="ogpa_message_6_fragment">CANCEL</string>
+
+
+    <string name="bsc_agriculture_message_1">Share Topper Tips ?</string>
+    <string name="bsc_agriculture_message_2">Since you have scored more than 8 OGPA would you like to share some tips with other agriculture students ?\nIf yes then please don't delete pre written text.</string>
+    <string name="bsc_agriculture_message_3_no">No</string>
+    <string name="bsc_agriculture_message_4_yes">Yes</string>
+    <string name="bsc_agriculture_message_5">Marks more than 100 detected.</string>
+    <string name="bsc_agriculture_message_6">Theory marks more than 100 detected.</string>
+    <string name="bsc_agriculture_message_7">Theory marks more than 70 detected.</string>
+    <string name="bsc_agriculture_message_8">Practical marks more than 50 detected.</string>
+    <string name="bsc_agriculture_message_9">Practical marks more than 30 detected.</string>
+    <string name="bsc_agriculture_message_10">New OGPA added successfully.</string>
+    <string name="bsc_agriculture_message_11">OGPA : </string>
+    <string name="bsc_agriculture_message_12">Enter all available fields.</string>
 </resources>

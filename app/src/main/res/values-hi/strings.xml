@@ -42,6 +42,7 @@
     <string name="college_name">कॉलेज का नाम :- </string>
     <string name="message">संदेश :- </string>
     <string name="semester">छमाही :- </string>
+    <string name="sem">छमाही</string>
     <string name="ogpa_total_ogpa">ओजीपीए :- </string>
     <string name="graph_ogpa_error_message_1_fragment">एकल सेमेस्टर के लिए ग्राफ़ सेट नहीं किया जा सकता.</string>
     <string name="ogpa_message_1_fragment">ओजीपीए के लिए विवरण दर्ज करें।</string>
@@ -50,5 +51,20 @@
     <string name="ogpa_message_4_fragment">सेमेस्टर का चयन करें</string>
     <string name="ogpa_message_5_fragment">समान नाम और सेमेस्टर वाला उपयोगकर्ता पहले से मौजूद है।</string>
     <string name="ogpa_message_6_fragment">रद्द करें</string>
+
+
+
+    <string name="bsc_agriculture_message_1">टॉपर युक्तियाँ साझा करें?</string>
+    <string name="bsc_agriculture_message_2">क्यूंकि आपने 8.5 से अधिक ओजीपीए स्कोर किया है, क्या आप अन्य कृषि छात्रों के साथ कुछ सुझाव साझा करना चाहेंगे? \nयदि हाँ तो कृपया पूर्वलिखित पाठ को न हटाएँ।?</string>
+    <string name="bsc_agriculture_message_3_no">नहीं</string>
+    <string name="bsc_agriculture_message_4_yes">हाँ</string>
+    <string name="bsc_agriculture_message_5">100 से अधिक अंक का पता चला।</string>
+    <string name="bsc_agriculture_message_6">थ्योरी रूप में 100 से अधिक अंक का पता लगाया गया।</string>
+    <string name="bsc_agriculture_message_7">थ्योरी में 70 से अधिक अंक का पता चला।</string>
+    <string name="bsc_agriculture_message_8">प्रैक्टिकल में 50 से अधिक अंक पाए गए।</string>
+    <string name="bsc_agriculture_message_9">प्रैक्टिकल में 30 से अधिक अंक पाए गए।</string>
+    <string name="bsc_agriculture_message_10">नया ओजीपीए सफलतापूर्वक जोड़ा गया।</string>
+    <string name="bsc_agriculture_message_11">ओजीपीए : </string>
+    <string name="bsc_agriculture_message_12">सभी उपलब्ध फ़ील्ड भरें।</string>
 
 </resources>
