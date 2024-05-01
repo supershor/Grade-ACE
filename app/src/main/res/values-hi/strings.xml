@@ -55,7 +55,7 @@
 
 
     <string name="bsc_agriculture_message_1">टॉपर युक्तियाँ साझा करें?</string>
-    <string name="bsc_agriculture_message_2">क्यूंकि आपने 8.5 से अधिक ओजीपीए स्कोर किया है क्या आप अन्य कृषि छात्रों के साथ कुछ सुझाव साझा करना चाहेंगे? यदि हाँ तो कृपया पूर्वलिखित पाठ को न हटाएँ।?</string>
+    <string name="bsc_agriculture_message_2">क्यूंकि आपने 8.5 से अधिक ओजीपीए स्कोर किया है क्या आप अन्य कृषि छात्रों के साथ कुछ सुझाव साझा करना चाहेंगे?\nयदि हाँ तो कृपया पूर्वलिखित पाठ को न हटाएँ।?</string>
     <string name="bsc_agriculture_message_3_no">नहीं</string>
     <string name="bsc_agriculture_message_4_yes">हाँ</string>
     <string name="bsc_agriculture_message_5">100 से अधिक अंक का पता चला।</string>
