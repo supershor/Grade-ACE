@@ -257,6 +257,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                    builder.show();
                 }
             }else{
                 Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
