@@ -65,7 +65,7 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
-
+                        android:maxLength="20"
                         android:theme="@style/font_regular"
                         style="@style/font_regular"
                         android:inputType="text"
@@ -135,7 +135,7 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
-
+                        android:maxLength="50"
                         android:theme="@style/font_regular"
                         style="@style/font_regular"
                         android:inputType="textPassword"
@@ -170,7 +170,7 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_18sdp" />
                     <EditText
-
+                        android:maxLength="50"
                         android:theme="@style/font_regular"
                         style="@style/font_regular"
                         android:inputType="textPassword"
