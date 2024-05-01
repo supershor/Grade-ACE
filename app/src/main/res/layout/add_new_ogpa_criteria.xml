@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/enter_name"
         android:textColor="@color/black"
+        android:maxLength="20"
         android:textColorHint="@color/black"
         android:textSize="@dimen/_18sdp"
         android:id="@+id/name_at_add_new_ogpa"
