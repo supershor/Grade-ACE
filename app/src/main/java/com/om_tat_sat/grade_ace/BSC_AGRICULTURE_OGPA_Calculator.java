@@ -511,6 +511,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
             sub_arr8.add(new marking("सब्जेक्ट  1",10,0));
             sub_arr8.add(new marking("सब्जेक्ट  2",10,0));
 
+            array.add(sub_arr8);
         }
 
     }
