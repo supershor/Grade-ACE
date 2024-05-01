@@ -108,7 +108,7 @@ public class MainPage extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.agriculture_menu, menu);
+        new MenuInflater(this).inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
