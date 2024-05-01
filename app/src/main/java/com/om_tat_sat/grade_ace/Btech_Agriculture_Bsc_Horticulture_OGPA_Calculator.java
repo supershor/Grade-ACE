@@ -241,6 +241,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, getString(R.string.bsc_agriculture_message_10), Toast.LENGTH_SHORT).show();
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this,getString(R.string.bsc_agriculture_message_11)+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
                 if(Double.compare((theory+practical)/total*10,8.5)>=0){
+                    Log.e( "calculate:=-----------------------------","Running");
                     AlertDialog.Builder builder=new AlertDialog.Builder(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this);
                     builder.setTitle(getString(R.string.bsc_agriculture_message_1));
                     builder.setMessage(getString(R.string.bsc_agriculture_message_2));
@@ -260,6 +261,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
                             startActivity(intent);
                         }
                     });
+                    builder.show();
                 }
             }else{
                 Toast.makeText(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
@@ -724,7 +726,6 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
 
 
         }
-
 
     }
     public void initialize_fields(){
