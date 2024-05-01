@@ -236,7 +236,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         databaseReference.child(name+sem).setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
                 Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, R.string.bsc_agriculture_message_10, Toast.LENGTH_SHORT).show();
-                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this,R.string.bsc_agriculture_message_11+""+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this,getString(R.string.bsc_agriculture_message_11)+(theory+practical)/total*10, Toast.LENGTH_SHORT).show();
                 if(Double.compare((theory+practical)/total*10,8.5)>=0){
                     AlertDialog.Builder builder=new AlertDialog.Builder(BSC_AGRICULTURE_OGPA_Calculator.this);
                     builder.setTitle(R.string.bsc_agriculture_message_1);
@@ -565,8 +565,6 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         theory_marks_12=findViewById(R.id.subject_theory_marks_name_12);
         practical_marks_12=findViewById(R.id.subject_practical_marks_name_12);
         subject_name_12=findViewById(R.id.subject_name_12);
-
-
         fields.add(new input_fields(linear1,theory_marks_1,practical_marks_1,subject_name_1));
         fields.add(new input_fields(linear2,theory_marks_2,practical_marks_2,subject_name_2));
         fields.add(new input_fields(linear3,theory_marks_3,practical_marks_3,subject_name_3));
