@@ -1,11 +1,16 @@
 package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Sign_Up extends AppCompatActivity {
@@ -29,12 +35,15 @@ public class Sign_Up extends AppCompatActivity {
     CheckBox checkBox;
     EditText password;
     EditText confirm_password;
+    TextView Privacy_policy;
     AppCompatButton save;
     AppCompatButton have_an_account;
     Intent main_page;
     Intent login;
     FirebaseAuth firebaseAuth;
     boolean comply=false;
+    SharedPreferences app_language;
+    int language=0;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     MediaPlayer mediaPlayer;
@@ -65,6 +74,14 @@ public class Sign_Up extends AppCompatActivity {
         }
 
         //initializing elements
+        app_language=getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
+        if (language==0){
+            change_language("en");
+        } else if (language==1) {
+            change_language("hi");
+        }
+        Privacy_policy=findViewById(R.id.Privacy_policy);
         mediaPlayer=MediaPlayer.create(Sign_Up.this,R.raw.button_tap);
         name=findViewById(R.id.name_information_sign_up_page);
         email=findViewById(R.id.email_information_sign_up_page);
@@ -90,6 +107,12 @@ public class Sign_Up extends AppCompatActivity {
                         .setMessage(getString(R.string.I_agree));
                 alert.setPositiveButton(getString(R.string.I_Agree_sign_up), (dialog, which) -> comply=true).setNegativeButton(getString(R.string.I_not_Agree_sign_up), (dialog, which) -> dialog.dismiss());
                 alert.show();
+            }
+        });
+        Privacy_policy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Sign_Up.this,web_policy_view.class));
             }
         });
         have_an_account.setOnClickListener(v -> {
@@ -159,5 +182,13 @@ public class Sign_Up extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
+    public void change_language(String language){
+        Resources resources=this.getResources();
+        Configuration configuration=resources.getConfiguration();
+        Locale locale=new Locale(language);
+        locale.setDefault(locale);
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }
