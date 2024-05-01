@@ -148,15 +148,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
+                    <TextView
+                        android:theme="@style/font_regular"
+                        style="@style/font_regular"
+                        android:id="@+id/Privacy_policy"
+                        android:layout_width="match_parent"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_25sdp"
+                        android:textSize="@dimen/_15sdp"
+                        android:text="@string/Privacy_policy"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:textColor="@color/black"
+                        />
                     <androidx.appcompat.widget.AppCompatButton
 
                         android:theme="@style/font_bold"
                         style="@style/font_bold"
                         android:id="@+id/login_at_login_page"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="@dimen/_50sdp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginLeft="@dimen/_25sdp"
                         android:layout_marginRight="@dimen/_25sdp"
                         android:background="@drawable/less_border_purple"

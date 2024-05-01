@@ -1,10 +1,15 @@
 package com.om_tat_sat.grade_ace;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +24,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
@@ -27,9 +33,12 @@ public class Login extends AppCompatActivity {
     AppCompatButton forgot_password;
     AppCompatButton login;
     AppCompatButton sign_up;
+    TextView Privacy_policy;
     FirebaseAuth firebaseAuth;
     String issue;
     MediaPlayer mediaPlayer;
+    SharedPreferences app_language;
+    int language=0;
     Intent main_page;
     Intent signup_page;
     @Override
@@ -58,6 +67,14 @@ public class Login extends AppCompatActivity {
         }
 
         //initializing elements
+        app_language=getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
+        if (language==0){
+            change_language("en");
+        } else if (language==1) {
+            change_language("hi");
+        }
+        Privacy_policy=findViewById(R.id.Privacy_policy);
         mediaPlayer=MediaPlayer.create(Login.this,R.raw.button_tap);
         email=findViewById(R.id.email_information_login_page);
         password=findViewById(R.id.password_information_login_page);
@@ -90,6 +107,12 @@ public class Login extends AppCompatActivity {
             mediaPlayer.start();
             startActivity(signup_page);
             finish();
+        });
+        Privacy_policy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this,web_policy_view.class));
+            }
         });
         forgot_password.setOnClickListener(v -> {
             mediaPlayer.start();
@@ -134,5 +157,13 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
+    public void change_language(String language){
+        Resources resources=this.getResources();
+        Configuration configuration=resources.getConfiguration();
+        Locale locale=new Locale(language);
+        locale.setDefault(locale);
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }
