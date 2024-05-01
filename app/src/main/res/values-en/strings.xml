@@ -66,7 +66,7 @@
     <string name="cancel">Cancel</string>
     <string name="refresh_loading">refresh</string>
     <string name="reset_password">Reset Password</string>
-
+    <string name="Privacy_policy"><a href="https://drive.google.com/file/d/1ayPTzh_9EKUugo7l648y3M5TkFJBWnHi/view?usp=sharing">Privacy Policy</a></string>
     <string name="enter_full_email_login">Enter your email to get reset link.</string>
     <string name="Send">Send</string>
     <string name="Invalid_email">Invalid email address.</string>

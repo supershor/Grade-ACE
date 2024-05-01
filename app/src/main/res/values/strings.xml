@@ -13,6 +13,7 @@
     <string name="does_not_have_an_account"><u>Don\'t have an account ? Sign up.</u></string>
     <string name="agree_to_terms_and_condition">I agree to terms and conditions of Grade ACE. Therefore declaring that my information will be stored for safety purposes.</string>
     <string name="login_all_caps_heading">LOGIN</string>
+    <string name="Privacy_policy"><a href="https://drive.google.com/file/d/1ayPTzh_9EKUugo7l648y3M5TkFJBWnHi/view?usp=sharing">Privacy Policy</a></string>
     <string name="welcome_back">WELCOME BACK</string>
     <string name="login_in_your_account">Login in your account</string>
     <string name="forgot_password"><u>Forgot password?</u></string>
