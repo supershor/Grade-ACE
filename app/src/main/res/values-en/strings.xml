@@ -42,6 +42,7 @@
     <string name="college_name">College Name :- </string>
     <string name="message">Message :- </string>
     <string name="semester">Semester :- </string>
+    <string name="Semester">Semester</string>
     <string name="ogpa_total_ogpa">OGPA :- </string>
     <string name="graph_ogpa_error_message_1_fragment">Cannot set graph for single sem.</string>
     <string name="ogpa_message_1_fragment">Enter details for OGPA.</string>
