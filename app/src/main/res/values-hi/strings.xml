@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name"> ग्रेड एस </string>
+    <string name="app_name">ग्रेड ऐस !</string>
     <string name="calculate_ogpa_effortlessly">ग्रेड ऐस के साथ आसानी से ओजीपीए की गणना करें.</string>
     <string name="sign_up">साइन अप करें </string>
     <string name="login">लॉग इन करें </string>
@@ -29,9 +29,9 @@
     <string name="report_error">त्रुटि की रिपोर्ट करें </string>
     <string name="refresh">ताज़ा करना </string>
     <string name="ogpa_graph">ओ जी पी एक ग्राफ </string>
-    <string name="bsc_agriculture">बीएससी कृषि </string>
-    <string name="bsc_horticulture">बीएससी बागवानी </string>
-    <string name="btech_agriculture">बीटेक एग्रीकल्चर इंजीनियरिंग </string>
+    <string name="bsc_agriculture">बी.एससी कृषि </string>
+    <string name="bsc_horticulture">बी.एससी बागवानी </string>
+    <string name="btech_agriculture">बी.टेक एग्रीकल्चर इंजीनियरिंग </string>
     <string name="ogpa">ओ जी पी ए </string>
     <string name="hello_blank_fragment">नमस्ते काला टुकड़ा </string>
     <string name="graph">ग्राफ़ </string>

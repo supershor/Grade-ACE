@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Grade ACE</string>
+    <string name="app_name">Grade ACE !</string>
     <string name="calculate_ogpa_effortlessly">Calculate OGPA Effortlessly with Grade ACE.</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
@@ -28,9 +28,9 @@
     <string name="report_error">Report Error</string>
     <string name="refresh">Refresh</string>
     <string name="ogpa_graph">OGPA Graph</string>
-    <string name="bsc_agriculture">BSC AGRICULTURE</string>
-    <string name="bsc_horticulture">BSC HORTICULTURE</string>
-    <string name="btech_agriculture">BTech Agriculture Engineering</string>
+    <string name="bsc_agriculture">B.Sc AGRICULTURE</string>
+    <string name="bsc_horticulture">B.Sc HORTICULTURE</string>
+    <string name="btech_agriculture">B.Tech Agriculture Engineering</string>
     <string name="ogpa">OGPA</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="graph">Graph</string>
