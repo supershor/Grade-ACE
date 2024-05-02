@@ -35,8 +35,12 @@ public class Recycler_topper_tips extends RecyclerView.Adapter<Recycler_topper_t
     @Override
     public void onBindViewHolder(@NonNull Recycler_topper_tips.ViewHolder holder, int position) {
         holder.name.append(arr.get(position).name);
-        holder.passing_year.append(arr.get(position).passing_year);
-        holder.college.append(arr.get(position).college_name);
+        if (arr.get(position).name.equals("anonymous")||arr.get(position).name.equals("Anonymous")){
+            holder.college.setVisibility(View.GONE);
+        }else {
+            holder.college.append(arr.get(position).college_name);
+        }
+        holder.passing_year.setVisibility(View.GONE);
         holder.message.append(arr.get(position).message);
     }
 
