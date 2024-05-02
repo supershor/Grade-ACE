@@ -3,18 +3,17 @@ package com.om_tat_sat.grade_ace.frags;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +26,6 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface;
 import com.om_tat_sat.grade_ace.Loading_Page;
-import com.om_tat_sat.grade_ace.MainPage;
 import com.om_tat_sat.grade_ace.R;
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview;
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder;
@@ -87,103 +85,62 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
         for (ogpa_holder ogpa_holder:hashmap_ogpa.get(name_arr.get(index))){
             hashMap.put(Integer.parseInt(ogpa_holder.sem),Double.parseDouble(ogpa_holder.ogpa));
         }
-        ArrayList<DataPoint>arrayList=new ArrayList<>();
+        graph.removeAllSeries();
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+
+        });
         if (hashMap.containsKey(1)){
-            arrayList.add(new DataPoint(1,hashMap.get(1)));
+            series.appendData(new DataPoint(1,hashMap.get(1)),false,100);
+        }else{
+            series.appendData(new DataPoint(1,0),false,100);
         }
+
+
         if(hashMap.containsKey(2)){
-            arrayList.add(new DataPoint(2,hashMap.get(2)));
-        }if(hashMap.containsKey(3)){
-            arrayList.add(new DataPoint(3,hashMap.get(3)));
-        }if(hashMap.containsKey(4)){
-            arrayList.add(new DataPoint(4,hashMap.get(4)));
-        }if(hashMap.containsKey(5)){
-            arrayList.add(new DataPoint(5,hashMap.get(5)));
-        }if(hashMap.containsKey(6)){
-            arrayList.add(new DataPoint(6,hashMap.get(6)));
-        }if(hashMap.containsKey(7)){
-            arrayList.add(new DataPoint(7,hashMap.get(7)));
-        }if(hashMap.containsKey(8)){
-            arrayList.add(new DataPoint(8,hashMap.get(8)));
+            series.appendData(new DataPoint(2,hashMap.get(2)),false,100);
+        }else{
+            series.appendData(new DataPoint(2,0),false,100);
         }
-        set_sub_details(arrayList);
-    }
-    public void set_sub_details(ArrayList<DataPoint>arrayList){
-        int size=arrayList.size();
-        if (size==1){
-            graph.removeAllSeries();
-            Toast.makeText(getContext(), R.string.graph_ogpa_error_message_1_fragment, Toast.LENGTH_SHORT).show();
-        } else if (size==2) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==3) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==4) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY()),
-                    new DataPoint(4,arrayList.get(3).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==5) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY()),
-                    new DataPoint(4,arrayList.get(3).getY()),
-                    new DataPoint(5,arrayList.get(4).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==6) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY()),
-                    new DataPoint(4,arrayList.get(3).getY()),
-                    new DataPoint(5,arrayList.get(4).getY()),
-                    new DataPoint(6,arrayList.get(5).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==7) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY()),
-                    new DataPoint(4,arrayList.get(3).getY()),
-                    new DataPoint(5,arrayList.get(4).getY()),
-                    new DataPoint(6,arrayList.get(5).getY()),
-                    new DataPoint(7,arrayList.get(6).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
-        }else if (size==6) {
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                    new DataPoint(1,arrayList.get(0).getY()),
-                    new DataPoint(2,arrayList.get(1).getY()),
-                    new DataPoint(3,arrayList.get(2).getY()),
-                    new DataPoint(4,arrayList.get(3).getY()),
-                    new DataPoint(5,arrayList.get(4).getY()),
-                    new DataPoint(6,arrayList.get(5).getY()),
-                    new DataPoint(7,arrayList.get(6).getY()),
-                    new DataPoint(8,arrayList.get(7).getY())
-            });
-            series.setColor(R.color.black);
-            graph.addSeries(series);
+
+        if(hashMap.containsKey(3)){
+            series.appendData(new DataPoint(3,hashMap.get(3)),false,100);
+        }else{
+            series.appendData(new DataPoint(3,0),false,100);
         }
+
+        if(hashMap.containsKey(4)){
+            series.appendData(new DataPoint(4,hashMap.get(4)),false,100);
+        }else{
+            series.appendData(new DataPoint(4,0),false,100);
+        }
+
+        if(hashMap.containsKey(5)){
+            series.appendData(new DataPoint(5,hashMap.get(5)),false,100);
+        }else{
+            series.appendData(new DataPoint(5,0),false,100);
+        }
+
+        if(hashMap.containsKey(6)){
+            series.appendData(new DataPoint(6,hashMap.get(6)),false,100);
+        }else{
+            series.appendData(new DataPoint(6,0),false,100);
+        }
+
+        if(hashMap.containsKey(7)){
+            series.appendData(new DataPoint(7,hashMap.get(7)),false,100);
+        }else{
+            series.appendData(new DataPoint(7,0),false,100);
+        }
+
+        if(hashMap.containsKey(8)){
+            series.appendData(new DataPoint(8,hashMap.get(8)),false,100);
+        }else{
+            series.appendData(new DataPoint(8,0),false,100);
+        }
+
+
+        series.setColor(R.color.black);
+        graph.addSeries(series);
     }
     private void refresh() {
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -207,7 +164,7 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
                         }
                     }
                     Log.e( "graph onDataChange+++++++++++++++",name_arr.toString());
-                    recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr,Graph_OGPA.this::onClick);
+                    recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr, Graph_OGPA.this);
                     recyclerView.setAdapter(recycler_graphview);
                 }
             }
