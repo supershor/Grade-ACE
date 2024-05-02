@@ -257,7 +257,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
                             intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
                             intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
                             intent.putExtra(Intent.EXTRA_SUBJECT,"Sharing tips for Grade ACE");
-                            intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nIts -\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"Email:- "+firebaseAuth.getCurrentUser().getEmail()+"\n\nName:-\nPassing Year:-\nCollege Name:-\nPhone Number:-\nTips:-");
+                            intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nThis is :-\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"(It's your I'd kindly do not edit)"+"\n\nName:-\nPassing Year:-\nCollege Name:-\nPhone Number:-\nTips:-");
                             startActivity(intent);
                         }
                     });
