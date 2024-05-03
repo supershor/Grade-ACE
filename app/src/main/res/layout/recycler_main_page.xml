@@ -29,7 +29,6 @@
     android:textColor="@color/black"
     android:id="@+id/sem_recycler"
     android:padding="@dimen/_5sdp"
-    android:singleLine="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"/>
     <TextView
