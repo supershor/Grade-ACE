@@ -21,7 +21,7 @@
         android:layout_marginBottom="@dimen/_50sdp"
         android:id="@+id/add_ogpa"
         android:textColor="@color/white"
-        android:textSize="@dimen/_25sdp"
+        android:textSize="@dimen/_25ssp"
         android:theme="@style/font_bold"
         style="@style/font_bold"
         android:padding="@dimen/_5sdp"
