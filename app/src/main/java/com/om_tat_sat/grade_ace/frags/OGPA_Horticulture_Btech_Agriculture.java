@@ -1,5 +1,7 @@
 package com.om_tat_sat.grade_ace.frags;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -53,6 +55,8 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
     HashMap<String,String> name_sem_arr;
     RecyclerView recyclerView;
     SharedPreferences sharedPreferences;
+    SharedPreferences app_language;
+    int language;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -114,7 +118,13 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
         arrayList=new ArrayList<>();
         name_sem_arr=new HashMap<>();
         arrayList_ogpa=new ArrayList<>();
-        arrayList.add("Select Semester");
+        app_language=this.getActivity().getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
+        if (language==1){
+            arrayList.add("छमाही का चयन करें");
+        }else if (language==0) {
+            arrayList.add("Select Semester");
+        }
         arrayList.add("1");
         arrayList.add("2");
         arrayList.add("3");

@@ -1,6 +1,9 @@
 package com.om_tat_sat.grade_ace.frags;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -50,6 +53,8 @@ public class OGPA extends Fragment implements RecyclerInterface {
     ArrayList<Item>arrayList_ogpa;
     HashMap<String,String> name_sem_arr;
     RecyclerView recyclerView;
+    SharedPreferences app_language;
+    int language;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -61,7 +66,13 @@ public class OGPA extends Fragment implements RecyclerInterface {
         arrayList=new ArrayList<>();
         name_sem_arr=new HashMap<>();
         arrayList_ogpa=new ArrayList<>();
-        arrayList.add("Select Semester");
+        app_language=this.getActivity().getSharedPreferences("app_language",MODE_PRIVATE);
+        language=app_language.getInt("current_language",0);
+        if (language==1){
+            arrayList.add("छमाही का चयन करें");
+        }else if (language==0) {
+            arrayList.add("Select Semester");
+        }
         arrayList.add("1");
         arrayList.add("2");
         arrayList.add("3");
