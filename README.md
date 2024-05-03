@@ -44,6 +44,20 @@ For any assistance or suggestions, please contact us at supershor.cp@gmail.com.
 
 This team drives Grade ACE's mission to support India's agriculture students academically.
 
+## Resources and Technologies:
+
+**Grade ACE** harnesses a variety of modern technologies and resources to ensure a seamless and dynamic user experience. Here's a list of the key components:
+
+- [**Lottie Files**: For smooth and engaging animations that enhance the visual appeal of the app.](https://lottiefiles.com/)
+- [**Flaticon**: Utilized for crisp and scalable graphics, ensuring high-quality visuals across different screen sizes.](https://www.flaticon.com/)
+- [**Firebase Realtime Database**: Powers the backend, offering real-time data synchronization.](https://firebase.google.com/)
+- [**Firebase Authentication**: Provides a secure and hassle-free authentication process for our users.](https://firebase.google.com/)
+- [**Scalable Size Units**: Implements SDP for scalable layout size units, making the app responsive and adaptable to various screen sizes.](https://github.com/intuit/sdp)
+- [**Scalable Size Unit for Texts**: Uses SSP to ensure that text elements are clearly legible and aesthetically pleasing on all devices.](https://github.com/intuit/ssp)
+
+By integrating these resources, **Grade ACE** delivers a robust platform that not only meets the academic needs of agriculture students but also provides a delightful user experience.
+
+
 ## Contribute:
 
 Join our developer community! If you've found a bug or have ideas for enhancements, we welcome your contributions. Fork the repository, make your changes, and submit a pull request.
