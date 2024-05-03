@@ -40,7 +40,7 @@
                 android:padding="@dimen/_5sdp"
                 android:id="@+id/bsc_agriculture"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_25sdp"
+                android:textSize="@dimen/_25ssp"
                 />
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:id="@+id/bsc_horticulture"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="@dimen/_25sdp"
+                android:textSize="@dimen/_25ssp"
                 />
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                 android:padding="@dimen/_5sdp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_25sdp"
+                android:textSize="@dimen/_25ssp"
                 />
         </LinearLayout>
     </ScrollView>

@@ -823,7 +823,7 @@
                 android:layout_marginBottom="@dimen/_50sdp"
                 android:id="@+id/calculate"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_25sdp"
+                android:textSize="@dimen/_25ssp"
                 android:textAlignment="center"
                 android:padding="@dimen/_5sdp"
                 android:theme="@style/font_bold"
