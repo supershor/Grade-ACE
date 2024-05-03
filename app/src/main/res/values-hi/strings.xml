@@ -90,4 +90,9 @@
     <string name="I_agree">मैं मानता हूं कि ओजीपीए (±0.10) की गणना करते समय ऐप कभी-कभी मामूली त्रुटि दिखा सकता है।</string>
     <string name="I_agree_terms_and_condition">कृपया नियम एवं शर्तों से सहमत हों</string>
     <string name="Update_version">ऐप का नया संस्करण उपलब्ध है, हम ऐप को अपडेट करने की सलाह देते हैं।</string>
+
+
+
+    <string name="english">English</string>
+    <string name="hindi">हिंदी</string>
 </resources>

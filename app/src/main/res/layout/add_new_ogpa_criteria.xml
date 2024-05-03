@@ -12,7 +12,7 @@
         android:textColor="@color/black"
         android:maxLength="20"
         android:textColorHint="@color/black"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/_18ssp"
         android:id="@+id/name_at_add_new_ogpa"
         android:background="@drawable/less_border_blue"
         android:layout_margin="@dimen/_10sdp"

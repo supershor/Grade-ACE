@@ -90,4 +90,9 @@
     <string name="I_agree">I Comply that the app can some time show minor error while calculating OGPA(±0.10)</string>
     <string name="I_agree_terms_and_condition">Please agree to terms and conditions</string>
     <string name="Update_version">New version of the app is available we recommend updating the app.</string>
+
+
+
+    <string name="english">English</string>
+    <string name="hindi">हिंदी</string>
 </resources>
