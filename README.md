@@ -36,11 +36,11 @@ For any assistance or suggestions, please contact us at supershor.cp@gmail.com.
 
 ## Contributions:
 
-- *Anushka Chourasia*: Co-founder Anushka's designs create a compelling user interface.
-
 - *Ashish Sahu*: Developer Ashish manages server and coding tasks, essential for app functionality.
 
-- *Kamal Mishra*: Co-founder Kamal ensures our app meets legal standards for user trust.
+- *Kamal Mishra*: Co-founder Kamal ensures our app meets legal standards for user trust
+
+- *Anushka Chourasia*: Co-founder Anushka's designs create a compelling user interface.
 
 This team drives Grade ACE's mission to support India's agriculture students academically.
 
