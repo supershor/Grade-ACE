@@ -296,11 +296,11 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
             sub_arr1.add(new marking("Rural Sociology and Educational Psychology",2,0));
             sub_arr1.add(new marking("Introduction to Forestry",1,1));
             sub_arr1.add(new marking("Fundamentals of Agronomy",3,1));
+            sub_arr1.add(new marking("Agriculture Heritage",1,0));
             sub_arr1.add(new marking("Human Values and Ethics",0,1));
             sub_arr1.add(new marking("Fundamentals of Horticulture",1,1));
             sub_arr1.add(new marking("NSS/NCC/Physical Education and Yoga Practices",0,2));
             sub_arr1.add(new marking("Fundamentals of Soil Science",2,1));
-            sub_arr1.add(new marking("Agriculture Heritage",1,0));
 
 
 
