@@ -43,8 +43,8 @@ public class Main_loading extends AppCompatActivity {
     DatabaseReference databaseReference;
     SharedPreferences app_language;
     int language;
-    int versionCode=4;
-    String versionName="4.0";
+    int versionCode=5;
+    String versionName="5.0";
     boolean update_going_on=false;
     boolean handler_run_complete=false;
     @Override

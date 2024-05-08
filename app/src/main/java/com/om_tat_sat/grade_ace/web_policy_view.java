@@ -28,6 +28,6 @@ public class web_policy_view extends AppCompatActivity {
         webView=findViewById(R.id.web_policy_view);
         WebSettings webSettings=webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.loadUrl("https://drive.google.com/file/d/1ayPTzh_9EKUugo7l648y3M5TkFJBWnHi/view?usp=sharing");
+        webView.loadUrl("https://drive.google.com/file/d/1T1aOAqJHvYYedhjKMP5xbS8-H0gDsbAT/view?usp=drivesdk");
     }
 }

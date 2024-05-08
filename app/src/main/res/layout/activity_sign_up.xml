@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/create_new_account"
                     android:textAlignment="center"
-                    android:textSize="@dimen/_28ssp"
+                    android:textSize="@dimen/_24ssp"
                     android:layout_marginBottom="@dimen/_25sdp"
                     android:textColor="@color/black"/>
             </LinearLayout>
