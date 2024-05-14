@@ -6,13 +6,17 @@ plugins {
 android {
     namespace = "com.om_tat_sat.grade_ace"
     compileSdk = 34
-
+    bundle{
+        language{
+            enableSplit = false
+        }
+    }
     defaultConfig {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
         targetSdk = 34
-        versionCode = 9
-        versionName = "9.0"
+        versionCode = 11
+        versionName = "11.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
