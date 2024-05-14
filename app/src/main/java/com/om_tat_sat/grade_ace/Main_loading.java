@@ -43,8 +43,8 @@ public class Main_loading extends AppCompatActivity {
     DatabaseReference databaseReference;
     SharedPreferences app_language;
     int language;
-    int versionCode=5;
-    String versionName="5.0";
+    int versionCode=6;
+    String versionName="6.0";
     boolean update_going_on=false;
     boolean handler_run_complete=false;
     @Override
@@ -156,7 +156,12 @@ public class Main_loading extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        alert.show();
+        try {
+            alert.show();
+        }catch (Exception e){
+            Log.e( "update: ", Objects.requireNonNull(e.getMessage()));
+            Toast.makeText(this,Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
