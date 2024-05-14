@@ -82,4 +82,3 @@ Embrace the app that grows with you. Upgrade to the latest version of Grade ACE 
 
 ![6](https://github.com/supershor/Grade-ACE/assets/113038485/d5e930c3-07db-4ada-8834-52ff82e15b40)
 
-
