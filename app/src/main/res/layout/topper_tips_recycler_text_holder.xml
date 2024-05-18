@@ -46,7 +46,6 @@
         android:textColor="@color/black"
         android:id="@+id/topper_tips_college"
         android:padding="@dimen/_5sdp"
-        android:singleLine="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"/>
     <TextView
