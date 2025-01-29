@@ -12,6 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31" >
+
+        <activity
+            android:name=".SecondLoadingPage"
+            android:exported="true" >
+        </activity>
+        <activity
+            android:name=".FirstLoadingPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <activity
             android:name=".web_policy_view"
             android:exported="false" />
@@ -20,12 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".Main_loading"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="true">
         </activity>
         <activity
             android:name=".Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator"
