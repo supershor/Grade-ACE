@@ -95,4 +95,16 @@
 
     <string name="english">English</string>
     <string name="hindi">हिंदी</string>
+
+
+    <string name="resend_link">लिंक पुनः भेजें</string>
+    <string name="verification_email_sent">सत्यापन ईमेल सफलतापूर्वक भेजा गया।</string>
+    <string name="verification_email_failed">सत्यापन ईमेल भेजने में विफल।</string>
+    <string name="resend_link_in_sec">लिंक पुनः भेजें </string>
+    <string name="verification_email_sent_with_email_verification_request">सत्यापन ईमेल सफलतापूर्वक भेजा गया है।\nकृपया लॉग इन करने से पहले अपना ईमेल सत्यापित करें।</string>
+    <string name="verification_email_failed_with_login_again_request">सत्यापन ईमेल भेजने में विफल रहा।\nकृपया फिर से लॉग इन करें।</string>
+    <string name="refresh_user_failed">उपयोगकर्ता को रिफ्रेश करने में विफल।\nकृपया फिर से लॉग इन करें।</string>
+    <string name="calculator">कैलकुलेटर</string>
+
+
 </resources>

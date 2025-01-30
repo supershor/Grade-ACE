@@ -95,4 +95,16 @@
 
     <string name="english">English</string>
     <string name="hindi">हिंदी</string>
+
+
+
+    <string name="resend_link">Resend Link</string>
+    <string name="verification_email_sent">Verification email sent successfully.</string>
+    <string name="verification_email_failed">Failed to send verification email.</string>
+    <string name="resend_link_in_sec">Resend Link in </string>
+    <string name="verification_email_sent_with_email_verification_request">Verification email sent successfully.\nPlease verify your email before logging in.</string>
+    <string name="verification_email_failed_with_login_again_request">Failed to send verification email.\nPlease login again.</string>
+    <string name="refresh_user_failed">Failed to refresh user.\nPlease login again.</string>
+    <string name="calculator">Calculator</string>
+
 </resources>

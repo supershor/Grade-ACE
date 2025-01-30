@@ -23,14 +23,14 @@ tools:context=".SecondLoadingPage">
                 android:orientation="vertical"
                 android:layout_centerInParent="true">
                 <LinearLayout
-                    android:visibility="gone"
                     android:id="@+id/signup_layout"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <LinearLayout
                         android:id="@+id/signup_first_page_view_for_name"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:orientation="vertical"
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
@@ -65,12 +65,38 @@ tools:context=".SecondLoadingPage">
                                 android:layout_centerInParent="true"
                                 />
                         </RelativeLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_25sdp"
+                            android:layout_marginLeft="@dimen/_25sdp"
+                            android:textColorHint="@color/grey"
+                            app:counterTextColor="@color/black"
+                            app:cursorColor="@color/black"
+                            app:hintTextColor="@color/grey"
+                            >
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:visibility="gone"
+                                android:inputType="textEmailAddress"
+                                android:textSize="@dimen/_16ssp"
+                                android:textColorLink="@color/black"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/grey"
+                                app:cursorColor="@color/black"
+                                android:autofillHints="emailAddress"
+                                android:hint="@string/enter_name"
+                                android:id="@+id/name_information_sign_up_page_one"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
                         <androidx.appcompat.widget.AppCompatButton
+                            android:visibility="visible"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/sign_up"
-                            android:id="@+id/loading_page_sign_up_name"
+                            android:id="@+id/loading_page_sign_up_name_first_signup_then_save_name"
                             android:textSize="@dimen/_16ssp"
                             android:layout_marginTop="@dimen/_30sdp"
                             android:layout_marginLeft="@dimen/_30sdp"
@@ -208,7 +234,7 @@ tools:context=".SecondLoadingPage">
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/save"
-                            android:id="@+id/save_sign_up"
+                            android:id="@+id/save_sign_up_data_email_and_password_and_confirm_password"
                             android:textSize="@dimen/_16ssp"
                             android:layout_marginLeft="@dimen/_30sdp"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -232,6 +258,7 @@ tools:context=".SecondLoadingPage">
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
+                    android:id="@+id/login_page"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -278,7 +305,7 @@ tools:context=".SecondLoadingPage">
                                 app:cursorColor="@color/black"
                                 android:autofillHints="emailAddress"
                                 android:hint="@string/enter_email"
-                                android:id="@+id/email_information_login_up_page"
+                                android:id="@+id/email_information_login_up_page_one"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 />
@@ -302,7 +329,7 @@ tools:context=".SecondLoadingPage">
                                 android:textColorHint="@color/grey"
                                 android:autofillHints="password"
                                 android:hint="@string/enter_password"
-                                android:id="@+id/password_information_login_up_page"
+                                android:id="@+id/password_information_login_up_page_one"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 />
@@ -310,7 +337,7 @@ tools:context=".SecondLoadingPage">
                         <TextView
                             android:theme="@style/font_regular"
                             style="@style/font_regular"
-                            android:id="@+id/Privacy_policy_login"
+                            android:id="@+id/privacy_policy_login"
                             android:layout_width="match_parent"
                             android:textAlignment="center"
                             android:layout_height="wrap_content"
@@ -337,9 +364,21 @@ tools:context=".SecondLoadingPage">
                     </LinearLayout>
                     <TextView
                         android:layout_width="match_parent"
-                        android:id="@+id/signup_page_login"
+                        android:id="@+id/does_not_have_an_account"
                         android:layout_height="wrap_content"
                         android:text="@string/does_not_have_an_account"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/_16ssp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_30sdp"
+                        android:layout_marginRight="@dimen/_30sdp"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/forgot_password_login_page_one"
+                        android:layout_height="wrap_content"
+                        android:text="@string/forgot_password"
                         android:textAlignment="center"
                         android:textSize="@dimen/_16ssp"
                         android:layout_marginTop="@dimen/_10sdp"
@@ -351,5 +390,4 @@ tools:context=".SecondLoadingPage">
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>
