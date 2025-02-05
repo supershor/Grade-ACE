@@ -1,4 +1,4 @@
-package com.om_tat_sat.grade_ace
+package com.om_tat_sat.grade_ace.newUiActivity
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.om_tat_sat.grade_ace.R
 
 class EmailVerificationPage : AppCompatActivity() {
     val mauth= FirebaseAuth.getInstance()
@@ -28,7 +29,7 @@ class EmailVerificationPage : AppCompatActivity() {
         findViewById<TextView>(R.id.logout_email_verification_page).setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 mauth.signOut()
-                startActivity(Intent(this@EmailVerificationPage,SecondLoadingPage::class.java))
+                startActivity(Intent(this@EmailVerificationPage, SecondLoadingPage::class.java))
                 finishAffinity()
             }
         })

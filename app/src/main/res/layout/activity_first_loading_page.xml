@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradient_blue_to_white"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FirstLoadingPage">
+    tools:context=".newUiActivity.FirstLoadingPage">
     <com.airbnb.lottie.LottieAnimationView
         android:layout_centerInParent="true"
         android:id="@+id/newLoadingAnim_activity_first_loading_page"
@@ -27,12 +27,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ogpa"
                 android:textSize="@dimen/_24ssp"
-                android:textColor="#109795"/>
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calculator"
                 android:textSize="@dimen/_16ssp"
-                android:textColor="#109795"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 </RelativeLayout>

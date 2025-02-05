@@ -10,32 +10,64 @@
         android:layout_margin="@dimen/_10sdp"
         android:elevation="@dimen/_2sdp"
         android:visibility="visible"
-        app:cardBackgroundColor="@color/blue"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardUseCompatPadding="false"
         app:contentPadding="@dimen/_5sdp"
         app:strokeColor="@color/black"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
         app:strokeWidth="@dimen/_1sdp">
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:theme="@style/font_bold"
-                style="@style/font_bold"
-                android:id="@+id/name_info_graphview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:singleLine="true"
-                android:padding="@dimen/_5sdp"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/name"
+                android:textSize="@dimen/_14ssp"
+                android:textAlignment="viewStart"
+                style="@style/font_medium"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp"
-                tools:ignore="InefficientWeight" />
+                android:id="@+id/name_info_graphview"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:visibility="gone"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ogpa_total_ogpa"
+                    android:textSize="@dimen/_10ssp"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/black"
+                    style="@style/font_regular"
+                    android:id="@+id/ogpa_type"
+                    android:padding="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"/>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/viewInsights"
+                    android:textSize="@dimen/_10ssp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    style="@style/font_regular"
+                    android:id="@+id/viewInsights"
+                    android:padding="@dimen/_5sdp"
+                    android:singleLine="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"/>
+            </RelativeLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

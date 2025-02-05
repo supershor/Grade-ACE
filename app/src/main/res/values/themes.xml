@@ -33,4 +33,8 @@
         <item name="fontFamily">@font/playfairdisplay_medium</item>
         <item name="font">@font/playfairdisplay_medium</item>
     </style>
+    <style name="ThemeOverlay.GradeACE.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

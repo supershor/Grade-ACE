@@ -121,8 +121,6 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
             return insets;
         });
 
-        //status bar color
-        getWindow().setStatusBarColor(ContextCompat.getColor(BSC_AGRICULTURE_OGPA_Calculator.this,R.color.black));
 
         //intents
         mediaPlayer=MediaPlayer.create(BSC_AGRICULTURE_OGPA_Calculator.this,R.raw.button_tap);

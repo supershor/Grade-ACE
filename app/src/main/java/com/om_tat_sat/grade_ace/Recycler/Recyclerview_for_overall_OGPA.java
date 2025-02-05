@@ -53,6 +53,7 @@ public class Recyclerview_for_overall_OGPA extends RecyclerView.Adapter<Recycler
         holder.name.append(arrayList.get(0).name);
         holder.ogpa.append((total_ogpa/total_sem)+"");
         holder.sem.append(sem);
+        holder.ogpa_type.append(arrayList.get(0).ogpa_type);
     }
 
     @Override
@@ -64,11 +65,13 @@ public class Recyclerview_for_overall_OGPA extends RecyclerView.Adapter<Recycler
         TextView name;
         TextView ogpa;
         TextView sem;
+        TextView ogpa_type;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.name_recycler);
             ogpa=itemView.findViewById(R.id.ogpa_recycler);
             sem=itemView.findViewById(R.id.sem_recycler);
+            ogpa_type=itemView.findViewById(R.id.ogpa_type);
         }
     }
 }

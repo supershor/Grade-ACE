@@ -46,7 +46,6 @@ public class TopperTips extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        getWindow().setStatusBarColor(ContextCompat.getColor(TopperTips.this,R.color.black));
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
             startActivity(new Intent(TopperTips.this,Loading_Page.class));

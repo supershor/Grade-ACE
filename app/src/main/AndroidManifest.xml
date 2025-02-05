@@ -15,22 +15,33 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
-            android:name=".EmailVerificationPage"
+            android:name=".newUiActivity.InsightsGraph"
             android:exported="false" />
         <activity
-            android:name=".SecondLoadingPage"
+            android:name=".newUiActivity.PdfViewNewUi"
+            android:exported="false" />
+        <activity
+            android:name=".newUiActivity.MainHomeScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".newUiActivity.EmailVerificationPage"
+            android:exported="false" />
+        <activity
+            android:name=".newUiActivity.SecondLoadingPage"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" >
 
         </activity>
         <activity
-            android:name=".FirstLoadingPage"
-            android:exported="true">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".newUiActivity.FirstLoadingPage"
+            android:exported="true" >
 
-            <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".web_policy_view"
@@ -40,7 +51,7 @@
             android:exported="false" />
         <activity
             android:name=".Main_loading"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator"
             android:exported="false"

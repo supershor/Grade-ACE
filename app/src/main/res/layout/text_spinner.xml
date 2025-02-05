@@ -4,8 +4,7 @@
     android:id="@+id/text"
 android:ellipsize="end"
 android:maxLines="1"
-android:textSize="@dimen/_16ssp"
-
+android:textSize="@dimen/_14ssp"
     android:theme="@style/font_regular"
     style="@style/font_regular"
 android:textColor="@color/black"

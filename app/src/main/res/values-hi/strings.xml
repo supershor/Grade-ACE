@@ -105,6 +105,17 @@
     <string name="verification_email_failed_with_login_again_request">सत्यापन ईमेल भेजने में विफल रहा।\nकृपया फिर से लॉग इन करें।</string>
     <string name="refresh_user_failed">उपयोगकर्ता को रिफ्रेश करने में विफल।\nकृपया फिर से लॉग इन करें।</string>
     <string name="calculator">कैलकुलेटर</string>
+    <string name="home">घर</string>
+    <string name="pyq">पीवाईक्यू</string>
+    <string name="change_password">पासवर्ड बदलें</string>
+    <string name="feedback">प्रतिक्रिया</string>
+    <string name="bug">बग</string>
+    <string name="app_update">ऐप अपडेट</string>
+    <string name="change_email">ईमेल बदलें</string>
+    <string name="pleaseWaitWhileThePdfIsBeingLoaded">कृपया पीडीएफ लोड होने तक प्रतीक्षा करें।</string>
+    <string name="viewInsights"><u>व्यवहार देखें</u></string>
+
+
 
 
 </resources>

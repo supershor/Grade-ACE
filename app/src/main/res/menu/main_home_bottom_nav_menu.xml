@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:iconTint="@color/black" app:showAsAction="withText" android:title="@string/home" android:id="@+id/home" android:icon="@drawable/home"/>
+    <item app:showAsAction="withText" android:title="@string/ogpa" android:id="@+id/ogpa" android:icon="@drawable/gpa"/>
+    <item app:showAsAction="withText" android:title="@string/overall" android:id="@+id/overall" android:icon="@drawable/all"/>
+    <item app:showAsAction="withText" android:title="@string/graph" android:id="@+id/graph" android:icon="@drawable/barchart"/>
+    <item app:showAsAction="withText" android:title="@string/pyq" android:id="@+id/pyq" android:icon="@drawable/test"/>
+</menu>

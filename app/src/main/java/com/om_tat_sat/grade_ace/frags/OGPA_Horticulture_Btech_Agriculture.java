@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements RecyclerInterface {
+public class OGPA_Horticulture_Btech_Agriculture extends Fragment{
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -90,7 +90,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
                         name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"", name_sem_arr.getOrDefault(dataSnapshot.child("NAME").getValue()+"","")+"_"+dataSnapshot.child("SEM").getValue()+"_");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
-                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa, getContext(), OGPA_Horticulture_Btech_Agriculture.this::onClick);
+                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa, getContext());
                     recyclerView.setAdapter(recyclerview);
                 }
             }
@@ -102,12 +102,6 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment implements Rec
             }
         });
     }
-
-    @Override
-    public void onClick(int i) {
-
-    }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

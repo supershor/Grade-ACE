@@ -106,5 +106,17 @@
     <string name="verification_email_failed_with_login_again_request">Failed to send verification email.\nPlease login again.</string>
     <string name="refresh_user_failed">Failed to refresh user.\nPlease login again.</string>
     <string name="calculator">Calculator</string>
+    <string name="home">Home</string>
+    <string name="pyq">PYQ</string>
+    <string name="change_password">Change Password</string>
+    <string name="feedback">Feedback</string>
+    <string name="bug">Bug</string>
+    <string name="app_update">App Update</string>
+    <string name="change_email">Change Email</string>
+    <string name="pleaseWaitWhileThePdfIsBeingLoaded">Please wait while the Pdf is being loaded.</string>
+    <string name="viewInsights"><u>View Insights</u></string>
+
+
+
 
 </resources>

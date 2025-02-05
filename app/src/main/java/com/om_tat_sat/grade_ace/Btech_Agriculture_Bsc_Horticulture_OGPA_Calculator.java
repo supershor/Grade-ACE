@@ -118,13 +118,11 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        //status bar color
-        getWindow().setStatusBarColor(ContextCompat.getColor(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this,R.color.black));
-
         //intents
         intent=getIntent();
         sem=intent.getIntExtra("SEM",1);
         name=intent.getStringExtra("NAME");
+        int i=intent.getIntExtra("current_degree",0);
         Log.e( "main sem onCreate:0000000000000000",sem+"");
         //tool bar setup
         toolbar=findViewById(R.id.toolbar_calculator);
@@ -153,7 +151,6 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         fields=new ArrayList<>();
         initialize_fields();
         sharedPreferences=getSharedPreferences("Degree_type",0);
-        int i=sharedPreferences.getInt("current_degree",0);
         firebaseDatabase=FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
         if (i==1) {
             databaseReference=firebaseDatabase.getReference().child(firebaseAuth.getCurrentUser().getUid()).child("OGPA_HORTICULTURE");

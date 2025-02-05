@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class OGPA extends Fragment implements RecyclerInterface {
+public class OGPA extends Fragment{
     FirebaseAuth firebaseAuth;
     MediaPlayer mediaPlayer;
     FirebaseDatabase firebaseDatabase;
@@ -158,7 +158,7 @@ public class OGPA extends Fragment implements RecyclerInterface {
                         name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"", name_sem_arr.getOrDefault(dataSnapshot.child("NAME").getValue()+"","")+"_"+dataSnapshot.child("SEM").getValue()+"_");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
-                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa, getContext(), OGPA.this::onClick);
+                    Recyclerview_for_OGPA_SHOWING recyclerview=new Recyclerview_for_OGPA_SHOWING(arrayList_ogpa, getContext());
                     recyclerView.setAdapter(recyclerview);
                 }
             }
@@ -169,10 +169,5 @@ public class OGPA extends Fragment implements RecyclerInterface {
                 Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onClick(int i) {
-
     }
 }

@@ -1,4 +1,4 @@
-package com.om_tat_sat.grade_ace
+package com.om_tat_sat.grade_ace.newUiActivity
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -16,13 +16,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import com.om_tat_sat.grade_ace.R
+import com.om_tat_sat.grade_ace.web_policy_view
 import java.util.Objects
 
 class SecondLoadingPage : AppCompatActivity() {
@@ -160,7 +159,8 @@ class SecondLoadingPage : AppCompatActivity() {
                                 mauth.currentUser?.sendEmailVerification()?.addOnCompleteListener({task:Task<Void?>->
                                     if(task.isSuccessful){
                                         Log.e("onAuthentication","Email sent")
-                                        startActivity(Intent(this@SecondLoadingPage,EmailVerificationPage::class.java))
+                                        startActivity(Intent(this@SecondLoadingPage,
+                                            EmailVerificationPage::class.java))
                                         finishAffinity()
                                     }else{
                                         Log.e("onAuthentication","Email not sent")
@@ -265,10 +265,14 @@ class SecondLoadingPage : AppCompatActivity() {
                         val userName = name_information_sign_up_page_one.text.toString()
                         Log.d("SaveFunction", "Saving user name to database: $userName")
 
+                        val hm= HashMap<String, String>()
+                        hm["NAME"]=userName
+                        hm["EMAIL"]=email
+                        //TODO to select the language
+//                        hm["Languge"]="English"
                         databaseReference.child(userId)
                             .child("Personal information")
-                            .child("NAME")
-                            .setValue(userName)
+                            .setValue(hm)
                             .addOnCompleteListener { task1 ->
                                 if (task1.isSuccessful) {
                                     Log.d("SaveFunction", "User name saved successfully")

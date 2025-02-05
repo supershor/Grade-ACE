@@ -4,13 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/gradient_blue_to_white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TopperTips">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@color/transparent">
             <androidx.appcompat.widget.Toolbar
                 app:title="--"
-                android:background="@color/white"
+                android:background="@color/transparent"
                 app:titleTextColor="@color/black"
                 android:theme="@style/font_bold"
                 style="@style/font_bold"
@@ -30,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/toolbar_topper_message"/>
             <androidx.recyclerview.widget.RecyclerView
+                android:background="@color/transparent"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_width="match_parent"

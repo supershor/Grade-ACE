@@ -4,6 +4,8 @@ public class Item {
     String name;
     String ogpa;
     String sem;
+    String ogpa_type;
+
     public String getName() {
         return name;
     }
@@ -26,6 +28,10 @@ public class Item {
         this.ogpa = ogpa;
         this.sem = sem;
     }
-
-
+    public Item(String name, String ogpa, String sem,String ogpa_type) {
+        this.name = name;
+        this.ogpa = ogpa;
+        this.sem = sem;
+        this.ogpa_type=ogpa_type;
+    }
 }

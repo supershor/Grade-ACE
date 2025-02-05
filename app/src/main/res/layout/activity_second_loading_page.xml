@@ -8,7 +8,7 @@ android:background="@drawable/gradient_blue_to_white"
 android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".SecondLoadingPage">
+tools:context=".newUiActivity.SecondLoadingPage">
     <ScrollView
         android:fillViewport="true"
         android:layout_width="match_parent"
@@ -162,6 +162,7 @@ tools:context=".SecondLoadingPage">
                             app:counterTextColor="@color/grey"
                             app:cursorColor="@color/black"
                             app:hintTextColor="@color/grey"
+                            app:passwordToggleEnabled="true"
                             app:counterEnabled="true"
                             android:layout_marginBottom="@dimen/_5sdp">
                             <com.google.android.material.textfield.TextInputEditText
@@ -186,6 +187,7 @@ tools:context=".SecondLoadingPage">
                             app:counterTextColor="@color/grey"
                             app:cursorColor="@color/black"
                             app:counterEnabled="true"
+                            app:passwordToggleEnabled="true"
                             app:hintTextColor="@color/grey"
                             android:layout_marginBottom="@dimen/_5sdp">
                             <com.google.android.material.textfield.TextInputEditText
@@ -317,6 +319,7 @@ tools:context=".SecondLoadingPage">
                             android:layout_marginLeft="@dimen/_30sdp"
                             android:textColorHint="@color/grey"
                             app:counterTextColor="@color/grey"
+                            app:passwordToggleEnabled="true"
                             app:cursorColor="@color/black"
                             app:hintTextColor="@color/grey"
                             app:counterEnabled="true"

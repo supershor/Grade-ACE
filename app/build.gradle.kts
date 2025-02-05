@@ -38,9 +38,17 @@ android {
     kotlinOptions {
         jvmTarget = "21"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    //noinspection UseTomlInstead
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    //noinspection UseTomlInstead
+    implementation ("com.github.barteksc:AndroidPdfViewerV1:1.6.0")
 
     //noinspection UseTomlInstead
     implementation ("com.jjoe64:graphview:4.2.2")
@@ -64,6 +72,7 @@ dependencies {
     implementation(libs.legacy.support.v4)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

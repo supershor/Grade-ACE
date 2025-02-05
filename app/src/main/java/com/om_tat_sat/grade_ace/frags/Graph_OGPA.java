@@ -181,4 +181,10 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
         mediaPlayer.start();
         setdata(i);
     }
+
+    @Override
+    public void onClick(int i, String ogpaType) {
+        mediaPlayer.start();
+        setdata(i);
+    }
 }

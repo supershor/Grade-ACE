@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/gradient_blue_to_white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BSC_AGRICULTURE_OGPA_Calculator">
@@ -18,7 +18,7 @@
             android:orientation="vertical">
             <androidx.appcompat.widget.Toolbar
                 app:title="--"
-                android:background="@color/white"
+                android:background="@color/transparent"
                 app:titleTextColor="@color/black"
                 app:subtitleTextColor="@color/black"
                 android:theme="@style/font_bold"
@@ -35,7 +35,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_20ssp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -100,7 +100,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear2"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -165,7 +165,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear3"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -230,7 +230,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear4"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -295,7 +295,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear5"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -360,7 +360,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear6"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -425,7 +425,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear7"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -490,7 +490,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear8"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -555,7 +555,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear9"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -620,7 +620,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear10"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -685,7 +685,7 @@
                 android:orientation="vertical"
                 android:id="@+id/linear11"
                 android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView
@@ -753,7 +753,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_20ssp"
-                android:background="@drawable/less_border_blue"
+                android:background="@drawable/less_border_white"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
                 <TextView

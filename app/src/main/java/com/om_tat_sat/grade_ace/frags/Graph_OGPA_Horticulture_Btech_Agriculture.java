@@ -111,7 +111,7 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
                         }
                     }
                     Log.e( "graph onDataChange+++++++++++++++",name_arr.toString());
-                    recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr,Graph_OGPA_Horticulture_Btech_Agriculture.this::onClick);
+                    recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr,Graph_OGPA_Horticulture_Btech_Agriculture.this);
                     recyclerView.setAdapter(recycler_graphview);
                 }
             }
@@ -191,7 +191,6 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
         }
         graph.removeAllSeries();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-
         });
         if (hashMap.containsKey(1)){
             series.appendData(new DataPoint(1,hashMap.get(1)),false,100);
@@ -218,5 +217,10 @@ public class Graph_OGPA_Horticulture_Btech_Agriculture extends Fragment implemen
     public void onClick(int i) {
         mediaPlayer.start();
         setdata(i);
+    }
+
+    @Override
+    public void onClick(int i, String ogpaType) {
+
     }
 }
