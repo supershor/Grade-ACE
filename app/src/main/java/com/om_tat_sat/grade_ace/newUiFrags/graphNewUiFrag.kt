@@ -1,6 +1,5 @@
 package com.om_tat_sat.grade_ace.newUiFrags
 
-import android.R.attr
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
@@ -19,16 +18,15 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.jjoe64.graphview.GraphView
-import com.jjoe64.graphview.LegendRenderer
 import com.jjoe64.graphview.ValueDependentColor
 import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
 import com.om_tat_sat.grade_ace.Interface.RecyclerInterface
-import com.om_tat_sat.grade_ace.Loading_Page
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder
 import com.om_tat_sat.grade_ace.newUiActivity.InsightsGraph
+import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
 
@@ -63,7 +61,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
 
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth!!.currentUser == null) {
-            startActivity(Intent(context, Loading_Page::class.java))
+            startActivity(Intent(context, SecondLoadingPage::class.java))
         }
 
 

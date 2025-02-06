@@ -52,38 +52,13 @@
             android:name=".TopperTips"
             android:exported="false" />
         <activity
-            android:name=".Main_loading"
-            android:exported="true" />
-        <activity
             android:name=".Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".Btech_Agriculture_Engineering_tab"
-            android:exported="false" />
-        <activity
-            android:name=".Bsc_Horticulture_tab"
-            android:exported="false" />
-        <activity
-            android:name=".Bsc_Agriculture_tab"
-            android:exported="false" />
-        <activity
-            android:name=".MainPage"
-            android:exported="false" />
-        <activity
             android:name=".BSC_AGRICULTURE_OGPA_Calculator"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".Sign_Up"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
-            android:name=".Loading_Page"
-            android:exported="true" />
     </application>
 
 </manifest>

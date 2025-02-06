@@ -32,6 +32,8 @@
     <string name="bsc_agriculture">बी.एससी कृषि</string>
     <string name="bsc_horticulture">बी.एससी बागवानी</string>
     <string name="btech_agriculture">बी.टेक एग्रीकल्चर इंजीनियरिंग</string>
+    <string name="btech_agriculture_1">बी.टेक एग्रीकल्चर</string>
+    <string name="btech_agriculture_2">इंजीनियरिंग</string>
     <string name="ogpa">ओजीपीए</string>
     <string name="hello_blank_fragment">नमस्ते काला टुकड़ा</string>
     <string name="graph">ग्राफ़</string>

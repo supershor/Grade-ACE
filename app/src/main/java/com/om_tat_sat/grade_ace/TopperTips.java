@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.om_tat_sat.grade_ace.Recycler.Recycler_topper_tips;
 import com.om_tat_sat.grade_ace.data_holders.topper_tips_holder;
+import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,7 +49,7 @@ public class TopperTips extends AppCompatActivity {
         });
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
-            startActivity(new Intent(TopperTips.this,Loading_Page.class));
+            startActivity(new Intent(TopperTips.this, SecondLoadingPage.class));
             finishAffinity();
         }
         arrayList=new ArrayList<>();

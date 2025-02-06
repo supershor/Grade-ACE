@@ -4,21 +4,28 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
+import android.os.Binder
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Binding
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.om_tat_sat.grade_ace.BSC_AGRICULTURE_OGPA_Calculator
 import com.om_tat_sat.grade_ace.Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator
 import com.om_tat_sat.grade_ace.R
@@ -44,6 +51,8 @@ class HomeFragmentNewUi : Fragment() {
     var recyclerView: RecyclerView? = null
     var app_language: SharedPreferences? = null
     var language: Int = 0
+    var OldOrNew="Old"
+    val binding :FragmentHomeNewUiBinding?=null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -83,20 +92,67 @@ class HomeFragmentNewUi : Fragment() {
         }
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         databaseReference = firebaseDatabase!!.reference.child(firebaseAuth!!.currentUser!!.uid)
+
+        checkNewSchema()
+
         refresh()
         val binding = FragmentHomeNewUiBinding.bind(view)
         binding.bscAgricultureFragHomeNewUi.setOnClickListener {
+            OldOrNew="Old"
             showNameSemDialog(name_sem_arr1!!,"Agriculture")
         }
         binding.btechAgricultureFragHomeNewUi.setOnClickListener {
+            OldOrNew="Old"
             showNameSemDialog(name_sem_arr3!!,"Btech")
         }
         binding.bscHorticultureFragHomeNewUi.setOnClickListener {
+            OldOrNew="Old"
             showNameSemDialog(name_sem_arr2!!,"Horticulture")
         }
+
+        binding.bscHorticultureFragHomeNewUiNew.setOnClickListener {
+            OldOrNew="New"
+            showNameSemDialog(name_sem_arr2!!,"Horticulture")
+        }
+        binding.btechAgricultureFragHomeNewUiNew.setOnClickListener {
+            OldOrNew="New"
+            showNameSemDialog(name_sem_arr3!!,"Btech")
+        }
+        binding.bscAgricultureFragHomeNewUiNew.setOnClickListener {
+            OldOrNew="New"
+            showNameSemDialog(name_sem_arr1!!,"Agriculture")
+        }
+
+
+
         binding.topperTipsFragHomeNewUi.setOnClickListener {
             startActivity(Intent(requireContext(), TopperTips::class.java))
         }
+    }
+    private fun checkNewSchema(){
+        FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Markings").child("NewStudents").addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.value!=null){
+                    Log.e("main onDataChange: ", snapshot.toString())
+                    if(snapshot.child("NewEnabled").value.toString().toBoolean()){
+                        view?.findViewById<LinearLayout>(R.id.bsc_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                        view?.findViewById<LinearLayout>(R.id.btech_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                        view?.findViewById<LinearLayout>(R.id.bsc_horticulture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+
+                        view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("AgricultureMessage").value.toString())
+                        view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("BTechMessage").value.toString())
+                        view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_new_message)!!.setText(snapshot.child("HorticultureMessage").value.toString())
+//                        Log.e("vbn",snapshot.child("AgricultureMessage").value.toString())
+//                        binding?.bscHorticultureFragHomeNewUiNewMessage!!.setText(snapshot.child("AgricultureMessage").value.toString())
+//                        binding.btechAgricultureFragHomeNewUiNewMessage.setText(snapshot.child("BTechMessage").value.toString())
+//                        binding.bscHorticultureFragHomeNewUiNewMessage.setText(snapshot.child("HorticultureMessage").value.toString())
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
     private fun refresh() {
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -150,26 +206,30 @@ class HomeFragmentNewUi : Fragment() {
 //            mediaPlayer.start()
             if (check()) {
                 Toast.makeText(context, issue, Toast.LENGTH_SHORT).show()
+                OldOrNew="Old"
             } else if (spinner?.getSelectedItemPosition() == 0) {
                 Toast.makeText(
                     context,
                     R.string.ogpa_message_4_fragment,
                     Toast.LENGTH_SHORT
                 ).show()
+                OldOrNew="Old"
             } else if (name_sem_arr.containsKey(name?.getText().toString()) && Objects.requireNonNull<String>(name_sem_arr.get(name?.getText().toString())).contains(spinner?.getSelectedItem().toString())) {
                 Toast.makeText(
                     context,
                     R.string.ogpa_message_5_fragment,
                     Toast.LENGTH_SHORT
                 ).show()
+                OldOrNew="Old"
             } else {
-
                 if(type=="Agriculture"){
                     val intent = Intent(
                         context,
                         BSC_AGRICULTURE_OGPA_Calculator::class.java
                     )
                     intent.putExtra("NAME", name?.getText().toString())
+                    intent.putExtra("OldOrNew",OldOrNew)
+                    Log.e( "main onClick:-------------",OldOrNew)
 //                    Log.e( "main onClick:-------------",spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
                     startActivity(intent)
@@ -178,6 +238,8 @@ class HomeFragmentNewUi : Fragment() {
                         context,
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
+                    intent.putExtra("OldOrNew",OldOrNew)
+                    Log.e( "main onClick:-------------",OldOrNew)
                     intent.putExtra("NAME", name?.getText().toString())
 //                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
@@ -188,6 +250,8 @@ class HomeFragmentNewUi : Fragment() {
                         context,
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
+                    intent.putExtra("OldOrNew",OldOrNew)
+                    Log.e( "main onClick:-------------",OldOrNew)
                     intent.putExtra("NAME", name?.getText().toString())
 //                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
@@ -196,6 +260,7 @@ class HomeFragmentNewUi : Fragment() {
                 }
             }
         }.setNegativeButton(com.om_tat_sat.grade_ace.R.string.ogpa_message_6_fragment) { dialog, which ->
+            OldOrNew="Old"
 //            mediaPlayer.start()
             dialog.dismiss()
         }

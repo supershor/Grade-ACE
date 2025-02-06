@@ -31,6 +31,8 @@
     <string name="bsc_agriculture">B.Sc AGRICULTURE</string>
     <string name="bsc_horticulture">B.Sc HORTICULTURE</string>
     <string name="btech_agriculture">B.Tech Agriculture Engineering</string>
+    <string name="btech_agriculture_1">B.Tech Agriculture</string>
+    <string name="btech_agriculture_2">Engineering</string>
     <string name="ogpa">OGPA</string>
     <string name="Semester">Semester</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

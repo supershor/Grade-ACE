@@ -21,6 +21,8 @@
     <string name="for_someone_else">For Someone Else</string>
     <string name="enter_theory_marks">Enter Theory Marks</string>
     <string name="enter_practical_marks">Enter Practical Marks</string>
+    <string name="btech_agriculture_1">B.Tech Agriculture</string>
+    <string name="btech_agriculture_2">Engineering</string>
     <string name="calculate">Calculate</string>
     <string name="contact_owner">Contact Owner</string>
     <string name="delete_account">Delete Account</string>

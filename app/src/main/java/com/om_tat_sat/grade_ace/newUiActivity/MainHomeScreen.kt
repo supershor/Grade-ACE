@@ -5,9 +5,7 @@ import android.content.Intent
 import android.net.MailTo
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -21,22 +19,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.tasks.Task
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.appcheck.BuildConfig
-import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.om_tat_sat.grade_ace.Loading_Page
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.newUiFrags.HomeFragmentNewUi
 import com.om_tat_sat.grade_ace.newUiFrags.graphNewUiFrag
 import com.om_tat_sat.grade_ace.newUiFrags.ogpaAllThreeNewUiFrag
 import com.om_tat_sat.grade_ace.newUiFrags.overAllOgpaNewUiFrag
 import com.om_tat_sat.grade_ace.newUiFrags.pyqNewUiFrag
-import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 import java.util.Locale
 import java.util.Objects
 
