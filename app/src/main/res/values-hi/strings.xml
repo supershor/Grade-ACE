@@ -114,8 +114,23 @@
     <string name="change_email">ईमेल बदलें</string>
     <string name="pleaseWaitWhileThePdfIsBeingLoaded">कृपया पीडीएफ लोड होने तक प्रतीक्षा करें।</string>
     <string name="viewInsights"><u>व्यवहार देखें</u></string>
+    <string name="Calculate_your_Overall_Credit_Point_Average">अपने समग्र गार्डे प्वाइंट औसत की गणना करें</string>
+    <string name="ChangeEmail">ईमेल बदलें</string>
+    <string name="enter_new_email">नया ईमेल दर्ज करें</string>
+    <string name="email_updated">ईमेल सफलतापूर्वक अपडेट किया गया, कृपया ऐप को पुनः आरंभ करें।</string>
+    <string name="ChangePassword">पासवर्ड बदलें</string>
+    <string name="enter_new_password">कृपया अपना नया पासवर्ड दर्ज करें।</string>
+    <string name="password_updated">पासवर्ड सफलतापूर्वक अपडेट किया गया।</string>
+    <string name="new_version_available">नया संस्करण उपलब्ध</string>
+    <string name="new_version_available_message">ऐप का एक नया संस्करण उपलब्ध है, कृपया ग्रेड ऐस का निर्बाध उपयोग जारी रखने के लिए अभी अपडेट करें।</string>
+    <string name="update">अपडेट करें</string>
+    <string name="current_language">"वर्तमान भाषा: "</string>
+    <string name="keep_trying_to_get_verification_email_untill_you_recive_a_email">जब तक आपको कोई ईमेल प्राप्त न हो जाए तब तक सत्यापन ईमेल प्राप्त करने का प्रयास करते रहें।</string>
 
-
+    <string-array name="languages">
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
 
 
 </resources>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
+    android:background="@color/white"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,16 +13,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/checkbox_english"
-            android:background="@color/black"
+            android:background="@color/white"
             android:textSize="@dimen/_25ssp"
             android:fontFamily="@font/playfairdisplay_semibold"
             android:checked="false"/>
         <TextView
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textview_english"
-            android:background="@color/black"
+            android:background="@color/white"
             android:textSize="@dimen/_25ssp"
             android:fontFamily="@font/playfairdisplay_semibold"
             android:text="@string/english"
@@ -38,16 +38,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/checkbox_hindi"
-            android:background="@color/black"
+            android:background="@color/white"
             android:textSize="@dimen/_25sdp"
             android:fontFamily="@font/playfairdisplay_semibold"
             android:checked="false"/>
         <TextView
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textview_hindi"
-            android:background="@color/black"
+            android:background="@color/white"
             android:textSize="@dimen/_25sdp"
             android:fontFamily="@font/playfairdisplay_semibold"
             android:text="@string/hindi"

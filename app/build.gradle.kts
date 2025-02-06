@@ -5,8 +5,16 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("C:\\Users\\ashis\\OneDrive\\Documents\\Android keys\\grade_ace.jks")
+            storePassword = "ashish72240"
+            keyPassword = "ashish72240"
+            keyAlias = "key0"
+        }
+    }
     namespace = "com.om_tat_sat.grade_ace"
-    compileSdk = 34
+    compileSdk = 35
     bundle{
         language{
             enableSplit = false
@@ -15,9 +23,9 @@ android {
     defaultConfig {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 12
-        versionName = "12.0"
+        targetSdk = 35
+        versionCode = 7
+        versionName = "7.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,6 +37,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {

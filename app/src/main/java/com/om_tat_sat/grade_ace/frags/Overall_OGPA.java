@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,12 +74,12 @@ public class Overall_OGPA extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.e("main onDataChange: ",snapshot.toString());
+//                Log.e("main onDataChange: ",snapshot.toString());
                 if (snapshot.getValue()!=null){
                     hashmap_ogpa.clear();
                     arrayList.clear();
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                        Log.e("main onDataChange:2",dataSnapshot.toString());
+//                        Log.e("main onDataChange:2",dataSnapshot.toString());
                         if (hashmap_ogpa.containsKey(dataSnapshot.child("NAME").getValue()+"")){
                             ArrayList<ogpa_holder>arrayList=hashmap_ogpa.get(dataSnapshot.child("NAME").getValue()+"");
                             arrayList.add(new ogpa_holder(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
@@ -92,9 +91,9 @@ public class Overall_OGPA extends Fragment {
                         }
                     }
                     for (String s:hashmap_ogpa.keySet()){
-                        for (ogpa_holder ogpa_holder: hashmap_ogpa.get(s)){
-                            Log.e( "overall:------------------------",ogpa_holder.name+"-"+ogpa_holder.sem+"-"+ogpa_holder.ogpa);
-                        }
+//                        for (ogpa_holder ogpa_holder: hashmap_ogpa.get(s)){
+////                            Log.e( "overall:------------------------",ogpa_holder.name+"-"+ogpa_holder.sem+"-"+ogpa_holder.ogpa);
+//                        }
                         arrayList.add(hashmap_ogpa.get(s));
                     }
                     //add new reclycler
@@ -107,7 +106,7 @@ public class Overall_OGPA extends Fragment {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e( "main onCancelled: ", error.toString());
+//                Log.e( "main onCancelled: ", error.toString());
                 Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

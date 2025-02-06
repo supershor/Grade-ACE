@@ -115,8 +115,23 @@
     <string name="change_email">Change Email</string>
     <string name="pleaseWaitWhileThePdfIsBeingLoaded">Please wait while the Pdf is being loaded.</string>
     <string name="viewInsights"><u>View Insights</u></string>
+    <string name="Calculate_your_Overall_Credit_Point_Average">Calculate your Overall Grade Point Average</string>
+    <string name="ChangeEmail">Change Email</string>
+    <string name="enter_new_email">Enter New Email</string>
+    <string name="email_updated">Email updated successfully, please restart the app.</string>
+    <string name="ChangePassword">Change Password</string>
+    <string name="enter_new_password">Please enter your new password.</string>
+    <string name="password_updated">Password updated successfully.</string>
+    <string name="new_version_available">New Version Available</string>
+    <string name="new_version_available_message">A new version of app is available please update now to continue using grade ace seamlessly.</string>
+    <string name="update">Update</string>
+    <string name="current_language">"Current Language: "</string>
+    <string name="keep_trying_to_get_verification_email_untill_you_recive_a_email">Keep trying to get verification email untill you recive a email.</string>
 
-
+    <string-array name="languages">
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
 
 
 </resources>

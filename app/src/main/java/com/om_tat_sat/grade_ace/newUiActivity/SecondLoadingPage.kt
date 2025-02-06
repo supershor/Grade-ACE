@@ -3,7 +3,6 @@ package com.om_tat_sat.grade_ace.newUiActivity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
@@ -22,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.web_policy_view
+import java.util.Locale
 import java.util.Objects
 
 class SecondLoadingPage : AppCompatActivity() {
@@ -54,6 +54,10 @@ class SecondLoadingPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val language = getSharedPreferences("app_language", MODE_PRIVATE).getInt("current_language", 0)
+        if(language==1){
+            changeLanguage("hi")
+        }
         setContentView(R.layout.activity_second_loading_page)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -79,6 +83,14 @@ class SecondLoadingPage : AppCompatActivity() {
         signup_second_page_view_for_email_and_password = findViewById(R.id.signup_second_page_view_for_email_and_password)
         name_information_sign_up_page_one = findViewById(R.id.name_information_sign_up_page_one)
         loading_page_sign_up_name_first_signup_then_save_name = findViewById(R.id.loading_page_sign_up_name_first_signup_then_save_name)
+
+        findViewById<TextView>(R.id.change_language).setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                val intent=Intent(this@SecondLoadingPage,ChangeLanguage::class.java)
+                intent.putExtra("From","SecondLoadingPage")
+                startActivity(intent)
+            }
+        })
 
         privacy_policy_login.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
@@ -151,20 +163,32 @@ class SecondLoadingPage : AppCompatActivity() {
                     mauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this@SecondLoadingPage) {task->
                         if(task.isSuccessful){
                             if(mauth.currentUser?.isEmailVerified==true){
-                                Log.e("onAuthentication","User email is verified")
-                                //TODO go to main activity
+//                                Log.e("onAuthentication","User email is verified")
+                                startActivity(Intent(this@SecondLoadingPage,MainHomeScreen::class.java))
+                                val language = getSharedPreferences("app_language", MODE_PRIVATE).getInt("current_language", 0)
+                                val hm= HashMap<String, String>()
+                                hm["EMAIL"]=email
+                                if (language == 0) {
+                                    hm["Language"]="English"
+                                } else if (language == 1) {
+                                    hm["Language"]="Hindi"
+                                }
+                                databaseReference.child(mauth.currentUser!!.uid.toString())
+                                    .child("Personal information")
+                                    .updateChildren(hm as Map<String, Any>)
+                                finishAffinity()
                             }else{
                                 Toast.makeText(this@SecondLoadingPage,getString(R.string.verification_email_sent_with_email_verification_request),Toast.LENGTH_SHORT).show()
-                                Log.e("onAuthentication","User email is not verified")
+//                                Log.e("onAuthentication","User email is not verified")
                                 mauth.currentUser?.sendEmailVerification()?.addOnCompleteListener({task:Task<Void?>->
                                     if(task.isSuccessful){
-                                        Log.e("onAuthentication","Email sent")
+//                                        Log.e("onAuthentication","Email sent")
                                         startActivity(Intent(this@SecondLoadingPage,
                                             EmailVerificationPage::class.java))
                                         finishAffinity()
                                     }else{
-                                        Log.e("onAuthentication","Email not sent")
-                                        Log.e("onAuthentication",task.exception.toString())
+//                                        Log.e("onAuthentication","Email not sent")
+//                                        Log.e("onAuthentication",task.exception.toString())
                                         Toast.makeText(this@SecondLoadingPage,getString(R.string.verification_email_failed_with_login_again_request),Toast.LENGTH_SHORT).show()
                                         mauth.signOut()
                                     }
@@ -186,7 +210,7 @@ class SecondLoadingPage : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-                            Log.e("onComplete: >>>>>>>>>>>>>", task.toString())
+//                            Log.e("onComplete: >>>>>>>>>>>>>", task.toString())
                         }
                 }else{
                     Toast.makeText(this@SecondLoadingPage,getString(R.string.enter_all_fields),Toast.LENGTH_SHORT).show()
@@ -246,42 +270,48 @@ class SecondLoadingPage : AppCompatActivity() {
         layout.visibility=visibility
     }
     fun save() {
-        Log.d("SaveFunction", "save() called")
+//        Log.d("SaveFunction", "save() called")
         if (check_fields()) {
-            Log.d("SaveFunction", "Field validation failed: $issue")
+//            Log.d("SaveFunction", "Field validation failed: $issue")
             Toast.makeText(this@SecondLoadingPage, issue, Toast.LENGTH_SHORT).show()
         } else {
             val email = email_information_sign_up_page.text.toString()
             val password = password_information_sign_up_page.text.toString()
-            Log.d("SaveFunction", "Attempting to create user with email: $email")
+//            Log.d("SaveFunction", "Attempting to create user with email: $email")
 
             mauth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+
                         val currentUser = mauth.currentUser
                         val userId = currentUser?.uid ?: ""
-                        Log.d("SaveFunction", "User created successfully with UID: $userId")
+//                        Log.d("SaveFunction", "User created successfully with UID: $userId")
 
                         val userName = name_information_sign_up_page_one.text.toString()
-                        Log.d("SaveFunction", "Saving user name to database: $userName")
+//                        Log.d("SaveFunction", "Saving user name to database: $userName")
 
+//                        hm["Languge"]="English"
+                        val language = getSharedPreferences("app_language", MODE_PRIVATE).getInt("current_language", 0)
                         val hm= HashMap<String, String>()
                         hm["NAME"]=userName
                         hm["EMAIL"]=email
-                        //TODO to select the language
-//                        hm["Languge"]="English"
+                        if (language == 0) {
+                            hm["Language"]="English"
+                        } else if (language == 1) {
+                            hm["Language"]="Hindi"
+                        }
                         databaseReference.child(userId)
                             .child("Personal information")
                             .setValue(hm)
                             .addOnCompleteListener { task1 ->
                                 if (task1.isSuccessful) {
-                                    Log.d("SaveFunction", "User name saved successfully")
+//                                    Log.d("SaveFunction", "User name saved successfully")
 
-                                    Log.d("SaveFunction", "Sending email verification to: $email")
+//                                    Log.d("SaveFunction", "Sending email verification to: $email")
                                     currentUser?.sendEmailVerification()
                                         ?.addOnCompleteListener { task2 ->
                                             if (task2.isSuccessful) {
-                                                Log.d("SaveFunction", "Email verification sent")
+//                                                Log.d("SaveFunction", "Email verification sent")
                                                 Toast.makeText(
                                                     this@SecondLoadingPage,
                                                     getString(R.string.verification_email_sent),
@@ -295,8 +325,8 @@ class SecondLoadingPage : AppCompatActivity() {
                                                 )
                                                 finishAffinity()
                                             } else {
-                                                val errorMessage = task2.exception?.message ?: "Unknown error"
-                                                Log.e("SaveFunction", "Failed to send email verification: $errorMessage")
+//                                                val errorMessage = task2.exception?.message ?: "Unknown error"
+//                                                Log.e("SaveFunction", "Failed to send email verification: $errorMessage")
                                                 Toast.makeText(
                                                     this@SecondLoadingPage,
                                                     getString(R.string.verification_email_failed_with_login_again_request),
@@ -311,7 +341,7 @@ class SecondLoadingPage : AppCompatActivity() {
                                         }
                                 } else {
                                     val errorMessage = task1.exception?.message ?: "Unknown error"
-                                    Log.e("SaveFunction", "Failed to save user name to database: $errorMessage")
+//                                    Log.e("SaveFunction", "Failed to save user name to database: $errorMessage")
                                     Toast.makeText(
                                         this@SecondLoadingPage,
                                         errorMessage,
@@ -321,7 +351,7 @@ class SecondLoadingPage : AppCompatActivity() {
                             }
                     } else {
                         val errorMessage = task.exception?.message ?: "Unknown error"
-                        Log.e("SaveFunction", "User creation failed: $errorMessage")
+//                        Log.e("SaveFunction", "User creation failed: $errorMessage")
                         Toast.makeText(
                             this@SecondLoadingPage,
                             errorMessage,
@@ -369,5 +399,15 @@ class SecondLoadingPage : AppCompatActivity() {
             return true
         }
         return false
+    }
+    fun changeLanguage(language: String?) {
+//        Log.d("ChangeLanguage", "Changing language to: $language")
+        val resources = this.resources
+        val configuration = resources.configuration
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+//        Log.d("ChangeLanguage", "Language changed successfully")
     }
 }

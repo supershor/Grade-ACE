@@ -3,7 +3,6 @@ package com.om_tat_sat.grade_ace.frags;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -146,12 +145,12 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.e("main onDataChange: ",snapshot.toString());
+//                Log.e("main onDataChange: ",snapshot.toString());
                 if (snapshot.getValue()!=null){
                     name_arr.clear();
                     hashmap_ogpa.clear();
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                        Log.e("main onDataChange: ",dataSnapshot.toString());
+//                        Log.e("main onDataChange: ",dataSnapshot.toString());
                         if (hashmap_ogpa.containsKey(dataSnapshot.child("NAME").getValue()+"")){
                             ArrayList<ogpa_holder>arrayList=hashmap_ogpa.get(dataSnapshot.child("NAME").getValue()+"");
                             arrayList.add(new ogpa_holder(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
@@ -163,14 +162,14 @@ public class Graph_OGPA extends Fragment implements RecyclerInterface {
                             name_arr.add(dataSnapshot.child("NAME").getValue()+"");
                         }
                     }
-                    Log.e( "graph onDataChange+++++++++++++++",name_arr.toString());
+//                    Log.e( "graph onDataChange+++++++++++++++",name_arr.toString());
                     recycler_graphview recycler_graphview=new recycler_graphview(getContext(),name_arr, Graph_OGPA.this);
                     recyclerView.setAdapter(recycler_graphview);
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e( "main onCancelled: ", error.toString());
+//                Log.e( "main onCancelled: ", error.toString());
                 Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

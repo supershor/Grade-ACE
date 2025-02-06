@@ -10,11 +10,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:ignore="ScrollViewSize">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/newLoadingAnim_activity_first_loading_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calculate"
+                    android:textSize="@dimen/_26ssp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ogpa"
+                    android:textSize="@dimen/_18ssp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/Calculate_your_Overall_Credit_Point_Average"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/black"/>
 <!--            <androidx.appcompat.widget.Toolbar-->
 <!--                app:title="&#45;&#45;"-->
 <!--                android:background="@color/white"-->
@@ -27,7 +59,7 @@
                 android:theme="@style/font_regular"
                 android:drawableLeft="@drawable/baseline_agriculture_24"
                 android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/less_border_white"
@@ -46,7 +78,7 @@
 
                 android:drawableLeft="@drawable/baseline_local_florist_24"
                 android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/less_border_white"
@@ -65,7 +97,7 @@
                 android:theme="@style/font_regular"
 
                 android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 android:drawableLeft="@drawable/baseline_engineering_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +115,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:theme="@style/font_regular"
                 android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="@dimen/_18ssp"
                 android:drawableLeft="@drawable/baseline_tips_and_updates_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

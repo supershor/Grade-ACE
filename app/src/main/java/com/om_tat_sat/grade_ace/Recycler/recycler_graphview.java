@@ -43,7 +43,7 @@ public class recycler_graphview extends RecyclerView.Adapter<recycler_graphview.
         if(ogpaType!=null){
             holder.ogpa.append(ogpaType);
             holder.ogpa.setVisibility(View.VISIBLE);
-            holder.viewInsights.setVisibility(View.VISIBLE);
+//            holder.viewInsights.setVisibility(View.VISIBLE);
         }
     }
 

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -95,7 +94,7 @@ class ogpaAllThreeNewUiFrag : Fragment() {
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         databaseReference = firebaseDatabase!!.reference.child(firebaseAuth!!.currentUser!!.uid)
         firebaseSingleton.fetchData(firebaseAuth!!,databaseReference!!){snapshot->
-            Log.e("main onDataChange: ", snapshot.toString())
+//            Log.e("main onDataChange: ", snapshot.toString())
             if (snapshot?.value != null) {
                 arrayList_ogpa1?.clear()
                 arrayList_ogpa2?.clear()
@@ -114,9 +113,9 @@ class ogpaAllThreeNewUiFrag : Fragment() {
         recyclerView: RecyclerView,
         ogpaType: String
     ) {
-        Log.e("addElements", "Starting to add elements for OGPA type: $ogpaType")
+//        Log.e("addElements", "Starting to add elements for OGPA type: $ogpaType")
         for (dataSnapshot in snapshot.children) {
-            Log.e("addElements", "DataSnapshot: $dataSnapshot")
+//            Log.e("addElements", "DataSnapshot: $dataSnapshot")
 
             val name = dataSnapshot.child("NAME").value.toString()
             val sem = dataSnapshot.child("SEM").value.toString()
@@ -124,7 +123,7 @@ class ogpaAllThreeNewUiFrag : Fragment() {
 
             name_sem_arr[name] = name_sem_arr.getOrDefault(name, "") + "_$sem"
 
-            Log.e("addElements", "name_sem_arr updated: $name = ${name_sem_arr[name]}")
+//            Log.e("addElements", "name_sem_arr updated: $name = ${name_sem_arr[name]}")
 
             arrayList_ogpa.add(
                 Item(
@@ -135,7 +134,7 @@ class ogpaAllThreeNewUiFrag : Fragment() {
                 )
             )
 
-            Log.e("addElements", "Added to arrayList_ogpa: NAME=$name, OGPA=$ogpa, SEM=$sem, OGPA_TYPE=$ogpaType")
+//            Log.e("addElements", "Added to arrayList_ogpa: NAME=$name, OGPA=$ogpa, SEM=$sem, OGPA_TYPE=$ogpaType")
         }
 
         val recyclerview = Recyclerview_for_OGPA_SHOWING(
@@ -145,8 +144,8 @@ class ogpaAllThreeNewUiFrag : Fragment() {
 
         recyclerView.adapter = recyclerview
 
-        Log.e("addElements", "RecyclerView adapter set for OGPA type: $ogpaType")
-        Log.e("addElements", "Finished adding elements for OGPA type: $ogpaType")
+//        Log.e("addElements", "RecyclerView adapter set for OGPA type: $ogpaType")
+//        Log.e("addElements", "Finished adding elements for OGPA type: $ogpaType")
     }
     override fun onResume() {
         super.onResume()

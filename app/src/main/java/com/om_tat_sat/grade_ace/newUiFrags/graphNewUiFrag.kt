@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -107,7 +106,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
             name_arr.clear()
             hashmap_ogpa.clear()
             for (dataSnapshot in snapshot.children) {
-                Log.e("main onDataChange: ", dataSnapshot.toString())
+//                Log.e("main onDataChange: ", dataSnapshot.toString())
                 if (hashmap_ogpa.containsKey(dataSnapshot.child("NAME").value.toString() + "")) {
                     val arrayList: java.util.ArrayList<ogpa_holder>? = hashmap_ogpa.get(dataSnapshot.child("NAME").value.toString() + "")
                     arrayList?.add(
@@ -141,7 +140,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
                     name_arr.add(dataSnapshot.child("NAME").value.toString() + "")
                 }
             }
-            Log.e("graph onDataChange+++++++++++++++", name_arr.toString())
+//            Log.e("graph onDataChange+++++++++++++++", name_arr.toString())
             val recycler_graphview = recycler_graphview(context, name_arr, this@graphNewUiFrag,ogpaType)
             recyclerView.setAdapter(recycler_graphview)
         }
@@ -164,7 +163,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
     }
 
     override fun onClick(i: Int, ogpaType: String?) {
-        Log.e("onClick: ",i.toString()+"=="+ogpaType)
+//        Log.e("onClick: ",i.toString()+"=="+ogpaType)
         if(ogpaType=="AGRICULTURE") {
             setdata(i, hashmap_ogpa1!!, name_arr1!!)
         }else if(ogpaType=="HORTICULTURE") {
@@ -188,8 +187,8 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
 //        scroll_graph_frag?.scrollTo(0,0)
     }
     fun jumpToInsights(name_arr: ArrayList<String>, hashmap_ogpa: HashMap<String, ArrayList<ogpa_holder>>, index: Int, intent: Intent){
-        Log.e("onClick: ","AGRICULTURE--${name_arr.get(index)}")
-        Log.e("onClick: ",hashmap_ogpa.get(name_arr.get(index)).toString())
+//        Log.e("onClick: ","AGRICULTURE--${name_arr.get(index)}")
+//        Log.e("onClick: ",hashmap_ogpa.get(name_arr.get(index)).toString())
         intent.putExtra("name",name_arr.get(index))
         val hashMap = java.util.HashMap<Int, Double>()
         for (ogpa_holder in hashmap_ogpa.get(name_arr.get(index))!!) {
@@ -204,7 +203,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
         intent.putExtra("sem7",hashMap.getOrDefault(7,0))
         intent.putExtra("sem8",hashMap.getOrDefault(8,0))
 
-        Log.e("clicked--",hashMap.toString())
+//        Log.e("clicked--",hashMap.toString())
 
         startActivity(intent)
     }

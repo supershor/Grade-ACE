@@ -390,6 +390,18 @@ tools:context=".newUiActivity.SecondLoadingPage">
                         android:textColor="@color/black"
                         />
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/change_language"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_language"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_16ssp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:textColor="@color/black"
+                    />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

@@ -143,16 +143,19 @@ public class MainPage extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nThis is :-\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"(It's your I'd kindly do not edit)"+"\n\nName:-\nPhone Number:-\nError:-");
             startActivity(intent);
 
-        }else if (item.getItemId()==R.id.contact_owner){
+        }
+        else if (item.getItemId()==R.id.contact_owner){
             Intent intent=new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
             intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"supershor.cp@gmail.com"});
             intent.putExtra(Intent.EXTRA_SUBJECT,"Contact owner of Grade ACE.");
             intent.putExtra(Intent.EXTRA_TEXT,"Hello 👋\n"+"\nThis is :-\n"+firebaseAuth.getCurrentUser().getUid()+"\n"+"(It's your I'd kindly do not edit)"+"\n\nName:-\nPhone Number:-\nReason:-");
             startActivity(intent);
-        }else if (item.getItemId()==R.id.refresh){
+        }
+        else if (item.getItemId()==R.id.refresh){
             startActivity(new Intent(MainPage.this,TopperTips.class));
-        }else if (item.getItemId()==R.id.change_language){
+        }
+        else if (item.getItemId()==R.id.change_language){
             Log.e("onOptionsItemSelected:-------------------","1");
             View view= LayoutInflater.from(MainPage.this).inflate(R.layout.change_language,null);
             english=view.findViewById(R.id.textview_english);

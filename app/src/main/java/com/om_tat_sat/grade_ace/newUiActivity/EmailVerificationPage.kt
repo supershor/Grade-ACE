@@ -3,7 +3,6 @@ package com.om_tat_sat.grade_ace.newUiActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -70,8 +69,9 @@ class EmailVerificationPage : AppCompatActivity() {
     private fun keepChecking(){
         mauth.currentUser?.reload()?.addOnSuccessListener {
             if(mauth.currentUser?.isEmailVerified==true){
-                Log.d("TAG", "Email Verified")
-                // TODO start the main activity
+//                Log.d("TAG", "Email Verified")
+                startActivity(Intent(this@EmailVerificationPage,MainHomeScreen::class.java))
+                finishAffinity()
             } else {
                 Handler().postDelayed(Runnable {
                     keepChecking()

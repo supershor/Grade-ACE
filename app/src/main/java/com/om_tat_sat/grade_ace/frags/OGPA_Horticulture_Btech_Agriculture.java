@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,11 +81,11 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment{
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.e("main onDataChange: ",snapshot.toString());
+//                Log.e("main onDataChange: ",snapshot.toString());
                 if (snapshot.getValue()!=null){
                     arrayList_ogpa.clear();
                     for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                        Log.e("main onDataChange: ",dataSnapshot.toString());
+//                        Log.e("main onDataChange: ",dataSnapshot.toString());
                         name_sem_arr.put(dataSnapshot.child("NAME").getValue()+"", name_sem_arr.getOrDefault(dataSnapshot.child("NAME").getValue()+"","")+"_"+dataSnapshot.child("SEM").getValue()+"_");
                         arrayList_ogpa.add(new Item(dataSnapshot.child("NAME").getValue()+"",dataSnapshot.child("OGPA").getValue()+"",dataSnapshot.child("SEM").getValue()+""));
                     }
@@ -97,7 +96,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment{
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e( "main onCancelled: ", error.toString());
+//                Log.e( "main onCancelled: ", error.toString());
                 Toast.makeText(getContext(),error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -165,7 +164,7 @@ public class OGPA_Horticulture_Btech_Agriculture extends Fragment{
                 else{
                     Intent intent=new Intent(getContext(), Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.class);
                     intent.putExtra("NAME",name.getText().toString());
-                    Log.e( "main onClick:-------------", spinner.getSelectedItem().toString());
+//                    Log.e( "main onClick:-------------", spinner.getSelectedItem().toString());
                     intent.putExtra("SEM",Integer.parseInt(spinner.getSelectedItem().toString()));
                     startActivity(intent);
                 }

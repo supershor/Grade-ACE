@@ -2,8 +2,8 @@ package com.om_tat_sat.grade_ace.newUiActivity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -54,13 +54,13 @@ class PdfViewNewUi : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 fileName=snapshot.child("filename").value.toString()
                 namingConventions=snapshot.child("namingConventions").value.toString()
-                Log.d("PdfViewNewUi", "onDataChange: $fileName")
-                Log.d("PdfViewNewUi", "onDataChange: $namingConventions")
+//                Log.d("PdfViewNewUi", "onDataChange: $fileName")
+//                Log.d("PdfViewNewUi", "onDataChange: $namingConventions")
                 addPdf()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@PdfViewNewUi,error.message,Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -73,7 +73,7 @@ class PdfViewNewUi : AppCompatActivity() {
         pdfRef?.downloadUrl?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val downloadUrl = task.result
-                Log.d("Download URL", "File download URL: $downloadUrl")
+//                Log.d("Download URL", "File download URL: $downloadUrl")
 
                 // Now you can use this URL to load the PDF
                 pdfRef.getBytes(900000).addOnCompleteListener { byteTask ->
@@ -93,15 +93,11 @@ class PdfViewNewUi : AppCompatActivity() {
                         val scrollBar=findViewById<ScrollBar>(R.id.scrollBar)
                         pdfView!!.setScrollBar(scrollBar)
                     } else {
-                        Log.e(
-                            "StorageException",
-                            "Could not open resulting stream.",
-                            byteTask.exception
-                        )
+//                        Log.e( "StorageException","Could not open resulting stream.",byteTask.exception)
                     }
                 }
             } else {
-                Log.e("StorageException", "Could not get download URL.", task.exception)
+//                Log.e("StorageException", "Could not get download URL.", task.exception)
             }
         }
     }

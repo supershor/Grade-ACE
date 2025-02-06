@@ -2,7 +2,6 @@ package com.om_tat_sat.grade_ace.newUiFrags
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,14 +30,14 @@ class pyqNewUiFrag : Fragment(), RecyclerInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("pyqNewUiFrag", "onCreate called")
+//        Log.d("pyqNewUiFrag", "onCreate called")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("pyqNewUiFrag", "onCreateView called")
+//        Log.d("pyqNewUiFrag", "onCreateView called")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_pyq_new_ui, container, false)
         recyclerview_overall_PYQ = view.findViewById(R.id.recyclerview_overall_PYQ)
@@ -48,7 +47,7 @@ class pyqNewUiFrag : Fragment(), RecyclerInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("pyqNewUiFrag", "onViewCreated called")
+//        Log.d("pyqNewUiFrag", "onViewCreated called")
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth?.currentUser == null) {
             startActivity(Intent(context, FirstLoadingPage::class.java))
@@ -58,7 +57,7 @@ class pyqNewUiFrag : Fragment(), RecyclerInterface {
     }
 
     private fun refresh() {
-        Log.d("pyqNewUiFrag", "refresh called")
+//        Log.d("pyqNewUiFrag", "refresh called")
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         databaseReference = firebaseDatabase!!.reference.child("PYQ")
         firebasePyqLoader.fetchPYQ(firebaseAuth!!, databaseReference!!, { snapshot ->
@@ -67,38 +66,38 @@ class pyqNewUiFrag : Fragment(), RecyclerInterface {
     }
 
     private fun addData(snapshot: DataSnapshot) {
-        Log.d("pyqNewUiFrag", "addData called with snapshot: $snapshot")
+//        Log.d("pyqNewUiFrag", "addData called with snapshot: $snapshot")
         arrayListPyq.clear()
         for (dataSnapshot in snapshot.children) {
-            Log.d("pyqNewUiFrag", "addData: $dataSnapshot")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.key}")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("sem").value}")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("message").value}")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("targeted").value}")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("namingConventions").value}")
-            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("filename").value}")
+//            Log.d("pyqNewUiFrag", "addData: $dataSnapshot")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.key}")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("sem").value}")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("message").value}")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("targeted").value}")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("namingConventions").value}")
+//            Log.d("pyqNewUiFrag", "addData: ${dataSnapshot.child("filename").value}")
             val name = dataSnapshot.key
             val semester = dataSnapshot.child("sem").value
             val message = dataSnapshot.child("message").value
             val targeted = dataSnapshot.child("targeted").value
             arrayListPyq.add(PYQ_DataHolder(message.toString(), name.toString(), semester.toString(), targeted.toString()))
         }
-        Log.d("pyqNewUiFrag", "addData: $arrayListPyq")
+//        Log.d("pyqNewUiFrag", "addData: $arrayListPyq")
         val recyclerPyq = recycler_PYQ(this, requireContext(), arrayListPyq)
         recyclerview_overall_PYQ?.setAdapter(recyclerPyq)
-        Log.d("pyqNewUiFrag", "RecyclerView adapter set")
+//        Log.d("pyqNewUiFrag", "RecyclerView adapter set")
     }
 
     override fun onClick(i: Int) {
-        Log.d("pyqNewUiFrag", "onClick called with index: $i")
+//        Log.d("pyqNewUiFrag", "onClick called with index: $i")
         Toast.makeText(context, context?.getString(R.string.pleaseWaitWhileThePdfIsBeingLoaded), Toast.LENGTH_SHORT).show()
         val intent:Intent = Intent(context,PdfViewNewUi::class.java)
         intent.putExtra("KeyFileName",arrayListPyq.get(i).name)
-        Log.d("pyqNewUiFrag", "onClick: ${arrayListPyq.get(i).name}")
+//        Log.d("pyqNewUiFrag", "onClick: ${arrayListPyq.get(i).name}")
         startActivity(intent)
     }
 
     override fun onClick(i: Int, ogpaType: String?) {
-        Log.d("pyqNewUiFrag", "onClick called with index:")
+//        Log.d("pyqNewUiFrag", "onClick called with index:")
     }
 }

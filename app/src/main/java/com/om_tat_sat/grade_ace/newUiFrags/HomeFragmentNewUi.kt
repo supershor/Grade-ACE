@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,7 +60,6 @@ class HomeFragmentNewUi : Fragment() {
         name_sem_arr2 = java.util.HashMap()
         name_sem_arr3 = java.util.HashMap()
 
-        //TODO add language selection parameters
 //        app_language =
 //            this.activity!!.getSharedPreferences("app_language", Context.MODE_PRIVATE)
 //        language = app_language.getInt("current_language", 0)
@@ -105,7 +103,7 @@ class HomeFragmentNewUi : Fragment() {
         databaseReference = firebaseDatabase!!.reference.child(firebaseAuth!!.currentUser!!.uid)
 
         firebaseSingleton.fetchData(firebaseAuth!!,databaseReference!!){snapshot->
-            Log.e("main onDataChange: ", snapshot.toString())
+//            Log.e("main onDataChange: ", snapshot.toString())
             if (snapshot!!.value != null) {
                 name_sem_arr1?.clear()
                 name_sem_arr2?.clear()
@@ -123,7 +121,7 @@ class HomeFragmentNewUi : Fragment() {
     }
     private fun addMultiple(snapshot: DataSnapshot, name_sem_arr: HashMap<String, String>){
         for (dataSnapshot in snapshot.children) {
-            Log.e("main onDataChange: ", dataSnapshot.toString())
+//            Log.e("main onDataChange: ", dataSnapshot.toString())
             name_sem_arr[dataSnapshot.child("NAME").value.toString() + ""] = name_sem_arr.getOrDefault(dataSnapshot.child("NAME").value.toString() + "", "") + "_" + dataSnapshot.child("SEM").value + "_"
         }
     }
@@ -172,10 +170,7 @@ class HomeFragmentNewUi : Fragment() {
                         BSC_AGRICULTURE_OGPA_Calculator::class.java
                     )
                     intent.putExtra("NAME", name?.getText().toString())
-                    Log.e(
-                        "main onClick:-------------",
-                        spinner?.getSelectedItem().toString()
-                    )
+//                    Log.e( "main onClick:-------------",spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
                     startActivity(intent)
                 }else if(type=="Horticulture"){
@@ -184,7 +179,7 @@ class HomeFragmentNewUi : Fragment() {
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
                     intent.putExtra("NAME", name?.getText().toString())
-                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
+//                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
                     intent.putExtra("current_degree", 1)
                     startActivity(intent)
@@ -194,7 +189,7 @@ class HomeFragmentNewUi : Fragment() {
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
                     intent.putExtra("NAME", name?.getText().toString())
-                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
+//                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
                     intent.putExtra("current_degree", 2)
                     startActivity(intent)

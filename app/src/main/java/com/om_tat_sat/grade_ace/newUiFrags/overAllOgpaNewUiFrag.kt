@@ -3,7 +3,6 @@ package com.om_tat_sat.grade_ace.newUiFrags
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -101,7 +100,7 @@ class overAllOgpaNewUiFrag : Fragment() {
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         databaseReference = firebaseDatabase!!.reference.child(firebaseAuth!!.currentUser!!.uid)
         firebaseSingleton.fetchData(firebaseAuth!!,databaseReference!!){snapshot->
-            Log.e("main onDataChange: ", snapshot.toString())
+//            Log.e("main onDataChange: ", snapshot.toString())
             if (snapshot?.value != null) {
                 hashmap_ogpa1?.clear()
                 arrayList1?.clear()
@@ -121,15 +120,15 @@ class overAllOgpaNewUiFrag : Fragment() {
     }
 
     private fun extractOGPA(snapshot: DataSnapshot, ogpa_type: String, hashmap_ogpa: java.util.HashMap<String, java.util.ArrayList<ogpa_holder>>?, arrayList: java.util.ArrayList<java.util.ArrayList<ogpa_holder>>?, recyclerView: RecyclerView) {
-        Log.e("extractOGPA", "Starting to extract OGPA")
+//        Log.e("extractOGPA", "Starting to extract OGPA")
         for (dataSnapshot in snapshot.children) {
-            Log.e("main onDataChange:2", dataSnapshot.toString())
+//            Log.e("main onDataChange:2", dataSnapshot.toString())
             val name = dataSnapshot.child("NAME").value.toString()
             val ogpa = dataSnapshot.child("OGPA").value.toString()
             val sem = dataSnapshot.child("SEM").value.toString()
             val key = name + ogpa_type
 
-            Log.e("extractOGPA", "Processing: NAME=$name, OGPA=$ogpa, SEM=$sem, OGPA_TYPE=$ogpa_type")
+//            Log.e("extractOGPA", "Processing: NAME=$name, OGPA=$ogpa, SEM=$sem, OGPA_TYPE=$ogpa_type")
 
             if (hashmap_ogpa!!.containsKey(key)) {
                 val arrayList = hashmap_ogpa!![key]
@@ -142,7 +141,7 @@ class overAllOgpaNewUiFrag : Fragment() {
                     )
                 )
                 hashmap_ogpa!![key] = arrayList
-                Log.e("extractOGPA", "Updated hashmap_ogpa with key=$key")
+//                Log.e("extractOGPA", "Updated hashmap_ogpa with key=$key")
             } else {
                 val arrayList = java.util.ArrayList<ogpa_holder>()
                 arrayList.add(
@@ -154,22 +153,22 @@ class overAllOgpaNewUiFrag : Fragment() {
                     )
                 )
                 hashmap_ogpa!![key] = arrayList
-                Log.e("extractOGPA", "Added new entry to hashmap_ogpa with key=$key")
+//                Log.e("extractOGPA", "Added new entry to hashmap_ogpa with key=$key")
             }
         }
 
-        Log.e("extractOGPA", "Finished processing snapshot children")
+//        Log.e("extractOGPA", "Finished processing snapshot children")
 
         for (s in hashmap_ogpa!!.keys) {
-            Log.e("extractOGPA", "Processing key=$s")
-            for (ogpa_holder in hashmap_ogpa!![s]!!) {
-                Log.e(
-                    "overall:------------------------",
-                    ogpa_holder.name + "-" + ogpa_holder.sem + "-" + ogpa_holder.ogpa + ogpa_type
-                )
-            }
+//            Log.e("extractOGPA", "Processing key=$s")
+//            for (ogpa_holder in hashmap_ogpa!![s]!!) {
+//                Log.e(
+//                    "overall:------------------------",
+//                    ogpa_holder.name + "-" + ogpa_holder.sem + "-" + ogpa_holder.ogpa + ogpa_type
+//                )
+//            }
             arrayList!!.add(hashmap_ogpa!![s]!!)
-            Log.e("extractOGPA", "Added to arrayList: key=$s")
+//            Log.e("extractOGPA", "Added to arrayList: key=$s")
         }
 
         if (!hashmap_ogpa!!.isEmpty()) {
@@ -178,12 +177,12 @@ class overAllOgpaNewUiFrag : Fragment() {
                 context
             )
             recyclerView.adapter = recycler_graphview
-            Log.e("extractOGPA", "RecyclerView adapter set with Recyclerview_for_overall_OGPA")
+//            Log.e("extractOGPA", "RecyclerView adapter set with Recyclerview_for_overall_OGPA")
         } else {
-            Log.e("extractOGPA", "hashmap_ogpa is empty")
+//            Log.e("extractOGPA", "hashmap_ogpa is empty")
         }
 
-        Log.e("extractOGPA", "Finished extractOGPA function")
+//        Log.e("extractOGPA", "Finished extractOGPA function")
     }
 
     override fun onResume() {

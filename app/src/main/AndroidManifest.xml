@@ -15,6 +15,12 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
+            android:name=".newUiActivity.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newUiActivity.ChangeLanguage"
+            android:exported="false" />
+        <activity
             android:name=".newUiActivity.InsightsGraph"
             android:exported="false" />
         <activity
@@ -22,26 +28,22 @@
             android:exported="false" />
         <activity
             android:name=".newUiActivity.MainHomeScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".newUiActivity.EmailVerificationPage"
             android:exported="false" />
         <activity
             android:name=".newUiActivity.SecondLoadingPage"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan" >
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".newUiActivity.FirstLoadingPage"
-            android:exported="true" >
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".web_policy_view"

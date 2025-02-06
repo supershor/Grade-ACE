@@ -1,6 +1,5 @@
 package com.om_tat_sat.grade_ace.valueSaverNewUi
 
-import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,12 +16,12 @@ object firebasePyqLoader {
         }
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Log.e("FirebaseDataManager", "onDataChange: ${snapshot.value}")
+//                Log.e("FirebaseDataManager", "onDataChange: ${snapshot.value}")
                 dataSnapshot = snapshot
                 callback(snapshot)
             }
             override fun onCancelled(error: DatabaseError) {
-                Log.e("FirebaseDataManager", "onCancelled: ${error.message}")
+//                Log.e("FirebaseDataManager", "onCancelled: ${error.message}")
                 callback(null)
             }
         })
