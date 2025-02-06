@@ -24,8 +24,8 @@ android {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "7.0"
+        versionCode = 15
+        versionName = "15.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
