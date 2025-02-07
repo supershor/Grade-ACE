@@ -8,7 +8,6 @@ import android.media.MediaPlayer;
 import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -133,7 +132,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         sem=intent.getIntExtra("SEM",1);
         name=intent.getStringExtra("NAME");
         OldOrNew=intent.getStringExtra("OldOrNew") ;
-        Log.e( "main sem onCreate:0000000000000000",sem+"");
+        //Loge( "main sem onCreate:0000000000000000",sem+"");
 
         if(OldOrNew==null ||  OldOrNew=="NA" || OldOrNew.isEmpty()){
             OldOrNew="Old";
@@ -174,14 +173,14 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         practical=0D;
         total=0D;
         for (int i=0;i<array.get(sem-1).size();i++){
-            Log.e( "main calculate: 1", i+"theory"+"="+theory);
-            Log.e( "main calculate: 1", i+"practical"+"="+practical);
-            Log.e( "main calculate: 1", i+"total"+"="+total);
+            //Loge( "main calculate: 1", i+"theory"+"="+theory);
+            //Loge( "main calculate: 1", i+"practical"+"="+practical);
+            //Loge( "main calculate: 1", i+"total"+"="+total);
             marking marking=array.get(sem-1).get(i);
             input_fields input_fields=fields.get(i);
             if(input_fields.getTheory_marks().getVisibility()==View.VISIBLE){
                 if (check(input_fields.getTheory_marks())){
-                    Log.e( "main return calculate: ", i+"");
+                    //Loge( "main return calculate: ", i+"");
                     return;
                 }else if (sem==7||sem==8) {
                     if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
@@ -192,7 +191,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                         total+=(100*marking.getTheory_marks());
                     }
                 }else if (marking.getTheory_marks()!=0 && marking.getPractical_marks()==0){
-                    Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
+                    //Loge( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
                     if (Double.parseDouble(input_fields.getTheory_marks().getText().toString())>100){
                         Toast.makeText(this, R.string.bsc_agriculture_message_6, Toast.LENGTH_SHORT).show();
                         return;
@@ -210,10 +209,10 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
             }
             if(input_fields.getPractical_marks().getVisibility()==View.VISIBLE){
                 if (check(input_fields.getPractical_marks())){
-                    Log.e( "main return calculate: ", i+"");
+                    //Loge( "main return calculate: ", i+"");
                     return;
                 }else if (marking.getTheory_marks()==0 && marking.getPractical_marks()!=0) {
-                    Log.e( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
+                    //Loge( "ogpa change  calculate:lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll","change detacted,"+marking.getTheory_marks()+","+marking.getPractical_marks());
                     if (Double.parseDouble(input_fields.getPractical_marks().getText().toString())>50){
                         Toast.makeText(this, R.string.bsc_agriculture_message_8, Toast.LENGTH_SHORT).show();
                         return;
@@ -230,9 +229,9 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                     total+=(30*marking.getPractical_marks());
                 }
             }
-            Log.e( "main calculate: ", i+"theory"+"="+theory);
-            Log.e( "main calculate: ", i+"practical"+"="+practical);
-            Log.e( "main calculate: ", i+"total"+"="+total);
+            //Loge( "main calculate: ", i+"theory"+"="+theory);
+            //Loge( "main calculate: ", i+"practical"+"="+practical);
+            //Loge( "main calculate: ", i+"total"+"="+total);
         }
         HashMap<String,String>hashMap=new HashMap<>();
         hashMap.put("NAME",name);
@@ -266,7 +265,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                 }
             }else{
                 Toast.makeText(BSC_AGRICULTURE_OGPA_Calculator.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e( "Main error found onComplete:---------",task.getException()+"");
+                //Loge( "Main error found onComplete:---------",task.getException()+"");
             }
         });
     }
@@ -278,12 +277,12 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         return false;
     }
     public void refresh(){
-        Log.e( "main onCreate:++++++++++",array.get(sem-1).size()+"");
+        //Loge( "main onCreate:++++++++++",array.get(sem-1).size()+"");
         for (int i=0;i<array.get(sem-1).size();i++){
-            Log.e( "main onCreate: -----------------",i+"");
+            //Loge( "main onCreate: -----------------",i+"");
             marking marking=array.get(sem-1).get(i);
             input_fields input_fields=fields.get(i);
-            Log.e("refresh: ", String.valueOf(Boolean.valueOf(View.VISIBLE==input_fields.getPractical_marks().getVisibility())));
+            //Loge("refresh: ", String.valueOf(Boolean.valueOf(View.VISIBLE==input_fields.getPractical_marks().getVisibility())));
             input_fields.getLayout().setVisibility(View.VISIBLE);
             input_fields.getName().setText(marking.getName());
             if (marking.getTheory_marks()<=0){
@@ -301,9 +300,9 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase;
         DatabaseReference databaseReference;
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        Log.e("oldNew--------",OldOrNew.toString());
+        //Loge("oldNew--------",OldOrNew.toString());
         databaseReference = firebaseDatabase.getReference().child("Markings").child("Agriculture").child(OldOrNew);
-        Log.e("oldNew---------------------------------",OldOrNew.toString());
+        //Loge("oldNew---------------------------------",OldOrNew.toString());
 
         if (language == 0) {
             databaseReference = databaseReference.child("English");
@@ -315,7 +314,7 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot != null) {
-                    Log.e("asd--", snapshot.toString());
+                    //Loge("asd--", snapshot.toString());
                     for (DataSnapshot subSnapshot : snapshot.getChildren()) {
                         switch (subSnapshot.getKey()) {
                             case "sub_arr1":
@@ -344,14 +343,14 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
                                 break;
                         }
                     }
-                    Log.e("asd", sub_arr1.toString());
-                    Log.e("asd", sub_arr2.toString());
-                    Log.e("asd", sub_arr3.toString());
-                    Log.e("asd", sub_arr4.toString());
-                    Log.e("asd", sub_arr5.toString());
-                    Log.e("asd", sub_arr6.toString());
-                    Log.e("asd", sub_arr7.toString());
-                    Log.e("asd", sub_arr8.toString());
+                    //Loge("asd", sub_arr1.toString());
+                    //Loge("asd", sub_arr2.toString());
+                    //Loge("asd", sub_arr3.toString());
+                    //Loge("asd", sub_arr4.toString());
+                    //Loge("asd", sub_arr5.toString());
+                    //Loge("asd", sub_arr6.toString());
+                    //Loge("asd", sub_arr7.toString());
+                    //Loge("asd", sub_arr8.toString());
                     addAll();
                     initialize_fields();
                     refresh();
@@ -380,8 +379,8 @@ public class BSC_AGRICULTURE_OGPA_Calculator extends AppCompatActivity {
     private void addAllInSubArr(ArrayList<marking> subarr, Object snapshot) {
         for (Object subSnapshot : (ArrayList<?>) snapshot) {
             HashMap<String, Object> subObj = (HashMap<String, Object>) subSnapshot;
-            Log.e("asd", subObj.toString());
-            Log.e("asd",getIntValue(subObj.get("theory"))+"" );
+            //Loge("asd", subObj.toString());
+            //Loge("asd",getIntValue(subObj.get("theory"))+"" );
 
             subarr.add(new marking(
                     subObj.getOrDefault("subject", "NA").toString(),

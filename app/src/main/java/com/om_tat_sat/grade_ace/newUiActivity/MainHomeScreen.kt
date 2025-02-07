@@ -6,6 +6,7 @@ import android.net.MailTo
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -48,7 +49,7 @@ class MainHomeScreen : AppCompatActivity() {
         if(language==1){
             changeLanguage("hi")
         }
-//        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         setContentView(R.layout.activity_main_home_screen)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -242,7 +243,7 @@ class MainHomeScreen : AppCompatActivity() {
                 //Log.e("main onDataChange: 295", snapshot.toString())
                 val versionCode = snapshot.child("versionCode").value.toString()
                 val versionName = snapshot.child("versionName").value.toString()
-                if(versionCode!="7"){
+                if(versionCode!="20"){
                     AlertDialog.Builder(this@MainHomeScreen)
                         .setTitle(getString(R.string.new_version_available))
                         .setMessage(getString(R.string.new_version_available_message))

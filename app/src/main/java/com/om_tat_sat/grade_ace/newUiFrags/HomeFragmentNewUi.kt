@@ -4,10 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
-import android.os.Binder
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Binding
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -133,7 +130,7 @@ class HomeFragmentNewUi : Fragment() {
         FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Markings").child("NewStudents").addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.value!=null){
-                    Log.e("main onDataChange: ", snapshot.toString())
+//                    Log.e("main onDataChange: ", snapshot.toString())
                     if(snapshot.child("NewEnabled").value.toString().toBoolean()){
                         view?.findViewById<LinearLayout>(R.id.bsc_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
                         view?.findViewById<LinearLayout>(R.id.btech_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
@@ -229,7 +226,7 @@ class HomeFragmentNewUi : Fragment() {
                     )
                     intent.putExtra("NAME", name?.getText().toString())
                     intent.putExtra("OldOrNew",OldOrNew)
-                    Log.e( "main onClick:-------------",OldOrNew)
+//                    Log.e( "main onClick:-------------",OldOrNew)
 //                    Log.e( "main onClick:-------------",spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
                     startActivity(intent)
@@ -239,7 +236,7 @@ class HomeFragmentNewUi : Fragment() {
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
                     intent.putExtra("OldOrNew",OldOrNew)
-                    Log.e( "main onClick:-------------",OldOrNew)
+//                    Log.e( "main onClick:-------------",OldOrNew)
                     intent.putExtra("NAME", name?.getText().toString())
 //                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
@@ -251,7 +248,7 @@ class HomeFragmentNewUi : Fragment() {
                         Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator::class.java
                     )
                     intent.putExtra("OldOrNew",OldOrNew)
-                    Log.e( "main onClick:-------------",OldOrNew)
+//                    Log.e( "main onClick:-------------",OldOrNew)
                     intent.putExtra("NAME", name?.getText().toString())
 //                    Log.e("main onClick:-------------", spinner?.getSelectedItem().toString())
                     intent.putExtra("SEM", spinner?.getSelectedItem().toString().toInt())
