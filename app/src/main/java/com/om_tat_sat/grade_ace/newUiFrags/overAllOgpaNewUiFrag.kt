@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_overall_OGPA
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder
-import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage
+import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
 class overAllOgpaNewUiFrag : Fragment() {
@@ -68,7 +68,7 @@ class overAllOgpaNewUiFrag : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth?.getCurrentUser() == null) {
-            startActivity(Intent(context, SecondLoadingPage::class.java))
+            startActivity(Intent(context, SignInWithGoogle::class.java))
         }
 
 

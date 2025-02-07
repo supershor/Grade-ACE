@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "685729801545",
+    "firebase_url": "https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "grade-ace",
     "storage_bucket": "agniya-5332c.firebasestorage.app"
   },
@@ -12,7 +13,36 @@
           "package_name": "com.om_tat_sat.grade_ace"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "685729801545-1lh2i5b0nd45kc3ugtosdqfq319h49mo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.om_tat_sat.grade_ace",
+            "certificate_hash": "c9ca79f1a414ee856757d15b5cf6803c56e4ec15"
+          }
+        },
+        {
+          "client_id": "685729801545-4kg3nr5p8ihcu06ntqatj25foete0gs6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.om_tat_sat.grade_ace",
+            "certificate_hash": "58aa61ec29c0392634e2d289c9dbca50cd71cb47"
+          }
+        },
+        {
+          "client_id": "685729801545-60mr5g2j3b2598ef1es9j7j2ro8ica8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.om_tat_sat.grade_ace",
+            "certificate_hash": "849333d52b54c81dfd3098298f2c0d7846530d8a"
+          }
+        },
+        {
+          "client_id": "685729801545-kb50l42plcclo9k94aoi14d2h990kqta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCy8W2Ot6Q_7DHSwLoJgzVdQmpxSXrmQmY"
@@ -20,7 +50,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685729801545-dbese5or6a1mei64dikv2u412i8mosmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

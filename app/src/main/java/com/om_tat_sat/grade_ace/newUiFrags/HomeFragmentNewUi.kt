@@ -28,7 +28,7 @@ import com.om_tat_sat.grade_ace.Btech_Agriculture_Bsc_Horticulture_OGPA_Calculat
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.TopperTips
 import com.om_tat_sat.grade_ace.databinding.FragmentHomeNewUiBinding
-import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage
+import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 import java.util.Objects
 
@@ -85,7 +85,7 @@ class HomeFragmentNewUi : Fragment() {
 
         firebaseAuth=FirebaseAuth.getInstance()
         if(firebaseAuth?.currentUser==null){
-            startActivity(Intent(requireContext(), SecondLoadingPage::class.java))
+            startActivity(Intent(requireContext(), SignInWithGoogle::class.java))
         }
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         databaseReference = firebaseDatabase!!.reference.child(firebaseAuth!!.currentUser!!.uid)
@@ -157,13 +157,17 @@ class HomeFragmentNewUi : Fragment() {
 
         firebaseSingleton.fetchData(firebaseAuth!!,databaseReference!!){snapshot->
 //            Log.e("main onDataChange: ", snapshot.toString())
-            if (snapshot!!.value != null) {
-                name_sem_arr1?.clear()
-                name_sem_arr2?.clear()
-                name_sem_arr3?.clear()
-                addMultiple(snapshot.child("OGPA"), name_sem_arr1!!)
-                addMultiple(snapshot.child("OGPA_HORTICULTURE"), name_sem_arr2!!)
-                addMultiple(snapshot.child("OGPA_BTECH_AGRICULTURE"), name_sem_arr3!!)
+            if(snapshot==null){
+                startActivity(Intent(context,SignInWithGoogle::class.java))
+            }else{
+                if (snapshot.value != null) {
+                    name_sem_arr1?.clear()
+                    name_sem_arr2?.clear()
+                    name_sem_arr3?.clear()
+                    addMultiple(snapshot.child("OGPA"), name_sem_arr1!!)
+                    addMultiple(snapshot.child("OGPA_HORTICULTURE"), name_sem_arr2!!)
+                    addMultiple(snapshot.child("OGPA_BTECH_AGRICULTURE"), name_sem_arr3!!)
+                }
             }
         }
     }

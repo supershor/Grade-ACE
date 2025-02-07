@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.Item
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_OGPA_SHOWING
-import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage
+import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
 class ogpaAllThreeNewUiFrag : Fragment() {
@@ -73,7 +73,7 @@ class ogpaAllThreeNewUiFrag : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth?.getCurrentUser() == null) {
-            startActivity(Intent(context, SecondLoadingPage::class.java))
+            startActivity(Intent(context, SignInWithGoogle::class.java))
         }
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
         arrayList1 = ArrayList<String>()

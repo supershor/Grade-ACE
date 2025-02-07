@@ -43,39 +43,23 @@ class FirstLoadingPage : AppCompatActivity() {
 //                Log.e("AuthCheck", "User refresh done")
 //                Log.d("AuthCheck", "${mauth.currentUser?.uid.toString()}")
 //                Log.d("AuthCheck", "${mauth.currentUser?.isEmailVerified.toString()}")
-                if(mauth.currentUser?.isEmailVerified==true){
-                    firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                    databaseReference = firebaseDatabase!!.reference.child(mauth!!.currentUser!!.uid)
-                    firebaseSingleton.fetchData(mauth!!,databaseReference!!){ snapshot->
+                firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                databaseReference = firebaseDatabase!!.reference.child(mauth.currentUser!!.uid)
+                firebaseSingleton.fetchData(mauth,databaseReference!!){ snapshot->
 //                        Log.e("main onDataChange: ", snapshot.toString())
-                        startActivity(Intent(this, MainHomeScreen::class.java))
-                        finishAffinity()
-                    }
-                } else {
-                    mauth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
-                        Toast.makeText(this, getString(R.string.verification_email_sent_with_email_verification_request), Toast.LENGTH_SHORT).show()
-//                        Log.d("AuthCheck", "Verification email sent successfully.")
-                        startActivity(Intent(this, EmailVerificationPage::class.java))
-                        finishAffinity()
-                    }?.addOnFailureListener {
-//                        Log.e("AuthCheck", "Failed to send verification email.", it)
-                        Toast.makeText(this, getString(R.string.verification_email_failed_with_login_again_request), Toast.LENGTH_SHORT).show()
-                        mauth.signOut()
-                        startActivity(Intent(this, SecondLoadingPage::class.java))
-                        finishAffinity()
-                    }
-//                    Log.d("AuthCheck", "User is authenticated but email is not verified.")
+                    startActivity(Intent(this, MainHomeScreen::class.java))
+                    finishAffinity()
                 }
             }?.addOnFailureListener{
 //                Log.e("AuthCheck", "Failed to refresh user.", it)
                 Toast.makeText(this, getString(R.string.refresh_user_failed), Toast.LENGTH_SHORT).show()
                 mauth.signOut()
-                startActivity(Intent(this, SecondLoadingPage::class.java))
+                startActivity(Intent(this, SignInWithGoogle::class.java))
                 finishAffinity()
             }
         } else {
 //            Log.d("AuthCheck", "User is not LoggedIn.")
-            startActivity(Intent(this, SecondLoadingPage::class.java))
+            startActivity(Intent(this, SignInWithGoogle::class.java))
             finishAffinity()
         }
     }

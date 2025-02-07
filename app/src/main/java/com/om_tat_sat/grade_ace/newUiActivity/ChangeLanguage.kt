@@ -92,7 +92,7 @@ class ChangeLanguage : AppCompatActivity() {
                 finishAffinity()
             }
             "SecondLoadingPage" -> {
-                startActivity(Intent(this@ChangeLanguage, SecondLoadingPage::class.java))
+                startActivity(Intent(this@ChangeLanguage, SignInWithGoogle::class.java))
                 finishAffinity()
             }
             "FirstLoadingPage" -> {

@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.om_tat_sat.grade_ace.data_holders.input_fields;
 import com.om_tat_sat.grade_ace.data_holders.marking;
 import com.om_tat_sat.grade_ace.newUiActivity.MainHomeScreen;
-import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage;
+import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -139,7 +139,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         //checking if user is signed in or not
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()==null){
-            startActivity(new Intent(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, SecondLoadingPage.class));
+            startActivity(new Intent(Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator.this, SignInWithGoogle.class));
             finishAffinity();
         }
 

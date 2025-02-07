@@ -28,7 +28,7 @@ class EmailVerificationPage : AppCompatActivity() {
         findViewById<TextView>(R.id.logout_email_verification_page).setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 mauth.signOut()
-                startActivity(Intent(this@EmailVerificationPage, SecondLoadingPage::class.java))
+                startActivity(Intent(this@EmailVerificationPage, SignInWithGoogle::class.java))
                 finishAffinity()
             }
         })

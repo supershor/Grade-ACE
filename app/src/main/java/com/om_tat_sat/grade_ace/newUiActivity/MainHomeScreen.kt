@@ -61,7 +61,7 @@ class MainHomeScreen : AppCompatActivity() {
         navigationView = findViewById(R.id.navigation_view)
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth.currentUser == null) {
-            startActivity(Intent(this, SecondLoadingPage::class.java))
+            startActivity(Intent(this, SignInWithGoogle::class.java))
             finish()
         }
         val hm= HashMap<String, String>()
@@ -157,7 +157,7 @@ class MainHomeScreen : AppCompatActivity() {
                         .setMessage(getString(R.string.sure_to_logout))
                         .setPositiveButton(getString(R.string.logout)) { dialog: DialogInterface?, which: Int ->
                             firebaseAuth.signOut()
-                            startActivity(Intent(this@MainHomeScreen, SecondLoadingPage::class.java))
+                            startActivity(Intent(this@MainHomeScreen, SignInWithGoogle::class.java))
                             finishAffinity()
                         }
                         .setNegativeButton(
@@ -243,7 +243,7 @@ class MainHomeScreen : AppCompatActivity() {
                 //Log.e("main onDataChange: 295", snapshot.toString())
                 val versionCode = snapshot.child("versionCode").value.toString()
                 val versionName = snapshot.child("versionName").value.toString()
-                if(versionCode!="20"){
+                if(versionCode!="200"){
                     AlertDialog.Builder(this@MainHomeScreen)
                         .setTitle(getString(R.string.new_version_available))
                         .setMessage(getString(R.string.new_version_available_message))

@@ -24,8 +24,8 @@ android {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
         targetSdk = 35
-        versionCode = 200001
-        versionName = "2.0.0.0.1"
+        versionCode = 2000001
+        versionName = "2.0.0.0.01"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -54,6 +54,14 @@ android {
 
 dependencies {
     //noinspection UseTomlInstead
+        implementation ("com.github.shobhitpuri:custom-google-signin-button:2.0.0")
+
+    //noinspection UseTomlInstead
+    implementation ("com.google.android.gms:play-services-auth:19.2.0")
+
+
+
+    //noinspection UseTomlInstead
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     //noinspection UseTomlInstead
@@ -71,6 +79,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-analytics")
+    //noinspection UseTomlInstead
+    implementation("com.google.firebase:firebase-auth")
 
     implementation(libs.appcompat)
     implementation(libs.material)

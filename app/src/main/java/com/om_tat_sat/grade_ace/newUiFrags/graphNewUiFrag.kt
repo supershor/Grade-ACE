@@ -26,7 +26,7 @@ import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder
 import com.om_tat_sat.grade_ace.newUiActivity.InsightsGraph
-import com.om_tat_sat.grade_ace.newUiActivity.SecondLoadingPage
+import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
 
@@ -61,7 +61,7 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
 
         firebaseAuth = FirebaseAuth.getInstance()
         if (firebaseAuth!!.currentUser == null) {
-            startActivity(Intent(context, SecondLoadingPage::class.java))
+            startActivity(Intent(context, SignInWithGoogle::class.java))
         }
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.om_tat_sat.grade_ace"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,9 @@
         android:theme="@style/Theme.GradeACE"
         tools:targetApi="31">
         <activity
+            android:name=".newUiActivity.SignInWithGoogle"
+            android:exported="false" />
+        <activity
             android:name=".newUiActivity.ChangeEmailActivity"
             android:exported="false" />
         <activity
@@ -28,14 +32,10 @@
             android:exported="false" />
         <activity
             android:name=".newUiActivity.MainHomeScreen"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".newUiActivity.EmailVerificationPage"
             android:exported="false" />
-        <activity
-            android:name=".newUiActivity.SecondLoadingPage"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".newUiActivity.FirstLoadingPage"
             android:exported="true">
