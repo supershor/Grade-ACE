@@ -51,6 +51,8 @@
     <string name="ogpa_message_2_fragment">You can not change this later.</string>
     <string name="ogpa_message_3_fragment">CONTINUE</string>
     <string name="ogpa_message_4_fragment">Select Semester</string>
+    <string name="btech_agriculture_eng">B.Tech Agriculture</string>
+
     <string name="ogpa_message_5_fragment">User with same name and semester already exists.</string>
     <string name="ogpa_message_6_fragment">Cancel</string>
     <string name="bsc_agriculture_message_1">Share Topper Tips ?</string>

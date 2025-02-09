@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -70,7 +71,7 @@ class HomeFragmentNewUi : Fragment() {
 //            this.activity!!.getSharedPreferences("app_language", Context.MODE_PRIVATE)
 //        language = app_language.getInt("current_language", 0)
 //        if (language == 1) {
-        arrayList.add("छमाही का चयन करें")
+        arrayList.add(getString(com.om_tat_sat.grade_ace.R.string.ogpa_message_2_fragment))
 //        } else if (language == 0) {
 //            arrayList!!.add("Select Semester")
 //        }
@@ -94,15 +95,15 @@ class HomeFragmentNewUi : Fragment() {
 
         refresh()
         val binding = FragmentHomeNewUiBinding.bind(view)
-        binding.bscAgricultureFragHomeNewUi.setOnClickListener {
+        binding.bscAgricultureFragHomeNewUiLl.setOnClickListener {
             OldOrNew="Old"
             showNameSemDialog(name_sem_arr1!!,"Agriculture")
         }
-        binding.btechAgricultureFragHomeNewUi.setOnClickListener {
+        binding.btechAgricultureFragHomeNewUiLl.setOnClickListener {
             OldOrNew="Old"
             showNameSemDialog(name_sem_arr3!!,"Btech")
         }
-        binding.bscHorticultureFragHomeNewUi.setOnClickListener {
+        binding.bscHorticultureFragHomeNewUiLl.setOnClickListener {
             OldOrNew="Old"
             showNameSemDialog(name_sem_arr2!!,"Horticulture")
         }
@@ -130,19 +131,52 @@ class HomeFragmentNewUi : Fragment() {
         FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Markings").child("NewStudents").addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.value!=null){
-//                    Log.e("main onDataChange: ", snapshot.toString())
-                    if(snapshot.child("NewEnabled").value.toString().toBoolean()){
-                        view?.findViewById<LinearLayout>(R.id.bsc_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
-                        view?.findViewById<LinearLayout>(R.id.btech_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
-                        view?.findViewById<LinearLayout>(R.id.bsc_horticulture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
 
-                        view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("AgricultureMessage").value.toString())
-                        view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("BTechMessage").value.toString())
-                        view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_new_message)!!.setText(snapshot.child("HorticultureMessage").value.toString())
+                    if(context?.getSharedPreferences("app_language", MODE_PRIVATE)?.getInt("current_language", 0) ==0){
+                        if(snapshot.child("NewEnabled").value.toString().toBoolean()){
+                            view?.findViewById<LinearLayout>(R.id.bsc_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<LinearLayout>(R.id.btech_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<LinearLayout>(R.id.bsc_horticulture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("AgricultureMessage").value.toString())
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("BTechMessage").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_new_message)!!.setText(snapshot.child("HorticultureMessage").value.toString())
 //                        Log.e("vbn",snapshot.child("AgricultureMessage").value.toString())
 //                        binding?.bscHorticultureFragHomeNewUiNewMessage!!.setText(snapshot.child("AgricultureMessage").value.toString())
 //                        binding.btechAgricultureFragHomeNewUiNewMessage.setText(snapshot.child("BTechMessage").value.toString())
 //                        binding.bscHorticultureFragHomeNewUiNewMessage.setText(snapshot.child("HorticultureMessage").value.toString())
+                        }
+                        if(snapshot.child("OldMessageEnabled").value.toString().toBoolean()){
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_old_message)!!.setText(snapshot.child("AgricultureMessageOld").value.toString())
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_old_message)!!.setText(snapshot.child("BTechMessageOld").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_old_message)!!.setText(snapshot.child("HorticultureMessageOld").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                        }
+                    }
+                    else{
+                        if(snapshot.child("NewEnabled").value.toString().toBoolean()){
+                            view?.findViewById<LinearLayout>(R.id.bsc_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<LinearLayout>(R.id.btech_agriculture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<LinearLayout>(R.id.bsc_horticulture_frag_home_new_ui_new)!!.setVisibility(View.VISIBLE)
+
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("AgricultureMessageHindi").value.toString())
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_new_message)!!.setText(snapshot.child("BTechMessageHindi").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_new_message)!!.setText(snapshot.child("HorticultureMessageHindi").value.toString())
+//                        Log.e("vbn",snapshot.child("AgricultureMessage").value.toString())
+//                        binding?.bscHorticultureFragHomeNewUiNewMessage!!.setText(snapshot.child("AgricultureMessage").value.toString())
+//                        binding.btechAgricultureFragHomeNewUiNewMessage.setText(snapshot.child("BTechMessage").value.toString())
+//                        binding.bscHorticultureFragHomeNewUiNewMessage.setText(snapshot.child("HorticultureMessage").value.toString())
+                        }
+                        if(snapshot.child("OldMessageEnabled").value.toString().toBoolean()){
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_old_message)!!.setText(snapshot.child("AgricultureMessageHindiOld").value.toString())
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_old_message)!!.setText(snapshot.child("BTechMessageHindiOld").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_old_message)!!.setText(snapshot.child("HorticultureMessageHindiOld").value.toString())
+                            view?.findViewById<TextView>(R.id.bsc_agriculture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<TextView>(R.id.btech_agriculture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                            view?.findViewById<TextView>(R.id.bsc_horticulture_frag_home_new_ui_old_message)!!.setVisibility(View.VISIBLE)
+                        }
                     }
                 }
             }

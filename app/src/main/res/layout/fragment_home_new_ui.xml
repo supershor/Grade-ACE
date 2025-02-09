@@ -43,8 +43,8 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginBottom="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
                 android:text="@string/Calculate_your_Overall_Credit_Point_Average"
                 android:textSize="@dimen/_16ssp"
                 android:textColor="@color/black"/>
@@ -56,65 +56,151 @@
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
 <!--                android:id="@+id/toolbar_main_page"/>-->
-            <androidx.appcompat.widget.AppCompatButton
-                android:theme="@style/font_regular"
-                android:drawableLeft="@drawable/baseline_agriculture_24"
-                android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_18ssp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/less_border_white"
-                android:text="@string/bsc_agriculture"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:textAlignment="center"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:padding="@dimen/_5sdp"
-                android:id="@+id/bsc_agriculture_frag_home_new_ui"
-                android:textColor="@color/black"
-                />
-            <androidx.appcompat.widget.AppCompatButton
-                android:theme="@style/font_regular"
-
-                android:drawableLeft="@drawable/baseline_local_florist_24"
-                android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_18ssp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/less_border_white"
-                android:text="@string/bsc_horticulture"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:padding="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-
-                android:id="@+id/bsc_horticulture_frag_home_new_ui"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                />
-            <androidx.appcompat.widget.AppCompatButton
-                android:theme="@style/font_regular"
-
-                android:paddingStart="@dimen/_20sdp"
-                android:textSize="@dimen/_18ssp"
-                android:drawableLeft="@drawable/baseline_engineering_24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/less_border_white"
-                android:text="@string/btech_agriculture"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:id="@+id/btech_agriculture_frag_home_new_ui"
-                android:padding="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/bsc_agriculture_frag_home_new_ui_ll"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:background="@drawable/less_border_white"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:theme="@style/font_regular"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:textSize="@dimen/_18ssp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bsc_agriculture"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/bsc_agriculture_frag_home_new_ui"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/bsc_agriculture_frag_home_new_ui"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="NewMessage"
+                        android:id="@+id/bsc_agriculture_frag_home_new_ui_old_message"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:textAlignment="center"/>
+                    <ImageView
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="@color/white"
+                        android:src="@drawable/baseline_agriculture_24" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/bsc_horticulture_frag_home_new_ui_ll"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:background="@drawable/less_border_white"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:theme="@style/font_regular"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:textSize="@dimen/_18ssp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bsc_horticulture"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/bsc_horticulture_frag_home_new_ui"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/bsc_horticulture_frag_home_new_ui"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="NewMessage"
+                        android:id="@+id/bsc_horticulture_frag_home_new_ui_old_message"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:textAlignment="center"/>
+                    <ImageView
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="@color/white"
+                        android:src="@drawable/baseline_local_florist_24" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/btech_agriculture_frag_home_new_ui_ll"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_width="match_parent"
+                android:background="@drawable/less_border_white"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:theme="@style/font_regular"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:textSize="@dimen/_18ssp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btech_agriculture_eng"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_5sdp"
+                        android:id="@+id/btech_agriculture_frag_home_new_ui"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/btech_agriculture_frag_home_new_ui"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="NewMessage"
+                        android:id="@+id/btech_agriculture_frag_home_new_ui_old_message"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:textAlignment="center"/>
+                    <ImageView
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="@color/white"
+                        android:src="@drawable/baseline_engineering_24" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="visible"
                 android:id="@+id/bsc_agriculture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -122,7 +208,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:background="@drawable/less_border_white"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_height="match_parent">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -139,6 +225,8 @@
                             android:id="@+id/bsc_agriculture_frag_home_new_ui_new_name"
                             android:textColor="@color/black"/>
                         <TextView
+                            android:textColor="@color/black"
+
                             android:layout_below="@+id/bsc_agriculture_frag_home_new_ui_new_name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -160,7 +248,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/bsc_horticulture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -168,7 +256,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:background="@drawable/less_border_white"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_height="match_parent">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -185,6 +273,8 @@
                         android:id="@+id/bsc_horticulture_frag_home_new_ui_new_name"
                         android:textColor="@color/black"/>
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_below="@+id/bsc_horticulture_frag_home_new_ui_new_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -206,7 +296,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/btech_agriculture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -214,7 +304,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:background="@drawable/less_border_white"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_height="match_parent">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -225,25 +315,15 @@
                         android:textSize="@dimen/_18ssp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/btech_agriculture_1"
+                        android:text="@string/btech_agriculture_eng"
                         android:textAlignment="center"
                         android:paddingTop="@dimen/_5sdp"
                         android:id="@+id/btech_agriculture_frag_home_new_ui_new_name_1"
                         android:textColor="@color/black"/>
                     <TextView
-                        android:theme="@style/font_regular"
-                        android:paddingStart="@dimen/_20sdp"
-                        android:textSize="@dimen/_18ssp"
-                        android:layout_width="match_parent"
-                        android:paddingBottom="@dimen/_5sdp"
+                        android:textColor="@color/black"
+
                         android:layout_below="@+id/btech_agriculture_frag_home_new_ui_new_name_1"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btech_agriculture_2"
-                        android:textAlignment="center"
-                        android:id="@+id/btech_agriculture_frag_home_new_ui_new_name_2"
-                        android:textColor="@color/black"/>
-                    <TextView
-                        android:layout_below="@+id/btech_agriculture_frag_home_new_ui_new_name_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="NewMessage"
@@ -275,7 +355,6 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
                 android:id="@+id/topper_tips_frag_home_new_ui"
                 android:padding="@dimen/_5sdp"
                 android:textAlignment="center"

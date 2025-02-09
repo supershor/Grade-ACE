@@ -243,20 +243,16 @@ class MainHomeScreen : AppCompatActivity() {
                 //Log.e("main onDataChange: 295", snapshot.toString())
                 val versionCode = snapshot.child("versionCode").value.toString()
                 val versionName = snapshot.child("versionName").value.toString()
-                if(versionCode!="20000005"){
+                if(versionCode!="20000006"){
                     AlertDialog.Builder(this@MainHomeScreen)
                         .setTitle(getString(R.string.new_version_available))
+                        .setCancelable(false)
                         .setMessage(getString(R.string.new_version_available_message))
                         .setPositiveButton(getString(R.string.update)) { dialog, which ->
                             val intent = Intent(Intent.ACTION_VIEW)
                             intent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.om_tat_sat.grade_ace")
                             startActivity(intent)
-                            firebaseAuth.signOut()
-                        }
-                        .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
-                            dialog.dismiss()
-                            firebaseAuth.signOut()
-                            finishAffinity()
+                            finish()
                         }
                         .show()
 
