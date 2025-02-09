@@ -200,7 +200,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/bsc_agriculture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -248,7 +248,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/bsc_horticulture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
@@ -296,7 +296,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/btech_agriculture_frag_home_new_ui_new"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical"
