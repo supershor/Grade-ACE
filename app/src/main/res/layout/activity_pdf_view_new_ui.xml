@@ -24,4 +24,25 @@
         app:sb_indicatorColor="@color/white"
         app:sb_indicatorTextColor="@color/white"
         android:layout_alignParentEnd="true" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/_250sdp"
+        android:rotation="270"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_centerInParent="true"
+        app:lottie_rawRes="@raw/pdfloadinglottie"
+        app:lottie_autoPlay="true"
+        android:id="@+id/pdfLoadingLottie"
+        app:lottie_loop="true"/>
+    <TextView
+        android:textAlignment="center"
+        android:textSize="@dimen/_22sdp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pdfLoadingLottie"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="@dimen/_20sdp"
+        android:id="@+id/downloadPercentage"
+        android:text="0%\nDownload Completed"/>
+
 </RelativeLayout>

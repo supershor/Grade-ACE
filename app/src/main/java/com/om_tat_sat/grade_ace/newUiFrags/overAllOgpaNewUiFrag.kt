@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ import com.google.firebase.database.ValueEventListener
 import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.Recyclerview_for_overall_OGPA
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder
+import com.om_tat_sat.grade_ace.newUiActivity.MainHomeScreen
 import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
@@ -60,6 +62,14 @@ class overAllOgpaNewUiFrag : Fragment() {
 
         val recyclerView3 = view.findViewById<RecyclerView>(R.id.recyclerview_btech_ogpa)
         recyclerView3.layoutManager = LinearLayoutManager(activity)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                startActivity(Intent(context, MainHomeScreen::class.java))
+                requireActivity().finishAffinity()
+            }
+        })
+
         return view
     }
 

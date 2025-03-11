@@ -36,9 +36,17 @@ public class recycler_PYQ extends RecyclerView.Adapter<recycler_PYQ.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull recycler_PYQ.ViewHolder holder, int position) {
         holder.name.setText(arr.get(position).getName());
-        holder.sem.append(arr.get(position).getSemester());
-        holder.tv_contains_pyq.append(" :-"+arr.get(position).getTargeted());
+        holder.sem.setVisibility(View.GONE);
         holder.user_message.setVisibility(View.GONE);
+        holder.tv_contains_pyq.setVisibility(View.GONE);
+        if(arr.get(position).getSemester()!=null && !arr.get(position).getSemester().isEmpty()){
+            holder.sem.append(arr.get(position).getSemester());
+            holder.sem.setVisibility(View.VISIBLE);
+        }
+        if(arr.get(position).getTargeted()!=null && !arr.get(position).getTargeted().isEmpty()){
+            holder.tv_contains_pyq.append(" :-"+arr.get(position).getTargeted());
+            holder.tv_contains_pyq.setVisibility(View.VISIBLE);
+        }
         if(arr.get(position).getMessage()!=null && !arr.get(position).getMessage().isEmpty()){
             holder.user_message.append(arr.get(position).getMessage());
             holder.user_message.setVisibility(View.VISIBLE);
@@ -67,7 +75,7 @@ public class recycler_PYQ extends RecyclerView.Adapter<recycler_PYQ.ViewHolder> 
                 if(recyclerViewInterface!=null){
                     int position=getAdapterPosition();
                     if(position!=RecyclerView.NO_POSITION){
-                            recyclerViewInterface.onClick(position);
+                            recyclerViewInterface.onClick(position,"PYQ");
                     }
                 }
             });

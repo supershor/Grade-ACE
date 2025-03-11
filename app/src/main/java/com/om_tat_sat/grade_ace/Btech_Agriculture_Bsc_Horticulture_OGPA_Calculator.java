@@ -385,7 +385,7 @@ public class Btech_Agriculture_Bsc_Horticulture_OGPA_Calculator extends AppCompa
         for (Object subSnapshot : (ArrayList<?>) snapshot) {
             HashMap<String, Object> subObj = (HashMap<String, Object>) subSnapshot;
             //Loge("asd", subObj.toString());
-            //Loge("asd",getIntValue(subObj.get("theory"))+"" );
+            //Loe("asd",getIntValue(subObj.get("theory"))+"" );
 
             subarr.add(new marking(
                     subObj.getOrDefault("subject", "NA").toString(),

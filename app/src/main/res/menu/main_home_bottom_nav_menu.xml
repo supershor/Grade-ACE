@@ -5,5 +5,5 @@
     <item app:showAsAction="withText" android:title="@string/ogpa" android:id="@+id/ogpa" android:icon="@drawable/gpa"/>
     <item app:showAsAction="withText" android:title="@string/overall" android:id="@+id/overall" android:icon="@drawable/all"/>
     <item app:showAsAction="withText" android:title="@string/graph" android:id="@+id/graph" android:icon="@drawable/barchart"/>
-    <item app:showAsAction="withText" android:title="@string/pyq" android:id="@+id/pyq" android:icon="@drawable/test"/>
+    <item app:showAsAction="withText" android:title="@string/notes" android:id="@+id/pyq" android:icon="@drawable/test"/>
 </menu>

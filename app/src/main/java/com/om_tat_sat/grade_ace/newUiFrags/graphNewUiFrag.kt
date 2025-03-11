@@ -4,11 +4,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +28,7 @@ import com.om_tat_sat.grade_ace.R
 import com.om_tat_sat.grade_ace.Recycler.recycler_graphview
 import com.om_tat_sat.grade_ace.data_holders.ogpa_holder
 import com.om_tat_sat.grade_ace.newUiActivity.InsightsGraph
+import com.om_tat_sat.grade_ace.newUiActivity.MainHomeScreen
 import com.om_tat_sat.grade_ace.newUiActivity.SignInWithGoogle
 import com.om_tat_sat.grade_ace.valueSaverNewUi.firebaseSingleton
 
@@ -97,6 +100,14 @@ class graphNewUiFrag : Fragment(), RecyclerInterface {
         val recyclerView3 =
             view.findViewById<RecyclerView>(R.id.recycler_graph_frag_btech)
         recyclerView3.layoutManager = LinearLayoutManager(activity)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                    startActivity(Intent(context, MainHomeScreen::class.java))
+                    requireActivity().finishAffinity()
+            }
+        })
+
         return view
     }
     private fun addDifferent(snapshot: DataSnapshot, name_arr: ArrayList<String>, hashmap_ogpa: HashMap<String, ArrayList<ogpa_holder>>, recyclerView: RecyclerView,ogpaType:String) {

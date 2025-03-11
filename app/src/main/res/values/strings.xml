@@ -110,6 +110,7 @@
     <string name="calculator">Calculator</string>
     <string name="home">Home</string>
     <string name="pyq">PYQ</string>
+    <string name="notes">Notes</string>
     <string name="change_password">Change Password</string>
     <string name="feedback">Feedback</string>
     <string name="bug">Bug</string>
@@ -130,7 +131,7 @@
     <string name="current_language">"Current Language: "</string>
     <string name="keep_trying_to_get_verification_email_untill_you_recive_a_email">Keep trying to get verification email untill you recive a email.</string>
     <string name="default_web_client_id_new">685729801545-kb50l42plcclo9k94aoi14d2h990kqta.apps.googleusercontent.com</string>
-
+    <string name="something_went_wrong">Something went wrong. Please try again.</string>
     <string-array name="languages">
         <item>English</item>
         <item>Hindi</item>

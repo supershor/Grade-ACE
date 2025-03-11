@@ -2,12 +2,15 @@ package com.om_tat_sat.grade_ace.newUiActivity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.airbnb.lottie.LottieAnimationView
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.ScrollBar
 import com.google.firebase.auth.FirebaseAuth
@@ -16,8 +19,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.core.view.View
 import com.google.firebase.storage.FirebaseStorage
 import com.om_tat_sat.grade_ace.R
+import java.io.File
 
 class PdfViewNewUi : AppCompatActivity() {
     var pdfView: PDFView? =null
@@ -73,14 +78,23 @@ class PdfViewNewUi : AppCompatActivity() {
         pdfRef?.downloadUrl?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val downloadUrl = task.result
-//                Log.d("Download URL", "File download URL: $downloadUrl")
-
-                // Now you can use this URL to load the PDF
-                pdfRef.getBytes(900000).addOnCompleteListener { byteTask ->
-                    if (byteTask.isSuccessful) {
-                        val byteArray: ByteArray = byteTask.result
+                Log.d("PDFDownload", "Download URL: $downloadUrl")
+                val tempFile = File.createTempFile("temp_pdf", ".pdf")
+                pdfRef.getFile(tempFile)
+                    .addOnProgressListener { progressTask ->
+                        val progress = (100.0 * progressTask.bytesTransferred / progressTask.totalByteCount).toInt()
+                        if(progress==100){
+                            findViewById<LottieAnimationView>(R.id.pdfLoadingLottie).visibility=android.view.View.GONE
+                            findViewById<TextView>(R.id.downloadPercentage).visibility=android.view.View.GONE
+                        }else{
+                            findViewById<TextView>(R.id.downloadPercentage).text="${progress}%${System.lineSeparator()}Download Completed"
+                        }
+                        Log.d("PDFDownload", "Download progress: $progress%")
+                    }
+                    .addOnSuccessListener {
+                        Log.d("PDFDownload", "File downloaded successfully.")
+                        val byteArray = tempFile.readBytes()
                         pdfView?.fromBytes(byteArray)
-//                            ?.pages(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40) // all pages are displayed by default
                             ?.enableSwipe(true)
                             ?.enableDoubletap(true)
                             ?.swipeVertical(true)
@@ -90,15 +104,20 @@ class PdfViewNewUi : AppCompatActivity() {
                             ?.password(namingConventions)
                             ?.showPageWithAnimation(true)
                             ?.load()
-                        val scrollBar=findViewById<ScrollBar>(R.id.scrollBar)
+                        val scrollBar = findViewById<ScrollBar>(R.id.scrollBar)
                         pdfView!!.setScrollBar(scrollBar)
-                    } else {
-//                        Log.e( "StorageException","Could not open resulting stream.",byteTask.exception)
                     }
-                }
+                    .addOnFailureListener { exception ->
+                        Log.e("PDFDownload", "Download failed: ${exception.message}")
+                        Toast.makeText(this@PdfViewNewUi, "Download failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
             } else {
-//                Log.e("StorageException", "Could not get download URL.", task.exception)
+                Log.e("PDFDownload", "Failed to get download URL: ${task.exception?.message}")
+                Toast.makeText(this@PdfViewNewUi, "Download Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
+
     }
 }
