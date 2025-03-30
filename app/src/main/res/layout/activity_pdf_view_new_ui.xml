@@ -24,15 +24,15 @@
         app:sb_indicatorColor="@color/white"
         app:sb_indicatorTextColor="@color/white"
         android:layout_alignParentEnd="true" />
-    <com.airbnb.lottie.LottieAnimationView
+
+    <app.rive.runtime.kotlin.RiveAnimationView
         android:layout_width="@dimen/_250sdp"
-        android:rotation="270"
         android:layout_height="@dimen/_250sdp"
         android:layout_centerInParent="true"
-        app:lottie_rawRes="@raw/pdfloadinglottie"
-        app:lottie_autoPlay="true"
         android:id="@+id/pdfLoadingLottie"
-        app:lottie_loop="true"/>
+        app:riveAutoPlay="true"
+        app:riveResource="@raw/pdfloader" />
+
     <TextView
         android:textAlignment="center"
         android:textSize="@dimen/_22sdp"

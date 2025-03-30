@@ -24,9 +24,8 @@ android {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
         targetSdk = 35
-        versionCode = 20000011
-        versionName = "2.0.11"
-
+        versionCode = 20010001
+        versionName = "2.1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -53,6 +52,10 @@ android {
 }
 
 dependencies {
+    implementation ("app.rive:rive-android:9.6.5")
+    // During initialization, you may need to add a dependency
+    // for Jetpack Startup
+    implementation ("androidx.startup:startup-runtime:1.1.1")
     //noinspection UseTomlInstead
         implementation ("com.github.shobhitpuri:custom-google-signin-button:2.0.0")
 

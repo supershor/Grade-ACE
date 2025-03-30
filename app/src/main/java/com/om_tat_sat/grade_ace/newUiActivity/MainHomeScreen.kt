@@ -243,7 +243,7 @@ class MainHomeScreen : AppCompatActivity() {
                 //Log.e("main onDataChange: 295", snapshot.toString())
                 val versionCode = snapshot.child("versionCode").value.toString()
                 val versionName = snapshot.child("versionName").value.toString()
-                if(versionCode!="20000010"){
+                if(versionName!="2.1.1"){
                     AlertDialog.Builder(this@MainHomeScreen)
                         .setTitle(getString(R.string.new_version_available))
                         .setCancelable(false)
