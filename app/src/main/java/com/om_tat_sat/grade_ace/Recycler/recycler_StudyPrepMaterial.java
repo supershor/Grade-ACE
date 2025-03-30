@@ -36,6 +36,7 @@ public class recycler_StudyPrepMaterial extends RecyclerView.Adapter<recycler_St
     public void onBindViewHolder(@NonNull recycler_StudyPrepMaterial.ViewHolder holder, int position) {
         holder.name.setText(arr.get(position).getName());
         if(arr.get(position).getMessage1()!=null && !arr.get(position).getMessage1().isEmpty()){
+            holder.message1.setText(arr.get(position).getMessage1Name());
             holder.message1.append(arr.get(position).getMessage1());
             holder.message1.setVisibility(View.VISIBLE);
         }

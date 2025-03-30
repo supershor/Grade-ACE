@@ -45,6 +45,8 @@ class PdfViewNewUi : AppCompatActivity() {
         val intent:Intent
         intent=getIntent()
         val keyfileName=intent.getStringExtra("KeyFileName")
+        val keySem=intent.getStringExtra("keySem")
+        val keyCourse=intent.getStringExtra("KeyCourse")
 
 
         firebaseAuth= FirebaseAuth.getInstance()
@@ -52,7 +54,7 @@ class PdfViewNewUi : AppCompatActivity() {
             startActivity(Intent(this@PdfViewNewUi,FirstLoadingPage::class.java))
         }
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
-        databaseReference = firebaseDatabase!!.reference.child("PYQ").child(keyfileName!!)
+        databaseReference = firebaseDatabase!!.reference.child("SemWisePyq").child("$keySem").child(keyCourse!!).child("PYQ").child(keyfileName!!)
 
 
         databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener{
