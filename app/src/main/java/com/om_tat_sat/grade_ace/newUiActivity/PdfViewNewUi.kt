@@ -2,6 +2,7 @@ package com.om_tat_sat.grade_ace.newUiActivity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.WindowManager
 import android.widget.TextView
@@ -10,6 +11,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import app.rive.runtime.kotlin.RiveAnimationView
+import app.rive.runtime.kotlin.core.Rive
 import com.airbnb.lottie.LottieAnimationView
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.ScrollBar
@@ -35,8 +38,10 @@ class PdfViewNewUi : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Rive.init(this)
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE)
         setContentView(R.layout.activity_pdf_view_new_ui)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -45,6 +50,8 @@ class PdfViewNewUi : AppCompatActivity() {
         val intent:Intent
         intent=getIntent()
         val keyfileName=intent.getStringExtra("KeyFileName")
+        val keySem=intent.getStringExtra("keySem")
+        val keyCourse=intent.getStringExtra("KeyCourse")
 
 
         firebaseAuth= FirebaseAuth.getInstance()
@@ -52,13 +59,15 @@ class PdfViewNewUi : AppCompatActivity() {
             startActivity(Intent(this@PdfViewNewUi,FirstLoadingPage::class.java))
         }
         firebaseDatabase = FirebaseDatabase.getInstance("https://grade-ace-default-rtdb.asia-southeast1.firebasedatabase.app/")
-        databaseReference = firebaseDatabase!!.reference.child("PYQ").child(keyfileName!!)
-
+        databaseReference = firebaseDatabase!!.reference.child("SemWisePyq").child("$keySem").child(keyCourse!!).child("PYQ").child(keyfileName!!)
+        findViewById<TextView>(R.id.downloadPercentage).text="Downloading"
 
         databaseReference!!.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 fileName=snapshot.child("filename").value.toString()
                 namingConventions=snapshot.child("namingConventions").value.toString()
+                findViewById<TextView>(R.id.downloadPercentage).text="Download Started"
+                findViewById<RiveAnimationView>(R.id.pdfLoadingLottie).controller.setBooleanState("State machine 1","Downloading",true)
 //                Log.d("PdfViewNewUi", "onDataChange: $fileName")
 //                Log.d("PdfViewNewUi", "onDataChange: $namingConventions")
                 addPdf()
@@ -74,6 +83,10 @@ class PdfViewNewUi : AppCompatActivity() {
         firebaseStorage = FirebaseStorage.getInstance()
         val storageRef = firebaseStorage!!.reference
         val pdfRef = fileName?.let { storageRef.child(it) }
+
+        findViewById<RiveAnimationView>(R.id.pdfLoadingLottie).controller.setNumberState("State machine 1","Progress",(0).toString().toFloat())
+
+
         // Get the download URL
         pdfRef?.downloadUrl?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -84,9 +97,15 @@ class PdfViewNewUi : AppCompatActivity() {
                     .addOnProgressListener { progressTask ->
                         val progress = (100.0 * progressTask.bytesTransferred / progressTask.totalByteCount).toInt()
                         if(progress==100){
-                            findViewById<LottieAnimationView>(R.id.pdfLoadingLottie).visibility=android.view.View.GONE
+                            findViewById<RiveAnimationView>(R.id.pdfLoadingLottie).controller.setNumberState("State machine 1","Progress",(progress).toString().toFloat())
+                            Handler().postDelayed(Runnable{
+                                findViewById<RiveAnimationView>(R.id.pdfLoadingLottie).visibility=android.view.View.GONE
+                            },1000)
+//                            findViewById<LottieAnimationView>(R.id.pdfLoadingLottie).visibility=android.view.View.GONE
                             findViewById<TextView>(R.id.downloadPercentage).visibility=android.view.View.GONE
                         }else{
+                            findViewById<RiveAnimationView>(R.id.pdfLoadingLottie).controller.setNumberState("State machine 1","Progress",(progress).toString().toFloat())
+                            Log.d("PDFDownload", "Download progress: ${(progress).toString().toFloat()}%")
                             findViewById<TextView>(R.id.downloadPercentage).text="${progress}%${System.lineSeparator()}Download Completed"
                         }
                         Log.d("PDFDownload", "Download progress: $progress%")

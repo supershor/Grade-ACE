@@ -8,7 +8,8 @@ public class Study_Prep_Material_Holder {
     String message1Name;
     String message2Name;
     String message3Name;
-    public Study_Prep_Material_Holder(String message1, String message1Name, String message2, String message2Name, String message3, String message3Name, String name) {
+    String semester;
+    public Study_Prep_Material_Holder(String message1, String message1Name, String message2, String message2Name, String message3, String message3Name, String name, String semester) {
         this.message1 = message1;
         this.message1Name = message1Name;
         this.message2 = message2;
@@ -16,6 +17,16 @@ public class Study_Prep_Material_Holder {
         this.message3 = message3;
         this.message3Name = message3Name;
         this.name = name;
+        this.semester=semester;
+    }
+    public Study_Prep_Material_Holder(String name, String message1Name){
+        this.name = name;
+        this.message1Name = message1Name;
+        this.message1 = "";
+        this.message2 = "";
+        this.message3 = "";
+        this.message2Name = "";
+        this.message3Name = "";
     }
 
     public String getMessage1() {
@@ -25,7 +36,9 @@ public class Study_Prep_Material_Holder {
     public String getMessage1Name() {
         return message1Name;
     }
-
+    public String getSemester(){
+        return semester;
+    }
     public String getMessage2() {
         return message2;
     }

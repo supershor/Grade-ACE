@@ -33,9 +33,7 @@ class FirstLoadingPage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Handler().postDelayed(Runnable {
-            check()
-        },3500)
+        check()
     }
     private fun check(){
         if(mauth.currentUser?.uid != null) {
