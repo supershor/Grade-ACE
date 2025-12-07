@@ -24,8 +24,8 @@ android {
         applicationId = "com.om_tat_sat.grade_ace"
         minSdk = 24
         targetSdk = 35
-        versionCode = 20010001
-        versionName = "2.1.1"
+        versionCode = 20020002
+        versionName = "2.2.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,37 +49,44 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packagingOptions {
+        pickFirst("lib/arm64-v8a/libc++_shared.so")
+        pickFirst("lib/armeabi-v7a/libc++_shared.so")
+        pickFirst("lib/x86/libc++_shared.so")
+        pickFirst("lib/x86_64/libc++_shared.so")
+    }
 }
 
 dependencies {
-    implementation ("app.rive:rive-android:9.6.5")
+    implementation ("app.rive:rive-android:10.4.4")
     // During initialization, you may need to add a dependency
     // for Jetpack Startup
-    implementation ("androidx.startup:startup-runtime:1.1.1")
+    implementation ("androidx.startup:startup-runtime:1.2.0")
     //noinspection UseTomlInstead
         implementation ("com.github.shobhitpuri:custom-google-signin-button:2.0.0")
 
     //noinspection UseTomlInstead
-    implementation ("com.google.android.gms:play-services-auth:19.2.0")
+    implementation ("com.google.android.gms:play-services-auth:21.4.0")
 
 
 
     //noinspection UseTomlInstead
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    //noinspection UseTomlInstead
-    implementation ("com.github.barteksc:AndroidPdfViewerV1:1.6.0")
+//    implementation("com.github.wctasmim:AndroidPdfViewer_16kb_fix:2.3.5")
+    implementation("com.github.wctasmim:AndroidPdfViewer_16kb_fix:2.3.5")
+
 
     //noinspection UseTomlInstead
     implementation ("com.jjoe64:graphview:4.2.2")
     //noinspection UseTomlInstead
-    implementation ("com.airbnb.android:lottie:6.2.0")
+    implementation ("com.airbnb.android:lottie:6.6.7")
     //noinspection UseTomlInstead
-    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("com.intuit.sdp:sdp-android:1.1.1")
     //noinspection UseTomlInstead
-    implementation ("com.intuit.ssp:ssp-android:1.1.0")
+    implementation ("com.intuit.ssp:ssp-android:1.1.1")
     //noinspection UseTomlInstead
-    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation(platform("com.google.firebase:firebase-bom:34.2.0"))
     //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-analytics")
     //noinspection UseTomlInstead
