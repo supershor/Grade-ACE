@@ -15,7 +15,6 @@ import app.rive.runtime.kotlin.RiveAnimationView
 import app.rive.runtime.kotlin.core.Rive
 import com.airbnb.lottie.LottieAnimationView
 import com.github.barteksc.pdfviewer.PDFView
-import com.github.barteksc.pdfviewer.ScrollBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -113,18 +112,19 @@ class PdfViewNewUi : AppCompatActivity() {
                     .addOnSuccessListener {
                         Log.d("PDFDownload", "File downloaded successfully.")
                         val byteArray = tempFile.readBytes()
+
                         pdfView?.fromBytes(byteArray)
                             ?.enableSwipe(true)
                             ?.enableDoubletap(true)
-                            ?.swipeVertical(true)
-                            ?.defaultPage(1)
-                            ?.showMinimap(false)
+//                            ?.swipeVertical(true)
+                            ?.defaultPage(0)
+//                            ?.showMinimap(false)
                             ?.enableAnnotationRendering(true)
                             ?.password(namingConventions)
-                            ?.showPageWithAnimation(true)
+//                            ?.showPageWithAnimation(true)
                             ?.load()
-                        val scrollBar = findViewById<ScrollBar>(R.id.scrollBar)
-                        pdfView!!.setScrollBar(scrollBar)
+//                        val scrollBar = findViewById<ScrollBar>(R.id.scrollBar)
+//                        pdfView!!.setScrollBar(scrollBar)
                     }
                     .addOnFailureListener { exception ->
                         Log.e("PDFDownload", "Download failed: ${exception.message}")
@@ -139,4 +139,73 @@ class PdfViewNewUi : AppCompatActivity() {
         }
 
     }
+//private fun addPdf() {
+//    val riveLoader = findViewById<RiveAnimationView>(R.id.pdfLoadingLottie)
+//    val percentageText = findViewById<TextView>(R.id.downloadPercentage)
+//
+//    firebaseStorage = FirebaseStorage.getInstance()
+//    val storageRef = firebaseStorage!!.reference
+//    val pdfRef = fileName?.let { storageRef.child(it) }
+//
+//    riveLoader.controller.setNumberState("State machine 1", "Progress", 0f)
+//
+//    pdfRef?.downloadUrl?.addOnCompleteListener { task ->
+//        if (task.isSuccessful) {
+//            val tempFile = File.createTempFile("temp_pdf", ".pdf")
+//            pdfRef.getFile(tempFile)
+//                .addOnProgressListener { progressTask ->
+//                    val progress =
+//                        (100.0 * progressTask.bytesTransferred / progressTask.totalByteCount).toInt()
+//
+//                    riveLoader.controller.setNumberState(
+//                        "State machine 1",
+//                        "Progress",
+//                        progress.toFloat()
+//                    )
+//
+//                    if (progress == 100) {
+//                        Handler().postDelayed({
+//                            riveLoader.visibility = android.view.View.GONE
+//                            percentageText.visibility = android.view.View.GONE
+//                        }, 1000)
+//                    } else {
+//                        percentageText.text = "$progress%${System.lineSeparator()}Downloading..."
+//                    }
+//                }
+//                .addOnSuccessListener {
+//                    Log.d("PDFDownload", "File downloaded successfully.")
+//                        val byteArray = tempFile.readBytes()
+//
+//                        pdfView?.fromBytes(byteArray)
+//                            ?.enableSwipe(true)
+//                            ?.enableDoubletap(true)
+//                            ?.defaultPage(1)
+//                            ?.enableAnnotationRendering(true)
+//                            ?.password(namingConventions)
+//                            ?.load()
+////                        val scrollBar = findViewById<ScrollBar>(R.id.scrollBar)
+////                        pdfView!!.setScrollBar(scrollBar)
+//                }
+//                .addOnFailureListener { exception ->
+//                    Log.e("PDFDownload", "Download failed: ${exception.message}")
+//                    Toast.makeText(
+//                        this@PdfViewNewUi,
+//                        "Download failed: ${exception.message}",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    finish()
+//                }
+//        } else {
+//            Log.e("PDFDownload", "Failed to get download URL: ${task.exception?.message}")
+//            Toast.makeText(
+//                this@PdfViewNewUi,
+//                "Download Failed: ${task.exception?.message}",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//            finish()
+//        }
+//    }
+//}
+
+
 }
